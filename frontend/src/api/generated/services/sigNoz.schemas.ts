@@ -4,6 +4,264 @@
  * * regenerate with 'pnpm generate:api'
  * SigNoz
  */
+export enum AiobservabilitytypesBlobPartDTOType {
+	blob = 'blob',
+}
+export interface AiobservabilitytypesBlobPartDTO {
+	/**
+	 * @type string
+	 */
+	content: string;
+	/**
+	 * @type string,null
+	 */
+	mime_type?: string | null;
+	/**
+	 * @type string
+	 */
+	modality: string;
+	/**
+	 * @type string
+	 * @enum blob
+	 */
+	type: AiobservabilitytypesBlobPartDTOType;
+}
+
+export enum AiobservabilitytypesTextPartDTOType {
+	text = 'text',
+}
+export interface AiobservabilitytypesTextPartDTO {
+	/**
+	 * @type string
+	 */
+	content: string;
+	/**
+	 * @type string
+	 * @enum text
+	 */
+	type: AiobservabilitytypesTextPartDTOType;
+}
+
+export enum AiobservabilitytypesToolCallRequestPartDTOType {
+	tool_call = 'tool_call',
+}
+export interface AiobservabilitytypesToolCallRequestPartDTO {
+	arguments?: unknown;
+	/**
+	 * @type string,null
+	 */
+	id?: string | null;
+	/**
+	 * @type string
+	 */
+	name: string;
+	/**
+	 * @type string
+	 * @enum tool_call
+	 */
+	type: AiobservabilitytypesToolCallRequestPartDTOType;
+}
+
+export enum AiobservabilitytypesToolCallResponsePartDTOType {
+	tool_call_response = 'tool_call_response',
+}
+export type AiobservabilitytypesToolCallResponsePartDTOResponse =
+	| unknown
+	| null;
+
+export interface AiobservabilitytypesToolCallResponsePartDTO {
+	/**
+	 * @type string,null
+	 */
+	id?: string | null;
+	/**
+	 * @nullable true
+	 */
+	response: AiobservabilitytypesToolCallResponsePartDTOResponse;
+	/**
+	 * @type string
+	 * @enum tool_call_response
+	 */
+	type: AiobservabilitytypesToolCallResponsePartDTOType;
+}
+
+export interface AiobservabilitytypesGenericServerToolCallDTO {
+	[key: string]: unknown;
+}
+
+export enum AiobservabilitytypesServerToolCallPartDTOType {
+	server_tool_call = 'server_tool_call',
+}
+export interface AiobservabilitytypesServerToolCallPartDTO {
+	/**
+	 * @type string,null
+	 */
+	id?: string | null;
+	/**
+	 * @type string
+	 */
+	name: string;
+	server_tool_call: AiobservabilitytypesGenericServerToolCallDTO;
+	/**
+	 * @type string
+	 * @enum server_tool_call
+	 */
+	type: AiobservabilitytypesServerToolCallPartDTOType;
+}
+
+export interface AiobservabilitytypesGenericServerToolCallResponseDTO {
+	[key: string]: unknown;
+}
+
+export enum AiobservabilitytypesServerToolCallResponsePartDTOType {
+	server_tool_call_response = 'server_tool_call_response',
+}
+export interface AiobservabilitytypesServerToolCallResponsePartDTO {
+	/**
+	 * @type string,null
+	 */
+	id?: string | null;
+	server_tool_call_response: AiobservabilitytypesGenericServerToolCallResponseDTO;
+	/**
+	 * @type string
+	 * @enum server_tool_call_response
+	 */
+	type: AiobservabilitytypesServerToolCallResponsePartDTOType;
+}
+
+export enum AiobservabilitytypesFilePartDTOType {
+	file = 'file',
+}
+export interface AiobservabilitytypesFilePartDTO {
+	/**
+	 * @type string
+	 */
+	file_id: string;
+	/**
+	 * @type string,null
+	 */
+	mime_type?: string | null;
+	/**
+	 * @type string
+	 */
+	modality: string;
+	/**
+	 * @type string
+	 * @enum file
+	 */
+	type: AiobservabilitytypesFilePartDTOType;
+}
+
+export enum AiobservabilitytypesUriPartDTOType {
+	uri = 'uri',
+}
+export interface AiobservabilitytypesUriPartDTO {
+	/**
+	 * @type string,null
+	 */
+	mime_type?: string | null;
+	/**
+	 * @type string
+	 */
+	modality: string;
+	/**
+	 * @type string
+	 * @enum uri
+	 */
+	type: AiobservabilitytypesUriPartDTOType;
+	/**
+	 * @type string
+	 */
+	uri: string;
+}
+
+export enum AiobservabilitytypesReasoningPartDTOType {
+	reasoning = 'reasoning',
+}
+export interface AiobservabilitytypesReasoningPartDTO {
+	/**
+	 * @type string
+	 */
+	content: string;
+	/**
+	 * @type string
+	 * @enum reasoning
+	 */
+	type: AiobservabilitytypesReasoningPartDTOType;
+}
+
+export enum AiobservabilitytypesCompactionPartDTOType {
+	compaction = 'compaction',
+}
+export interface AiobservabilitytypesCompactionPartDTO {
+	/**
+	 * @type string,null
+	 */
+	content?: string | null;
+	/**
+	 * @type string,null
+	 */
+	id?: string | null;
+	/**
+	 * @type string
+	 * @enum compaction
+	 */
+	type: AiobservabilitytypesCompactionPartDTOType;
+}
+
+export interface AiobservabilitytypesGenericPartDTO {
+	[key: string]: unknown;
+}
+
+export type AiobservabilitytypesPartDTO =
+	| AiobservabilitytypesTextPartDTO
+	| AiobservabilitytypesToolCallRequestPartDTO
+	| AiobservabilitytypesToolCallResponsePartDTO
+	| AiobservabilitytypesServerToolCallPartDTO
+	| AiobservabilitytypesServerToolCallResponsePartDTO
+	| AiobservabilitytypesBlobPartDTO
+	| AiobservabilitytypesFilePartDTO
+	| AiobservabilitytypesUriPartDTO
+	| AiobservabilitytypesReasoningPartDTO
+	| AiobservabilitytypesCompactionPartDTO
+	| AiobservabilitytypesGenericPartDTO;
+
+export type AiobservabilitytypesPartsDTO = AiobservabilitytypesPartDTO[];
+
+export interface AiobservabilitytypesChatMessageDTO {
+	/**
+	 * @type string,null
+	 */
+	name?: string | null;
+	parts: AiobservabilitytypesPartsDTO;
+	/**
+	 * @type string
+	 */
+	role: string;
+}
+
+export type AiobservabilitytypesInputMessagesDTO =
+	AiobservabilitytypesChatMessageDTO[];
+
+export interface AiobservabilitytypesOutputMessageDTO {
+	/**
+	 * @type string,null
+	 */
+	finish_reason?: string | null;
+	/**
+	 * @type string,null
+	 */
+	name?: string | null;
+	parts: AiobservabilitytypesPartsDTO;
+	/**
+	 * @type string
+	 */
+	role: string;
+}
+
+export type AiobservabilitytypesOutputMessagesDTO =
+	AiobservabilitytypesOutputMessageDTO[];
+
 export interface AlertmanagertypesChannelDTO {
 	/**
 	 * @type string
@@ -12,6 +270,7 @@ export interface AlertmanagertypesChannelDTO {
 	createdAt?: string;
 	/**
 	 * @type string
+	 * @description The channel configuration as a JSON document.
 	 */
 	data: string;
 	/**
@@ -20,14 +279,17 @@ export interface AlertmanagertypesChannelDTO {
 	id: string;
 	/**
 	 * @type string
+	 * @description The channel name. Alert rules and routing policies reference it.
 	 */
 	name: string;
 	/**
 	 * @type string
+	 * @description The organization the channel belongs to.
 	 */
 	orgId: string;
 	/**
 	 * @type string
+	 * @description The channel kind, such as slack.
 	 */
 	type: string;
 	/**
@@ -35,6 +297,934 @@ export interface AlertmanagertypesChannelDTO {
 	 * @format date-time
 	 */
 	updatedAt?: string;
+}
+
+/**
+ * The channel provider kind this variant accepts.
+ */
+export enum AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelSlackConfigDTOKind {
+	slack = 'slack',
+}
+export interface AlertmanagertypesChannelSlackConfirmationDTO {
+	/**
+	 * @type string
+	 * @description The label of the cancel button.
+	 */
+	dismissText?: string;
+	/**
+	 * @type string
+	 * @description The label of the confirm button.
+	 */
+	okText?: string;
+	/**
+	 * @type string
+	 * @description The dialog body.
+	 */
+	text: string;
+	/**
+	 * @type string
+	 * @description The dialog title.
+	 */
+	title?: string;
+}
+
+export interface AlertmanagertypesChannelSlackActionDTO {
+	/**
+	 * @description A confirmation dialog shown before the action runs.
+	 */
+	confirm?: AlertmanagertypesChannelSlackConfirmationDTO;
+	/**
+	 * @type string
+	 * @description The action name Slack posts back for a message button; required unless url is set.
+	 */
+	name?: string;
+	/**
+	 * @type string
+	 * @description The button style: default, primary or danger.
+	 */
+	style?: string;
+	/**
+	 * @type string
+	 * @description The button label.
+	 */
+	text: string;
+	/**
+	 * @type string
+	 * @description The Slack action type, normally button.
+	 */
+	type: string;
+	/**
+	 * @type string
+	 * @description The link the button opens; required unless name is set.
+	 */
+	url?: string;
+	/**
+	 * @type string
+	 * @description The value Slack posts back with a message button.
+	 */
+	value?: string;
+}
+
+export interface AlertmanagertypesChannelSlackFieldDTO {
+	/**
+	 * @type boolean,null
+	 * @description Render the field side by side with other short fields.
+	 */
+	short?: boolean | null;
+	/**
+	 * @type string
+	 * @description The field title.
+	 */
+	title: string;
+	/**
+	 * @type string
+	 * @description The field value; an Alertmanager template.
+	 */
+	value: string;
+}
+
+export interface AlertmanagertypesChannelSlackConfigDTO {
+	/**
+	 * @type array,null
+	 * @description Attachment buttons; each requires type and text plus url or name.
+	 */
+	actions?: AlertmanagertypesChannelSlackActionDTO[] | null;
+	/**
+	 * @type string
+	 * @format password
+	 * @description The Slack incoming webhook URL. A secret; returned by create, update and fetch by ID, never by list.
+	 */
+	apiUrl: string;
+	/**
+	 * @type string
+	 * @description The channel or user to post to, such as #alerts; empty uses the webhook default.
+	 */
+	channel?: string;
+	/**
+	 * @type string
+	 * @description Alertmanager template for the attachment color; defaults to the Alertmanager Slack default.
+	 */
+	color?: string;
+	/**
+	 * @type string
+	 * @description Alertmanager template for the plain-text summary shown where attachments cannot render; defaults to the Alertmanager Slack default.
+	 */
+	fallback?: string;
+	/**
+	 * @type array,null
+	 * @description Attachment fields appended to the message; each requires title and value.
+	 */
+	fields?: AlertmanagertypesChannelSlackFieldDTO[] | null;
+	/**
+	 * @type string
+	 * @description Alertmanager template for the attachment footer; defaults to the Alertmanager Slack default.
+	 */
+	footer?: string;
+	/**
+	 * @type string
+	 * @description Alertmanager template for the text shown above the attachment; defaults to the Alertmanager Slack default.
+	 */
+	pretext?: string;
+	/**
+	 * @type boolean,null
+	 * @description Also notify when the alert resolves. Defaults to false.
+	 */
+	sendResolved?: boolean | null;
+	/**
+	 * @type string
+	 * @description Alertmanager template for the message body; defaults to the Alertmanager Slack default.
+	 */
+	text?: string;
+	/**
+	 * @type string
+	 * @description Alertmanager template for the message title; defaults to the Alertmanager Slack default.
+	 */
+	title?: string;
+	/**
+	 * @type string
+	 * @description Alertmanager template for the link the title opens; defaults to the Alertmanager Slack default.
+	 */
+	titleLink?: string;
+}
+
+export interface AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelSlackConfigDTO {
+	/**
+	 * @enum slack
+	 * @type string
+	 * @description The channel provider kind this variant accepts.
+	 */
+	kind: AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelSlackConfigDTOKind;
+	/**
+	 * @description The provider-specific configuration for this kind.
+	 */
+	spec: AlertmanagertypesChannelSlackConfigDTO;
+}
+
+/**
+ * The channel provider kind this variant accepts.
+ */
+export enum AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelEmailConfigDTOKind {
+	email = 'email',
+}
+/**
+ * Extra SMTP headers keyed by canonical MIME header name, such as Subject.
+ */
+export type AlertmanagertypesChannelEmailConfigDTOHeadersAnyOf = {
+	[key: string]: string;
+};
+
+/**
+ * Extra SMTP headers keyed by canonical MIME header name, such as Subject.
+ * @nullable
+ */
+export type AlertmanagertypesChannelEmailConfigDTOHeaders = AlertmanagertypesChannelEmailConfigDTOHeadersAnyOf | null;
+
+export interface AlertmanagertypesChannelEmailConfigDTO {
+	/**
+	 * @type object,null
+	 * @description Extra SMTP headers keyed by canonical MIME header name, such as Subject.
+	 */
+	headers?: AlertmanagertypesChannelEmailConfigDTOHeaders;
+	/**
+	 * @type string
+	 * @description Alertmanager template for the HTML body; defaults to the Alertmanager email default.
+	 */
+	html?: string;
+	/**
+	 * @type boolean,null
+	 * @description Also notify when the alert resolves. Defaults to false.
+	 */
+	sendResolved?: boolean | null;
+	/**
+	 * @type string
+	 * @description The recipient addresses, comma separated.
+	 */
+	to: string;
+}
+
+export interface AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelEmailConfigDTO {
+	/**
+	 * @enum email
+	 * @type string
+	 * @description The channel provider kind this variant accepts.
+	 */
+	kind: AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelEmailConfigDTOKind;
+	/**
+	 * @description The provider-specific configuration for this kind.
+	 */
+	spec: AlertmanagertypesChannelEmailConfigDTO;
+}
+
+/**
+ * The channel provider kind this variant accepts.
+ */
+export enum AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelWebhookConfigDTOKind {
+	webhook = 'webhook',
+}
+export interface AlertmanagertypesChannelWebhookConfigDTO {
+	/**
+	 * @type string
+	 * @format password
+	 * @description The bearer token sent in the Authorization header; cannot be combined with username or password.
+	 */
+	bearerToken?: string;
+	/**
+	 * @type string
+	 * @format password
+	 * @description The basic auth password; cannot be combined with bearerToken.
+	 */
+	password?: string;
+	/**
+	 * @type boolean,null
+	 * @description Also notify when the alert resolves. Defaults to true.
+	 */
+	sendResolved?: boolean | null;
+	/**
+	 * @type string
+	 * @format password
+	 * @description The endpoint that receives the Alertmanager webhook payload. A secret; returned by create, update and fetch by ID, never by list.
+	 */
+	url: string;
+	/**
+	 * @type string
+	 * @description The basic auth user; cannot be combined with bearerToken.
+	 */
+	username?: string;
+}
+
+export interface AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelWebhookConfigDTO {
+	/**
+	 * @enum webhook
+	 * @type string
+	 * @description The channel provider kind this variant accepts.
+	 */
+	kind: AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelWebhookConfigDTOKind;
+	/**
+	 * @description The provider-specific configuration for this kind.
+	 */
+	spec: AlertmanagertypesChannelWebhookConfigDTO;
+}
+
+/**
+ * The channel provider kind this variant accepts.
+ */
+export enum AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelPagerdutyConfigDTOKind {
+	pagerduty = 'pagerduty',
+}
+/**
+ * Custom details keyed by name, each an Alertmanager template; defaults to the Alertmanager firing and resolved summary set.
+ */
+export type AlertmanagertypesChannelPagerdutyConfigDTODetailsAnyOf = {
+	[key: string]: string;
+};
+
+/**
+ * Custom details keyed by name, each an Alertmanager template; defaults to the Alertmanager firing and resolved summary set.
+ * @nullable
+ */
+export type AlertmanagertypesChannelPagerdutyConfigDTODetails = AlertmanagertypesChannelPagerdutyConfigDTODetailsAnyOf | null;
+
+export interface AlertmanagertypesChannelPagerdutyConfigDTO {
+	/**
+	 * @type string
+	 * @description The class or type of the event.
+	 */
+	class?: string;
+	/**
+	 * @type string
+	 * @description Alertmanager template for the client identifier; defaults to the Alertmanager PagerDuty default.
+	 */
+	client?: string;
+	/**
+	 * @type string
+	 * @description Alertmanager template for the client URL; defaults to the Alertmanager PagerDuty default.
+	 */
+	clientUrl?: string;
+	/**
+	 * @type string
+	 * @description The component of the source machine that is responsible for the event.
+	 */
+	component?: string;
+	/**
+	 * @type string
+	 * @description Alertmanager template for the incident summary; defaults to the Alertmanager PagerDuty default.
+	 */
+	description?: string;
+	/**
+	 * @type object,null
+	 * @description Custom details keyed by name, each an Alertmanager template; defaults to the Alertmanager firing and resolved summary set.
+	 */
+	details?: AlertmanagertypesChannelPagerdutyConfigDTODetails;
+	/**
+	 * @type string
+	 * @description The logical grouping of components the event belongs to.
+	 */
+	group?: string;
+	/**
+	 * @type string
+	 * @format password
+	 * @description The Events API v2 integration key. A secret; returned by create, update and fetch by ID, never by list.
+	 */
+	routingKey: string;
+	/**
+	 * @type boolean,null
+	 * @description Also notify when the alert resolves. Defaults to true.
+	 */
+	sendResolved?: boolean | null;
+	/**
+	 * @type string
+	 * @description The incident severity: critical, error, warning or info.
+	 */
+	severity?: string;
+	/**
+	 * @type string
+	 * @description Alertmanager template for the unique location of the affected system; defaults to client.
+	 */
+	source?: string;
+	/**
+	 * @type string
+	 * @description The Events API endpoint; empty uses the PagerDuty default.
+	 */
+	url?: string;
+}
+
+export interface AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelPagerdutyConfigDTO {
+	/**
+	 * @enum pagerduty
+	 * @type string
+	 * @description The channel provider kind this variant accepts.
+	 */
+	kind: AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelPagerdutyConfigDTOKind;
+	/**
+	 * @description The provider-specific configuration for this kind.
+	 */
+	spec: AlertmanagertypesChannelPagerdutyConfigDTO;
+}
+
+/**
+ * The channel provider kind this variant accepts.
+ */
+export enum AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelOpsgenieConfigDTOKind {
+	opsgenie = 'opsgenie',
+}
+/**
+ * Custom alert details keyed by name, each an Alertmanager template.
+ */
+export type AlertmanagertypesChannelOpsgenieConfigDTODetailsAnyOf = {
+	[key: string]: string;
+};
+
+/**
+ * Custom alert details keyed by name, each an Alertmanager template.
+ * @nullable
+ */
+export type AlertmanagertypesChannelOpsgenieConfigDTODetails = AlertmanagertypesChannelOpsgenieConfigDTODetailsAnyOf | null;
+
+export interface AlertmanagertypesChannelOpsgenieConfigDTO {
+	/**
+	 * @type string
+	 * @format password
+	 * @description The Opsgenie API integration key. A secret; returned by create, update and fetch by ID, never by list.
+	 */
+	apiKey: string;
+	/**
+	 * @type string
+	 * @description The Opsgenie API host; empty uses the global Alertmanager default.
+	 */
+	apiUrl?: string;
+	/**
+	 * @type string
+	 * @description Alertmanager template for the alert description; defaults to the Alertmanager Opsgenie default.
+	 */
+	description?: string;
+	/**
+	 * @type object,null
+	 * @description Custom alert details keyed by name, each an Alertmanager template.
+	 */
+	details?: AlertmanagertypesChannelOpsgenieConfigDTODetails;
+	/**
+	 * @type string
+	 * @description Alertmanager template for the alert message; defaults to the Alertmanager Opsgenie default.
+	 */
+	message?: string;
+	/**
+	 * @type string
+	 * @description The alert priority, P1 to P5.
+	 */
+	priority?: string;
+	/**
+	 * @type boolean,null
+	 * @description Also notify when the alert resolves. Defaults to true.
+	 */
+	sendResolved?: boolean | null;
+	/**
+	 * @type string
+	 * @description Alertmanager template for the alert source; defaults to the Alertmanager Opsgenie default.
+	 */
+	source?: string;
+}
+
+export interface AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelOpsgenieConfigDTO {
+	/**
+	 * @enum opsgenie
+	 * @type string
+	 * @description The channel provider kind this variant accepts.
+	 */
+	kind: AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelOpsgenieConfigDTOKind;
+	/**
+	 * @description The provider-specific configuration for this kind.
+	 */
+	spec: AlertmanagertypesChannelOpsgenieConfigDTO;
+}
+
+/**
+ * The channel provider kind this variant accepts.
+ */
+export enum AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelMSTeamsConfigDTOKind {
+	msteams = 'msteams',
+}
+export interface AlertmanagertypesChannelMSTeamsConfigDTO {
+	/**
+	 * @type boolean,null
+	 * @description Also notify when the alert resolves. Defaults to true.
+	 */
+	sendResolved?: boolean | null;
+	/**
+	 * @type string
+	 * @description Alertmanager template for the card body; defaults to the Alertmanager Teams default.
+	 */
+	text?: string;
+	/**
+	 * @type string
+	 * @description Alertmanager template for the card title; defaults to the Alertmanager Teams default.
+	 */
+	title?: string;
+	/**
+	 * @type string
+	 * @format password
+	 * @description The Teams incoming webhook URL. A secret; returned by create, update and fetch by ID, never by list.
+	 */
+	webhookUrl: string;
+}
+
+export interface AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelMSTeamsConfigDTO {
+	/**
+	 * @enum msteams
+	 * @type string
+	 * @description The channel provider kind this variant accepts.
+	 */
+	kind: AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelMSTeamsConfigDTOKind;
+	/**
+	 * @description The provider-specific configuration for this kind.
+	 */
+	spec: AlertmanagertypesChannelMSTeamsConfigDTO;
+}
+
+/**
+ * The channel provider kind this variant accepts.
+ */
+export enum AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelGoogleChatConfigDTOKind {
+	googlechat = 'googlechat',
+}
+export interface AlertmanagertypesChannelGoogleChatConfigDTO {
+	/**
+	 * @type boolean,null
+	 * @description Also notify when the alert resolves. Defaults to false.
+	 */
+	sendResolved?: boolean | null;
+	/**
+	 * @type string
+	 * @description Alertmanager template for the message body; defaults to the SigNoz Google Chat default.
+	 */
+	text?: string;
+	/**
+	 * @type string
+	 * @description Alertmanager template for the message title; defaults to the SigNoz Google Chat default.
+	 */
+	title?: string;
+	/**
+	 * @type string
+	 * @format password
+	 * @description The Google Chat space webhook URL. A secret; returned by create, update and fetch by ID, never by list.
+	 */
+	webhookUrl: string;
+}
+
+export interface AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelGoogleChatConfigDTO {
+	/**
+	 * @enum googlechat
+	 * @type string
+	 * @description The channel provider kind this variant accepts.
+	 */
+	kind: AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelGoogleChatConfigDTOKind;
+	/**
+	 * @description The provider-specific configuration for this kind.
+	 */
+	spec: AlertmanagertypesChannelGoogleChatConfigDTO;
+}
+
+/**
+ * The channel provider kind this variant accepts.
+ */
+export enum AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelJiraConfigDTOKind {
+	jira = 'jira',
+}
+/**
+ * Extra issue fields keyed by Jira field ID. Stored, but not currently included in the issue Jira receives.
+ */
+export type AlertmanagertypesChannelJiraConfigDTOCustomFieldsAnyOf = {
+	[key: string]: unknown;
+};
+
+/**
+ * Extra issue fields keyed by Jira field ID. Stored, but not currently included in the issue Jira receives.
+ * @nullable
+ */
+export type AlertmanagertypesChannelJiraConfigDTOCustomFields = AlertmanagertypesChannelJiraConfigDTOCustomFieldsAnyOf | null;
+
+export interface AlertmanagertypesChannelJiraConfigDTO {
+	/**
+	 * @type string
+	 * @format password
+	 * @description The Atlassian API token paired with email. A secret; returned by create, update and fetch by ID, never by list.
+	 */
+	apiToken: string;
+	/**
+	 * @type object,null
+	 * @description Extra issue fields keyed by Jira field ID. Stored, but not currently included in the issue Jira receives.
+	 */
+	customFields?: AlertmanagertypesChannelJiraConfigDTOCustomFields;
+	/**
+	 * @type string
+	 * @description Alertmanager template for the issue description, rendered as markdown; defaults to the SigNoz Jira default.
+	 */
+	description?: string;
+	/**
+	 * @type string
+	 * @description The Atlassian account email used for basic auth.
+	 */
+	email: string;
+	/**
+	 * @type string
+	 * @description The issue type name, such as Bug.
+	 */
+	issueType: string;
+	/**
+	 * @type array,null
+	 * @description Labels added to every issue.
+	 */
+	labels?: string[] | null;
+	/**
+	 * @type string
+	 * @description The priority name assigned to new issues.
+	 */
+	priority?: string;
+	/**
+	 * @type string
+	 * @description The key of the project issues are created in.
+	 */
+	project: string;
+	/**
+	 * @type string
+	 * @description How long after resolution a firing alert reopens the issue instead of creating a new one, as a Prometheus duration in canonical form such as 3d; defaults to 3d.
+	 */
+	reopenDuration?: string;
+	/**
+	 * @type string
+	 * @description The transition applied when an alert fires again on a resolved issue.
+	 */
+	reopenTransition?: string;
+	/**
+	 * @type string
+	 * @description The transition applied to the issue when the alert resolves.
+	 */
+	resolveTransition?: string;
+	/**
+	 * @type boolean,null
+	 * @description Also notify when the alert resolves. Defaults to false.
+	 */
+	sendResolved?: boolean | null;
+	/**
+	 * @type string
+	 * @description The base URL of the Jira Cloud site, for example https://example.atlassian.net. Only Jira Cloud is supported.
+	 */
+	site: string;
+	/**
+	 * @type string
+	 * @description Alertmanager template for the issue summary; defaults to the SigNoz Jira default.
+	 */
+	summary?: string;
+	/**
+	 * @type string
+	 * @description The resolution name that stops an issue from being reopened.
+	 */
+	wontFixResolution?: string;
+}
+
+export interface AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelJiraConfigDTO {
+	/**
+	 * @enum jira
+	 * @type string
+	 * @description The channel provider kind this variant accepts.
+	 */
+	kind: AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelJiraConfigDTOKind;
+	/**
+	 * @description The provider-specific configuration for this kind.
+	 */
+	spec: AlertmanagertypesChannelJiraConfigDTO;
+}
+
+/**
+ * The channel provider kind this variant accepts.
+ */
+export enum AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelJSMOpsConfigDTOKind {
+	jsmops = 'jsmops',
+}
+export interface AlertmanagertypesChannelJSMOpsConfigDTO {
+	/**
+	 * @type string
+	 * @format password
+	 * @description The JSM Ops integration API key. A secret; returned by create, update and fetch by ID, never by list.
+	 */
+	apiKey: string;
+	/**
+	 * @type string
+	 * @description Alertmanager template for the alert description; defaults to the SigNoz JSM Ops default.
+	 */
+	description?: string;
+	/**
+	 * @type string
+	 * @description Alertmanager template for the alert message; defaults to the SigNoz JSM Ops default.
+	 */
+	message?: string;
+	/**
+	 * @type string
+	 * @description The alert priority, P1 to P5.
+	 */
+	priority?: string;
+	/**
+	 * @type boolean,null
+	 * @description Also notify when the alert resolves. Defaults to false.
+	 */
+	sendResolved?: boolean | null;
+	/**
+	 * @type string
+	 * @description Comma-separated tags attached to the alert; defaults to signoz.
+	 */
+	tags?: string;
+}
+
+export interface AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelJSMOpsConfigDTO {
+	/**
+	 * @enum jsmops
+	 * @type string
+	 * @description The channel provider kind this variant accepts.
+	 */
+	kind: AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelJSMOpsConfigDTOKind;
+	/**
+	 * @description The provider-specific configuration for this kind.
+	 */
+	spec: AlertmanagertypesChannelJSMOpsConfigDTO;
+}
+
+/**
+ * The channel provider kind this variant accepts.
+ */
+export enum AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelIncidentIOConfigDTOKind {
+	incidentio = 'incidentio',
+}
+/**
+ * Extra event metadata keyed by name, merged over the group's common labels; values are Alertmanager templates.
+ */
+export type AlertmanagertypesChannelIncidentIOConfigDTOMetadataAnyOf = {
+	[key: string]: string;
+};
+
+/**
+ * Extra event metadata keyed by name, merged over the group's common labels; values are Alertmanager templates.
+ * @nullable
+ */
+export type AlertmanagertypesChannelIncidentIOConfigDTOMetadata = AlertmanagertypesChannelIncidentIOConfigDTOMetadataAnyOf | null;
+
+export interface AlertmanagertypesChannelIncidentIOConfigDTO {
+	/**
+	 * @type string
+	 * @description Alertmanager template for the alert description, rendered as markdown; defaults to the SigNoz incident.io default.
+	 */
+	description?: string;
+	/**
+	 * @type object,null
+	 * @description Extra event metadata keyed by name, merged over the group's common labels; values are Alertmanager templates.
+	 */
+	metadata?: AlertmanagertypesChannelIncidentIOConfigDTOMetadata;
+	/**
+	 * @type boolean,null
+	 * @description Also notify when the alert resolves. Defaults to false.
+	 */
+	sendResolved?: boolean | null;
+	/**
+	 * @type string
+	 * @description Alertmanager template for the alert title; defaults to the SigNoz incident.io default.
+	 */
+	title?: string;
+	/**
+	 * @type string
+	 * @format password
+	 * @description The alert source secret token, without the Bearer prefix. A secret; returned by create, update and fetch by ID, never by list.
+	 */
+	token: string;
+	/**
+	 * @type string
+	 * @description The alert source HTTP alert events endpoint copied from its setup page.
+	 */
+	url: string;
+}
+
+export interface AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelIncidentIOConfigDTO {
+	/**
+	 * @enum incidentio
+	 * @type string
+	 * @description The channel provider kind this variant accepts.
+	 */
+	kind: AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelIncidentIOConfigDTOKind;
+	/**
+	 * @description The provider-specific configuration for this kind.
+	 */
+	spec: AlertmanagertypesChannelIncidentIOConfigDTO;
+}
+
+/**
+ * The channel provider kind this variant accepts.
+ */
+export enum AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelTelegramConfigDTOKind {
+	telegram = 'telegram',
+}
+export interface AlertmanagertypesChannelTelegramConfigDTO {
+	/**
+	 * @type string
+	 */
+	apiUrl?: string;
+	/**
+	 * @type string
+	 * @format password
+	 */
+	botToken: string;
+	/**
+	 * @type integer
+	 * @format int64
+	 */
+	chatId: number;
+	/**
+	 * @type boolean
+	 */
+	disableNotifications?: boolean;
+	/**
+	 * @type string
+	 */
+	message?: string;
+	/**
+	 * @type integer
+	 */
+	messageThreadId?: number;
+	/**
+	 * @type boolean,null
+	 */
+	sendResolved?: boolean | null;
+	/**
+	 * @type string
+	 */
+	title?: string;
+}
+
+export interface AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelTelegramConfigDTO {
+	/**
+	 * @enum telegram
+	 * @type string
+	 * @description The channel provider kind this variant accepts.
+	 */
+	kind: AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelTelegramConfigDTOKind;
+	/**
+	 * @description The provider-specific configuration for this kind.
+	 */
+	spec: AlertmanagertypesChannelTelegramConfigDTO;
+}
+
+export type AlertmanagertypesChannelConfigDTO =
+	| AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelSlackConfigDTO
+	| AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelEmailConfigDTO
+	| AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelWebhookConfigDTO
+	| AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelPagerdutyConfigDTO
+	| AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelOpsgenieConfigDTO
+	| AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelMSTeamsConfigDTO
+	| AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelGoogleChatConfigDTO
+	| AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelJiraConfigDTO
+	| AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelJSMOpsConfigDTO
+	| AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelIncidentIOConfigDTO
+	| AlertmanagertypesChannelConfigVariantGithubComSigNozSignozPkgTypesAlertmanagertypesChannelTelegramConfigDTO;
+
+export enum AlertmanagertypesChannelDefectDTO {
+	none = 'none',
+	missing_type = 'missing_type',
+	multiple_notifiers = 'multiple_notifiers',
+	unsupported_notifier = 'unsupported_notifier',
+	unrepresentable = 'unrepresentable',
+}
+export enum AlertmanagertypesChannelKindDTO {
+	slack = 'slack',
+	email = 'email',
+	webhook = 'webhook',
+	pagerduty = 'pagerduty',
+	opsgenie = 'opsgenie',
+	msteams = 'msteams',
+	googlechat = 'googlechat',
+	jira = 'jira',
+	jsmops = 'jsmops',
+	incidentio = 'incidentio',
+	telegram = 'telegram',
+}
+export enum AlertmanagertypesChannelListOrderDTO {
+	asc = 'asc',
+	desc = 'desc',
+}
+export enum AlertmanagertypesChannelListSortDTO {
+	updated_at = 'updated_at',
+	created_at = 'created_at',
+	name = 'name',
+}
+export enum AlertmanagertypesChannelRepairActionDTO {
+	none = 'none',
+	retype = 'retype',
+	split = 'split',
+	delete = 'delete',
+}
+export interface AlertmanagertypesListedNotificationChannelDTO {
+	/**
+	 * @type string
+	 * @format date-time
+	 * @description When the channel was created, as an RFC 3339 timestamp.
+	 */
+	createdAt: string;
+	/**
+	 * @type string
+	 * @description The label shown in the UI. Alert rules and routing policies reference it, not name.
+	 */
+	displayName: string;
+	/**
+	 * @type string
+	 * @description The channel UUID.
+	 */
+	id: string;
+	/**
+	 * @description The channel provider kind.
+	 */
+	kind: AlertmanagertypesChannelKindDTO;
+	/**
+	 * @type string
+	 * @description The immutable DNS-1123 identifier of the channel. Alert rules and routing policies reference displayName, not name.
+	 */
+	name: string;
+	/**
+	 * @type string
+	 * @format date-time
+	 * @description When the channel was last updated, as an RFC 3339 timestamp.
+	 */
+	updatedAt: string;
+}
+
+export interface AlertmanagertypesChannelRepairDTO {
+	/**
+	 * @description The repair that makes the channel readable: none, retype, split or delete.
+	 */
+	action: AlertmanagertypesChannelRepairActionDTO;
+	/**
+	 * @type boolean
+	 * @description Whether the action was written; false on a dry run.
+	 */
+	applied: boolean;
+	/**
+	 * @type array
+	 * @description Why the action was not, or would not be, applied.
+	 */
+	blockers?: string[];
+	/**
+	 * @type array,null
+	 * @description The channels that exist once the action is applied.
+	 */
+	channels?: AlertmanagertypesListedNotificationChannelDTO[] | null;
+	/**
+	 * @description Why v2 cannot read the channel; none when it is readable.
+	 */
+	defect: AlertmanagertypesChannelDefectDTO;
+	/**
+	 * @type string
+	 * @description A human-readable explanation of the defect.
+	 */
+	detail?: string;
+	/**
+	 * @type string
+	 * @description The UUID of the diagnosed channel.
+	 */
+	id: string;
 }
 
 export interface ModelLabelSetDTO {
@@ -65,6 +1255,7 @@ export interface AlertmanagertypesDeprecatedGettableAlertDTO {
 	endsAt?: string;
 	/**
 	 * @type string
+	 * @description The alert fingerprint, a hash of its label set.
 	 */
 	fingerprint?: string;
 	/**
@@ -74,6 +1265,7 @@ export interface AlertmanagertypesDeprecatedGettableAlertDTO {
 	labels?: ModelLabelSetDTO;
 	/**
 	 * @type array,null
+	 * @description The display names of the channels the alert is routed to.
 	 */
 	receivers?: string[] | null;
 	/**
@@ -81,6 +1273,9 @@ export interface AlertmanagertypesDeprecatedGettableAlertDTO {
 	 * @format date-time
 	 */
 	startsAt?: string;
+	/**
+	 * @description The alert state and the silences and inhibitions suppressing it.
+	 */
 	status?: TypesAlertStatusDTO;
 }
 
@@ -88,6 +1283,40 @@ export enum AlertmanagertypesExpressionKindDTO {
 	rule = 'rule',
 	policy = 'policy',
 }
+export interface AlertmanagertypesGettableNotificationChannelDTO {
+	/**
+	 * @description The provider kind and spec, credentials included.
+	 */
+	config: AlertmanagertypesChannelConfigDTO;
+	/**
+	 * @type string
+	 * @format date-time
+	 * @description When the channel was created, as an RFC 3339 timestamp.
+	 */
+	createdAt: string;
+	/**
+	 * @type string
+	 * @description The label shown in the UI. Alert rules and routing policies reference it, not name.
+	 */
+	displayName: string;
+	/**
+	 * @type string
+	 * @description The channel UUID.
+	 */
+	id: string;
+	/**
+	 * @type string
+	 * @description The immutable DNS-1123 identifier of the channel. Alert rules and routing policies reference displayName, not name.
+	 */
+	name: string;
+	/**
+	 * @type string
+	 * @format date-time
+	 * @description When the channel was last updated, as an RFC 3339 timestamp.
+	 */
+	updatedAt: string;
+}
+
 export interface AlertmanagertypesGettableRoutePolicyDTO {
 	/**
 	 * @type array,null
@@ -369,6 +1598,9 @@ export interface ConfigSecretURLDTO {
 }
 
 export interface AlertmanagertypesGoogleChatReceiverConfigDTO {
+	/**
+	 * @description HTTP client settings for the webhook call.
+	 */
 	http_config?: ConfigHTTPClientConfigDTO;
 	/**
 	 * @type boolean
@@ -376,13 +1608,190 @@ export interface AlertmanagertypesGoogleChatReceiverConfigDTO {
 	send_resolved?: boolean;
 	/**
 	 * @type string
+	 * @description Alertmanager template for the message body.
 	 */
 	text?: string;
 	/**
 	 * @type string
+	 * @description Alertmanager template for the message title.
 	 */
 	title?: string;
+	/**
+	 * @description The Google Chat space webhook URL.
+	 */
 	webhook_url?: ConfigSecretURLDTO;
+}
+
+/**
+ * Extra event metadata keyed by name, merged over the group's common labels; values are Alertmanager templates.
+ */
+export type AlertmanagertypesIncidentIOReceiverConfigDTOMetadata = {
+	[key: string]: string;
+};
+
+export interface AlertmanagertypesIncidentIOReceiverConfigDTO {
+	/**
+	 * @type string
+	 * @description Alertmanager template for the alert description.
+	 */
+	description?: string;
+	/**
+	 * @description HTTP client settings for the API call.
+	 */
+	http_config?: ConfigHTTPClientConfigDTO;
+	/**
+	 * @type object
+	 * @description Extra event metadata keyed by name, merged over the group's common labels; values are Alertmanager templates.
+	 */
+	metadata?: AlertmanagertypesIncidentIOReceiverConfigDTOMetadata;
+	/**
+	 * @type boolean
+	 */
+	send_resolved?: boolean;
+	/**
+	 * @type string
+	 * @description Alertmanager template for the alert title.
+	 */
+	title?: string;
+	/**
+	 * @type string
+	 * @description The alert source secret token, without the Bearer prefix.
+	 */
+	token?: string;
+	/**
+	 * @type string
+	 * @description The alert source HTTP alert events endpoint.
+	 */
+	url?: string;
+}
+
+export interface AlertmanagertypesJSMOpsReceiverConfigDTO {
+	/**
+	 * @type string
+	 * @description The JSM Ops integration API key.
+	 */
+	api_key?: string;
+	/**
+	 * @type string
+	 * @description Alertmanager template for the alert description.
+	 */
+	description?: string;
+	/**
+	 * @description HTTP client settings for the API call.
+	 */
+	http_config?: ConfigHTTPClientConfigDTO;
+	/**
+	 * @type string
+	 * @description Alertmanager template for the alert message.
+	 */
+	message?: string;
+	/**
+	 * @type string
+	 * @description The alert priority, P1 to P5.
+	 */
+	priority?: string;
+	/**
+	 * @type boolean
+	 */
+	send_resolved?: boolean;
+	/**
+	 * @type string
+	 * @description Comma-separated tags attached to the alert.
+	 */
+	tags?: string;
+}
+
+/**
+ * Extra issue fields keyed by Jira field ID. Stored, but not currently included in the issue Jira receives.
+ */
+export type AlertmanagertypesJiraReceiverConfigDTOCustomFields = {
+	[key: string]: unknown;
+};
+
+export type ModelDurationDTO = number;
+
+export interface AlertmanagertypesJiraReceiverConfigDTO {
+	/**
+	 * @type object
+	 * @description Extra issue fields keyed by Jira field ID. Stored, but not currently included in the issue Jira receives.
+	 */
+	custom_fields?: AlertmanagertypesJiraReceiverConfigDTOCustomFields;
+	/**
+	 * @type string
+	 * @description Alertmanager template for the issue description.
+	 */
+	description?: string;
+	/**
+	 * @description HTTP client settings; basic auth carries the account email and API token.
+	 */
+	http_config?: ConfigHTTPClientConfigDTO;
+	/**
+	 * @type string
+	 * @description The issue type name.
+	 */
+	issue_type?: string;
+	/**
+	 * @type array
+	 * @description Labels added to every issue.
+	 */
+	labels?: string[];
+	/**
+	 * @type string
+	 * @description The priority name assigned to new issues.
+	 */
+	priority?: string;
+	/**
+	 * @type string
+	 * @description The key of the project issues are created in.
+	 */
+	project?: string;
+	/**
+	 * @description How long after resolution a firing alert reopens the issue; a Prometheus duration, at least 1m.
+	 */
+	reopen_duration?: ModelDurationDTO;
+	/**
+	 * @type string
+	 * @description The transition applied when an alert fires again on a resolved issue.
+	 */
+	reopen_transition?: string;
+	/**
+	 * @type string
+	 * @description The transition applied when the alert resolves.
+	 */
+	resolve_transition?: string;
+	/**
+	 * @type boolean
+	 */
+	send_resolved?: boolean;
+	/**
+	 * @type string
+	 * @description The Jira Cloud base URL.
+	 */
+	site?: string;
+	/**
+	 * @type string
+	 * @description Alertmanager template for the issue summary.
+	 */
+	summary?: string;
+	/**
+	 * @type string
+	 * @description The resolution name that stops an issue from being reopened.
+	 */
+	wont_fix_resolution?: string;
+}
+
+export interface AlertmanagertypesListableNotificationChannelDTO {
+	/**
+	 * @type array
+	 * @description The channels on this page, without their configuration; fetch a channel by ID for that.
+	 */
+	channels: AlertmanagertypesListedNotificationChannelDTO[];
+	/**
+	 * @type integer
+	 * @format int64
+	 * @description The number of channels the filter matches across all pages.
+	 */
+	total: number;
 }
 
 export enum AlertmanagertypesMaintenanceKindDTO {
@@ -598,102 +2007,6 @@ export interface ConfigEmailConfigDTO {
 	to?: string;
 }
 
-export type TimeDurationDTO = number;
-
-export interface ConfigURLType2DTO {
-	[key: string]: unknown;
-}
-
-export interface ConfigIncidentioConfigDTO {
-	/**
-	 * @type string
-	 */
-	alert_source_token?: string;
-	/**
-	 * @type string
-	 */
-	alert_source_token_file?: string;
-	http_config?: ConfigHTTPClientConfigDTO;
-	/**
-	 * @type integer
-	 * @minimum 0
-	 */
-	max_alerts?: number;
-	/**
-	 * @type boolean
-	 */
-	send_resolved?: boolean;
-	timeout?: TimeDurationDTO;
-	url?: ConfigURLType2DTO;
-	/**
-	 * @type string
-	 */
-	url_file?: string;
-}
-
-export interface ConfigJiraFieldConfigDTO {
-	/**
-	 * @type boolean,null
-	 */
-	enable_update?: boolean | null;
-	/**
-	 * @type string
-	 */
-	template?: string;
-}
-
-export type ModelDurationDTO = number;
-
-export type ConfigJiraConfigDTOCustomFields = { [key: string]: unknown };
-
-export interface ConfigJiraConfigDTO {
-	/**
-	 * @type string
-	 */
-	api_type?: string;
-	api_url?: ConfigURLType2DTO;
-	/**
-	 * @type object
-	 */
-	custom_fields?: ConfigJiraConfigDTOCustomFields;
-	description?: ConfigJiraFieldConfigDTO;
-	http_config?: ConfigHTTPClientConfigDTO;
-	/**
-	 * @type string
-	 */
-	issue_type?: string;
-	/**
-	 * @type array
-	 */
-	labels?: string[];
-	/**
-	 * @type string
-	 */
-	priority?: string;
-	/**
-	 * @type string
-	 */
-	project?: string;
-	reopen_duration?: ModelDurationDTO;
-	/**
-	 * @type string
-	 */
-	reopen_transition?: string;
-	/**
-	 * @type string
-	 */
-	resolve_transition?: string;
-	/**
-	 * @type boolean
-	 */
-	send_resolved?: boolean;
-	summary?: ConfigJiraFieldConfigDTO;
-	/**
-	 * @type string
-	 */
-	wont_fix_resolution?: string;
-}
-
 export interface ConfigMattermostFieldDTO {
 	/**
 	 * @type boolean,null
@@ -879,6 +2192,10 @@ export interface ConfigMSTeamsV2ConfigDTO {
 	webhook_url_file?: string;
 }
 
+export interface ConfigURLType2DTO {
+	[key: string]: unknown;
+}
+
 export interface ConfigOpsGenieConfigResponderDTO {
 	/**
 	 * @type string
@@ -986,6 +2303,8 @@ export interface ConfigPagerdutyLinkDTO {
 	 */
 	text?: string;
 }
+
+export type TimeDurationDTO = number;
 
 export type ConfigPagerdutyConfigDTODetails = { [key: string]: unknown };
 
@@ -1463,7 +2782,7 @@ export interface ConfigSNSConfigDTO {
 	topic_arn?: string;
 }
 
-export interface ConfigTelegramConfigDTO {
+export interface AlertmanagertypesTelegramReceiverConfigDTO {
 	api_url?: ConfigURLType2DTO;
 	/**
 	 * @type integer
@@ -1495,6 +2814,10 @@ export interface ConfigTelegramConfigDTO {
 	 * @type boolean
 	 */
 	send_resolved?: boolean;
+	/**
+	 * @type string
+	 */
+	title?: string;
 	/**
 	 * @type string
 	 */
@@ -1648,11 +2971,15 @@ export type AlertmanagertypesPostableChannelDTO = unknown & {
 	/**
 	 * @type array
 	 */
-	incidentio_configs?: ConfigIncidentioConfigDTO[];
+	incidentio_configs?: AlertmanagertypesIncidentIOReceiverConfigDTO[];
 	/**
 	 * @type array
 	 */
-	jira_configs?: ConfigJiraConfigDTO[];
+	jira_configs?: AlertmanagertypesJiraReceiverConfigDTO[];
+	/**
+	 * @type array
+	 */
+	jsmops_configs?: AlertmanagertypesJSMOpsReceiverConfigDTO[];
 	/**
 	 * @type array
 	 */
@@ -1696,7 +3023,7 @@ export type AlertmanagertypesPostableChannelDTO = unknown & {
 	/**
 	 * @type array
 	 */
-	telegram_configs?: ConfigTelegramConfigDTO[];
+	telegram_configs?: AlertmanagertypesTelegramReceiverConfigDTO[];
 	/**
 	 * @type array
 	 */
@@ -1714,6 +3041,28 @@ export type AlertmanagertypesPostableChannelDTO = unknown & {
 	 */
 	wechat_configs?: ConfigWechatConfigDTO[];
 };
+
+export interface AlertmanagertypesPostableNotificationChannelDTO {
+	/**
+	 * @description The provider kind and its spec.
+	 */
+	config: AlertmanagertypesChannelConfigDTO;
+	/**
+	 * @type string
+	 * @description The label shown in the UI. Alert rules and routing policies reference it, not name. Defaults to name; required when generateName is true.
+	 */
+	displayName?: string;
+	/**
+	 * @type boolean
+	 * @description Derive name from displayName plus a random suffix instead of supplying it. Defaults to false.
+	 */
+	generateName?: boolean;
+	/**
+	 * @type string
+	 * @description The immutable DNS-1123 identifier of the channel (lowercase letters, digits and hyphens, at most 63 characters). Required unless generateName is true, in which case it must be empty. Alert rules and routing policies reference displayName, not name.
+	 */
+	name?: string;
+}
 
 export interface AlertmanagertypesPostablePlannedMaintenanceDTO {
 	/**
@@ -1775,11 +3124,15 @@ export interface AlertmanagertypesReceiverDTO {
 	/**
 	 * @type array
 	 */
-	incidentio_configs?: ConfigIncidentioConfigDTO[];
+	incidentio_configs?: AlertmanagertypesIncidentIOReceiverConfigDTO[];
 	/**
 	 * @type array
 	 */
-	jira_configs?: ConfigJiraConfigDTO[];
+	jira_configs?: AlertmanagertypesJiraReceiverConfigDTO[];
+	/**
+	 * @type array
+	 */
+	jsmops_configs?: AlertmanagertypesJSMOpsReceiverConfigDTO[];
 	/**
 	 * @type array
 	 */
@@ -1823,7 +3176,7 @@ export interface AlertmanagertypesReceiverDTO {
 	/**
 	 * @type array
 	 */
-	telegram_configs?: ConfigTelegramConfigDTO[];
+	telegram_configs?: AlertmanagertypesTelegramReceiverConfigDTO[];
 	/**
 	 * @type array
 	 */
@@ -1840,6 +3193,28 @@ export interface AlertmanagertypesReceiverDTO {
 	 * @type array
 	 */
 	wechat_configs?: ConfigWechatConfigDTO[];
+}
+
+export interface AlertmanagertypesRepairChannelParamsDTO {
+	/**
+	 * @type boolean
+	 * @description Apply the diagnosed action; defaults to false, a dry run that only reports it.
+	 */
+	apply?: boolean;
+}
+
+export interface AlertmanagertypesTestableNotificationChannelDTO {
+	/**
+	 * @description The replacement provider kind and spec. Name and displayName are immutable and not part of the body.
+	 */
+	config: AlertmanagertypesChannelConfigDTO;
+}
+
+export interface AlertmanagertypesUpdatableNotificationChannelDTO {
+	/**
+	 * @description The replacement provider kind and spec. Name and displayName are immutable and not part of the body.
+	 */
+	config: AlertmanagertypesChannelConfigDTO;
 }
 
 export interface AuthtypesAttributeMappingDTO {
@@ -1861,8 +3236,22 @@ export interface AuthtypesAttributeMappingDTO {
 	role?: string;
 }
 
+/**
+ * The kind of authn provider.
+ */
+export enum AuthtypesAuthDomainConfigSAMLDTOKind {
+	saml = 'saml',
+}
 export interface AuthtypesSamlConfigDTO {
 	attributeMapping?: AuthtypesAttributeMappingDTO;
+	/**
+	 * @type string
+	 */
+	certificate: string;
+	/**
+	 * @type string
+	 */
+	entityId: string;
 	/**
 	 * @type boolean
 	 */
@@ -1870,17 +3259,28 @@ export interface AuthtypesSamlConfigDTO {
 	/**
 	 * @type string
 	 */
-	samlCert?: string;
-	/**
-	 * @type string
-	 */
-	samlEntity?: string;
-	/**
-	 * @type string
-	 */
-	samlIdp?: string;
+	location: string;
 }
 
+export interface AuthtypesAuthDomainConfigSAMLDTO {
+	/**
+	 * @type string
+	 * @enum saml
+	 * @description The kind of authn provider.
+	 */
+	kind: AuthtypesAuthDomainConfigSAMLDTOKind;
+	/**
+	 * @description The saml configuration.
+	 */
+	spec: AuthtypesSamlConfigDTO;
+}
+
+/**
+ * The kind of authn provider.
+ */
+export enum AuthtypesAuthDomainConfigGoogleDTOKind {
+	google = 'google',
+}
 export type AuthtypesGoogleConfigDTODomainToAdminEmail = {
 	[key: string]: string;
 };
@@ -1893,11 +3293,12 @@ export interface AuthtypesGoogleConfigDTO {
 	/**
 	 * @type string
 	 */
-	clientId?: string;
+	clientId: string;
 	/**
 	 * @type string
+	 * @format password
 	 */
-	clientSecret?: string;
+	clientSecret: string;
 	/**
 	 * @type object
 	 */
@@ -1916,24 +3317,41 @@ export interface AuthtypesGoogleConfigDTO {
 	insecureSkipEmailVerified?: boolean;
 	/**
 	 * @type string
-	 */
-	redirectURI?: string;
-	/**
-	 * @type string
+	 * @format password
 	 */
 	serviceAccountJson?: string;
 }
 
+export interface AuthtypesAuthDomainConfigGoogleDTO {
+	/**
+	 * @type string
+	 * @enum google
+	 * @description The kind of authn provider.
+	 */
+	kind: AuthtypesAuthDomainConfigGoogleDTOKind;
+	/**
+	 * @description The google auth configuration.
+	 */
+	spec: AuthtypesGoogleConfigDTO;
+}
+
+/**
+ * The kind of authn provider.
+ */
+export enum AuthtypesAuthDomainConfigOIDCDTOKind {
+	oidc = 'oidc',
+}
 export interface AuthtypesOIDCConfigDTO {
 	claimMapping?: AuthtypesAttributeMappingDTO;
 	/**
 	 * @type string
 	 */
-	clientId?: string;
+	clientId: string;
 	/**
 	 * @type string
+	 * @format password
 	 */
-	clientSecret?: string;
+	clientSecret: string;
 	/**
 	 * @type boolean
 	 */
@@ -1945,79 +3363,37 @@ export interface AuthtypesOIDCConfigDTO {
 	/**
 	 * @type string
 	 */
-	issuer?: string;
+	issuer: string;
 	/**
 	 * @type string
 	 */
 	issuerAlias?: string;
 }
 
-export type AuthtypesRoleMappingDTOGroupMappingsAnyOf = {
-	[key: string]: string;
-};
-
-/**
- * @nullable
- */
-export type AuthtypesRoleMappingDTOGroupMappings =
-	AuthtypesRoleMappingDTOGroupMappingsAnyOf | null;
-
-export interface AuthtypesRoleMappingDTO {
+export interface AuthtypesAuthDomainConfigOIDCDTO {
 	/**
 	 * @type string
+	 * @enum oidc
+	 * @description The kind of authn provider.
 	 */
-	defaultRole?: string;
+	kind: AuthtypesAuthDomainConfigOIDCDTOKind;
 	/**
-	 * @type object,null
+	 * @description The oidc configuration.
 	 */
-	groupMappings?: AuthtypesRoleMappingDTOGroupMappings;
-	/**
-	 * @type boolean
-	 */
-	useRoleAttribute?: boolean;
+	spec: AuthtypesOIDCConfigDTO;
 }
 
+export type AuthtypesAuthDomainConfigDTO =
+	| AuthtypesAuthDomainConfigSAMLDTO
+	| AuthtypesAuthDomainConfigGoogleDTO
+	| AuthtypesAuthDomainConfigOIDCDTO;
+
 export enum AuthtypesAuthNProviderDTO {
-	google_auth = 'google_auth',
+	google = 'google',
 	saml = 'saml',
 	email_password = 'email_password',
 	oidc = 'oidc',
 }
-export type AuthtypesAuthDomainConfigDTO =
-	| (AuthtypesSamlConfigDTO & {
-			googleAuthConfig?: AuthtypesGoogleConfigDTO;
-			oidcConfig?: AuthtypesOIDCConfigDTO;
-			roleMapping?: AuthtypesRoleMappingDTO;
-			samlConfig?: AuthtypesSamlConfigDTO;
-			/**
-			 * @type boolean
-			 */
-			ssoEnabled?: boolean;
-			ssoType?: AuthtypesAuthNProviderDTO;
-	  })
-	| (AuthtypesGoogleConfigDTO & {
-			googleAuthConfig?: AuthtypesGoogleConfigDTO;
-			oidcConfig?: AuthtypesOIDCConfigDTO;
-			roleMapping?: AuthtypesRoleMappingDTO;
-			samlConfig?: AuthtypesSamlConfigDTO;
-			/**
-			 * @type boolean
-			 */
-			ssoEnabled?: boolean;
-			ssoType?: AuthtypesAuthNProviderDTO;
-	  })
-	| (AuthtypesOIDCConfigDTO & {
-			googleAuthConfig?: AuthtypesGoogleConfigDTO;
-			oidcConfig?: AuthtypesOIDCConfigDTO;
-			roleMapping?: AuthtypesRoleMappingDTO;
-			samlConfig?: AuthtypesSamlConfigDTO;
-			/**
-			 * @type boolean
-			 */
-			ssoEnabled?: boolean;
-			ssoType?: AuthtypesAuthNProviderDTO;
-	  });
-
 export interface AuthtypesAuthNProviderInfoDTO {
 	/**
 	 * @type string,null
@@ -2055,6 +3431,30 @@ export interface AuthtypesDeprecatedPostableUserRoleDTO {
 	id: string;
 }
 
+export type AuthtypesRoleMappingDTOGroupMappingsAnyOf = {
+	[key: string]: string;
+};
+
+/**
+ * @nullable
+ */
+export type AuthtypesRoleMappingDTOGroupMappings = AuthtypesRoleMappingDTOGroupMappingsAnyOf | null;
+
+export interface AuthtypesRoleMappingDTO {
+	/**
+	 * @type string
+	 */
+	defaultRole?: string;
+	/**
+	 * @type object,null
+	 */
+	groupMappings?: AuthtypesRoleMappingDTOGroupMappings;
+	/**
+	 * @type boolean
+	 */
+	useRoleAttribute?: boolean;
+}
+
 export interface AuthtypesGettableAuthDomainDTO {
 	authNProviderInfo?: AuthtypesAuthNProviderInfoDTO;
 	config?: AuthtypesAuthDomainConfigDTO;
@@ -2063,6 +3463,10 @@ export interface AuthtypesGettableAuthDomainDTO {
 	 * @format date-time
 	 */
 	createdAt?: string;
+	/**
+	 * @type boolean
+	 */
+	enabled?: boolean;
 	/**
 	 * @type string
 	 */
@@ -2075,6 +3479,7 @@ export interface AuthtypesGettableAuthDomainDTO {
 	 * @type string
 	 */
 	orgId?: string;
+	roleMapping?: AuthtypesRoleMappingDTO;
 	/**
 	 * @type string
 	 * @format date-time
@@ -2165,6 +3570,7 @@ export enum CoretypesKindDTO {
 	'factor-api-key' = 'factor-api-key',
 	license = 'license',
 	subscription = 'subscription',
+	'deployment-host' = 'deployment-host',
 	logs = 'logs',
 	traces = 'traces',
 	metrics = 'metrics',
@@ -2172,6 +3578,7 @@ export enum CoretypesKindDTO {
 	'meter-metrics' = 'meter-metrics',
 	'logs-field' = 'logs-field',
 	'traces-field' = 'traces-field',
+	'metrics-field' = 'metrics-field',
 }
 export enum CoretypesTypeDTO {
 	user = 'user',
@@ -2271,11 +3678,16 @@ export interface AuthtypesOrgSessionContextDTO {
 }
 
 export interface AuthtypesPostableAuthDomainDTO {
-	config?: AuthtypesAuthDomainConfigDTO;
+	config: AuthtypesAuthDomainConfigDTO;
+	/**
+	 * @type boolean
+	 */
+	enabled?: boolean;
 	/**
 	 * @type string
 	 */
-	name?: string;
+	name: string;
+	roleMapping?: AuthtypesRoleMappingDTO;
 }
 
 export interface AuthtypesPostableEmailPasswordSessionDTO {
@@ -2408,7 +3820,12 @@ export interface AuthtypesTransactionDTO {
 }
 
 export interface AuthtypesUpdatableAuthDomainDTO {
-	config?: AuthtypesAuthDomainConfigDTO;
+	config: AuthtypesAuthDomainConfigDTO;
+	/**
+	 * @type boolean
+	 */
+	enabled?: boolean;
+	roleMapping?: AuthtypesRoleMappingDTO;
 }
 
 export interface AuthtypesUpdatableRoleDTO {
@@ -2595,33 +4012,61 @@ export interface CloudintegrationtypesAWSServiceConfigDTO {
 	metrics?: CloudintegrationtypesAWSServiceMetricsConfigDTO;
 }
 
-export type CloudintegrationtypesAgentReportDTOAnyOfDataAnyOf = {
+export enum CloudintegrationtypesRegionStateDTO {
+	enabled = 'enabled',
+	disabled = 'disabled',
+}
+export interface CloudintegrationtypesRegionSyncStateDTO {
+	state: CloudintegrationtypesRegionStateDTO;
+}
+
+export type CloudintegrationtypesSyncStateDTORegions = {
+	[key: string]: CloudintegrationtypesRegionSyncStateDTO;
+};
+
+/**
+ * @nullable
+ */
+export type CloudintegrationtypesSyncStateDTO = {
+	/**
+	 * @type boolean
+	 */
+	inSync: boolean;
+	/**
+	 * @type object
+	 */
+	regions: CloudintegrationtypesSyncStateDTORegions;
+	/**
+	 * @type integer
+	 * @format int64
+	 */
+	version: number;
+} | null;
+
+export type CloudintegrationtypesAgentReportDTODataAnyOf = {
 	[key: string]: unknown;
 };
 
 /**
  * @nullable
  */
-export type CloudintegrationtypesAgentReportDTOAnyOfData =
-	CloudintegrationtypesAgentReportDTOAnyOfDataAnyOf | null;
+export type CloudintegrationtypesAgentReportDTOData = CloudintegrationtypesAgentReportDTODataAnyOf | null;
 
-export type CloudintegrationtypesAgentReportDTOAnyOf = {
+/**
+ * @nullable
+ */
+export type CloudintegrationtypesAgentReportDTO = {
 	/**
 	 * @type object,null
 	 */
-	data: CloudintegrationtypesAgentReportDTOAnyOfData;
+	data: CloudintegrationtypesAgentReportDTOData;
+	syncState: CloudintegrationtypesSyncStateDTO | null;
 	/**
 	 * @type integer
 	 * @format int64
 	 */
 	timestampMillis: number;
-};
-
-/**
- * @nullable
- */
-export type CloudintegrationtypesAgentReportDTO =
-	CloudintegrationtypesAgentReportDTOAnyOf | null;
+} | null;
 
 export interface CloudintegrationtypesAzureAccountConfigDTO {
 	/**
@@ -2634,7 +4079,12 @@ export interface CloudintegrationtypesAzureAccountConfigDTO {
 	resourceGroups: string[];
 }
 
+export enum CloudintegrationtypesGCPConnectionMethodDTO {
+	manual = 'manual',
+	agent = 'agent',
+}
 export interface CloudintegrationtypesGCPAccountConfigDTO {
+	connectionMethod: CloudintegrationtypesGCPConnectionMethodDTO;
 	/**
 	 * @type string
 	 */
@@ -2818,8 +4268,12 @@ export enum CloudintegrationtypesServiceIDDTO {
 	computeengine = 'computeengine',
 	gke = 'gke',
 	cloudstorage = 'cloudstorage',
+	cloudsql_mysql = 'cloudsql_mysql',
 }
-export type CloudintegrationtypesCloudIntegrationServiceDTOAnyOf = {
+/**
+ * @nullable
+ */
+export type CloudintegrationtypesCloudIntegrationServiceDTO = {
 	/**
 	 * @type string
 	 */
@@ -2840,13 +4294,7 @@ export type CloudintegrationtypesCloudIntegrationServiceDTOAnyOf = {
 	 * @format date-time
 	 */
 	updatedAt?: string;
-};
-
-/**
- * @nullable
- */
-export type CloudintegrationtypesCloudIntegrationServiceDTO =
-	CloudintegrationtypesCloudIntegrationServiceDTOAnyOf | null;
+} | null;
 
 export interface CloudintegrationtypesCollectedLogAttributeDTO {
 	/**
@@ -2883,7 +4331,10 @@ export interface CloudintegrationtypesCollectedMetricDTO {
 }
 
 export interface CloudintegrationtypesGCPConnectionArtifactDTO {
-	[key: string]: unknown;
+	/**
+	 * @type string
+	 */
+	cliCommand: string;
 }
 
 export interface CloudintegrationtypesConnectionArtifactDTO {
@@ -2922,8 +4373,62 @@ export interface CloudintegrationtypesDataCollectedDTO {
 	metrics?: CloudintegrationtypesCollectedMetricDTO[] | null;
 }
 
+/**
+ * @nullable
+ */
+export type CloudintegrationtypesGCPLogsCollectionStrategyDTO = {
+	/**
+	 * @type string
+	 */
+	sinkFilter: string;
+} | null;
+
+/**
+ * @nullable
+ */
+export type CloudintegrationtypesGCPMetricsCollectionStrategyDTO = {
+	/**
+	 * @type array
+	 */
+	metricNames: string[];
+} | null;
+
+export interface CloudintegrationtypesGCPTelemetryCollectionStrategyDTO {
+	logs: CloudintegrationtypesGCPLogsCollectionStrategyDTO | null;
+	metrics: CloudintegrationtypesGCPMetricsCollectionStrategyDTO | null;
+}
+
 export interface CloudintegrationtypesGCPIntegrationConfigDTO {
-	[key: string]: unknown;
+	connectionMethod: CloudintegrationtypesGCPConnectionMethodDTO;
+	/**
+	 * @type string
+	 */
+	deploymentProjectId: string;
+	/**
+	 * @type string
+	 */
+	deploymentRegion: string;
+	/**
+	 * @type array
+	 */
+	projectIds: string[];
+	telemetryCollectionStrategy: CloudintegrationtypesGCPTelemetryCollectionStrategyDTO;
+}
+
+export interface CloudintegrationtypesGCPPostableAccountConfigDTO {
+	connectionMethod: CloudintegrationtypesGCPConnectionMethodDTO;
+	/**
+	 * @type string
+	 */
+	deploymentProjectId: string;
+	/**
+	 * @type string
+	 */
+	deploymentRegion: string;
+	/**
+	 * @type array
+	 */
+	projectIds: string[];
 }
 
 export interface CloudintegrationtypesGettableAccountWithConnectionArtifactDTO {
@@ -3000,19 +4505,16 @@ export interface CloudintegrationtypesOldAWSCollectionStrategyDTO {
 	s3_buckets?: CloudintegrationtypesOldAWSCollectionStrategyDTOS3Buckets;
 }
 
-export type CloudintegrationtypesIntegrationConfigDTOAnyOf = {
+/**
+ * @nullable
+ */
+export type CloudintegrationtypesIntegrationConfigDTO = {
 	/**
 	 * @type array
 	 */
 	enabled_regions: string[];
 	telemetry: CloudintegrationtypesOldAWSCollectionStrategyDTO;
-};
-
-/**
- * @nullable
- */
-export type CloudintegrationtypesIntegrationConfigDTO =
-	CloudintegrationtypesIntegrationConfigDTOAnyOf | null;
+} | null;
 
 export interface CloudintegrationtypesProviderIntegrationConfigDTO {
 	aws?: CloudintegrationtypesAWSIntegrationConfigDTO;
@@ -3049,6 +4551,7 @@ export interface CloudintegrationtypesGettableAgentCheckInDTO {
 	 * @format date-time
 	 */
 	removedAt: string | null;
+	syncState: CloudintegrationtypesSyncStateDTO | null;
 }
 
 export interface CloudintegrationtypesServiceMetadataDTO {
@@ -3080,7 +4583,7 @@ export interface CloudintegrationtypesGettableServicesMetadataDTO {
 export interface CloudintegrationtypesPostableAccountConfigDTO {
 	aws?: CloudintegrationtypesAWSPostableAccountConfigDTO;
 	azure?: CloudintegrationtypesAzureAccountConfigDTO;
-	gcp?: CloudintegrationtypesGCPAccountConfigDTO;
+	gcp?: CloudintegrationtypesGCPPostableAccountConfigDTO;
 }
 
 export interface CloudintegrationtypesPostableAccountDTO {
@@ -3095,8 +4598,7 @@ export type CloudintegrationtypesPostableAgentCheckInDTODataAnyOf = {
 /**
  * @nullable
  */
-export type CloudintegrationtypesPostableAgentCheckInDTOData =
-	CloudintegrationtypesPostableAgentCheckInDTODataAnyOf | null;
+export type CloudintegrationtypesPostableAgentCheckInDTOData = CloudintegrationtypesPostableAgentCheckInDTODataAnyOf | null;
 
 export interface CloudintegrationtypesPostableAgentCheckInDTO {
 	/**
@@ -3119,6 +4621,10 @@ export interface CloudintegrationtypesPostableAgentCheckInDTO {
 	 * @type string
 	 */
 	providerAccountId?: string;
+	/**
+	 * @type integer,null
+	 */
+	syncedVersion?: number | null;
 }
 
 export interface CloudintegrationtypesStorableIntegrationDashboardDTO {
@@ -3220,9 +4726,9 @@ export interface CloudintegrationtypesUpdatableGCPAccountConfigDTO {
 	 */
 	deploymentRegion: string;
 	/**
-	 * @type array,null
+	 * @type array
 	 */
-	projectIds: string[] | null;
+	projectIds: string[];
 }
 
 export interface CloudintegrationtypesUpdatableAccountConfigDTO {
@@ -3244,6 +4750,136 @@ export interface CommonJSONRefDTO {
 	 * @type string
 	 */
 	$ref?: string;
+}
+
+export interface ConfigIncidentioConfigDTO {
+	/**
+	 * @type string
+	 */
+	alert_source_token?: string;
+	/**
+	 * @type string
+	 */
+	alert_source_token_file?: string;
+	http_config?: ConfigHTTPClientConfigDTO;
+	/**
+	 * @type integer
+	 * @minimum 0
+	 */
+	max_alerts?: number;
+	/**
+	 * @type boolean
+	 */
+	send_resolved?: boolean;
+	timeout?: TimeDurationDTO;
+	url?: ConfigURLType2DTO;
+	/**
+	 * @type string
+	 */
+	url_file?: string;
+}
+
+export type ConfigJiraConfigDTOCustomFields = { [key: string]: unknown };
+
+export interface ConfigJiraFieldConfigDTO {
+	/**
+	 * @type boolean,null
+	 */
+	enable_update?: boolean | null;
+	/**
+	 * @type string
+	 */
+	template?: string;
+}
+
+export interface ConfigJiraConfigDTO {
+	/**
+	 * @type string
+	 */
+	api_type?: string;
+	api_url?: ConfigURLType2DTO;
+	/**
+	 * @type object
+	 */
+	custom_fields?: ConfigJiraConfigDTOCustomFields;
+	description?: ConfigJiraFieldConfigDTO;
+	http_config?: ConfigHTTPClientConfigDTO;
+	/**
+	 * @type string
+	 */
+	issue_type?: string;
+	/**
+	 * @type array
+	 */
+	labels?: string[];
+	/**
+	 * @type string
+	 */
+	priority?: string;
+	/**
+	 * @type string
+	 */
+	project?: string;
+	reopen_duration?: ModelDurationDTO;
+	/**
+	 * @type string
+	 */
+	reopen_transition?: string;
+	/**
+	 * @type string
+	 */
+	resolve_transition?: string;
+	/**
+	 * @type boolean
+	 */
+	send_resolved?: boolean;
+	summary?: ConfigJiraFieldConfigDTO;
+	/**
+	 * @type string
+	 */
+	wont_fix_resolution?: string;
+}
+
+export interface ConfigTelegramConfigDTO {
+	api_url?: ConfigURLType2DTO;
+	/**
+	 * @type integer
+	 * @format int64
+	 */
+	chat?: number;
+	/**
+	 * @type string
+	 */
+	chat_file?: string;
+	/**
+	 * @type boolean
+	 */
+	disable_notifications?: boolean;
+	http_config?: ConfigHTTPClientConfigDTO;
+	/**
+	 * @type string
+	 */
+	message?: string;
+	/**
+	 * @type integer
+	 */
+	message_thread_id?: number;
+	/**
+	 * @type string
+	 */
+	parse_mode?: string;
+	/**
+	 * @type boolean
+	 */
+	send_resolved?: boolean;
+	/**
+	 * @type string
+	 */
+	token?: string;
+	/**
+	 * @type string
+	 */
+	token_file?: string;
 }
 
 export interface DashboardGridItemDTO {
@@ -3293,147 +4929,111 @@ export interface DashboardGridLayoutSpecDTO {
 	repeatVariable?: string;
 }
 
-export interface DashboardtypesAxesDTO {
-	/**
-	 * @type boolean
-	 */
-	isLogScale?: boolean;
-	/**
-	 * @type number,null
-	 */
-	softMax?: number | null;
-	/**
-	 * @type number,null
-	 */
-	softMin?: number | null;
-}
-
-export enum DashboardtypesPrecisionOptionDTO {
-	NUMBER_0 = '0',
-	NUMBER_1 = '1',
-	NUMBER_2 = '2',
-	NUMBER_3 = '3',
-	NUMBER_4 = '4',
-	full = 'full',
-}
-export interface DashboardtypesPanelFormattingDTO {
-	decimalPrecision?: DashboardtypesPrecisionOptionDTO;
-	/**
-	 * @type string
-	 */
-	unit?: string;
-}
-
-export enum DashboardtypesLegendModeDTO {
-	list = 'list',
-}
-export enum DashboardtypesLegendPositionDTO {
-	bottom = 'bottom',
-	right = 'right',
-}
-export type DashboardtypesLegendDTOCustomColorsAnyOf = {
-	[key: string]: string;
-};
-
 /**
- * @nullable
+ * The telemetry signal to query: traces, logs or metrics. It selects the aggregation shape and is required for builder_query.
  */
-export type DashboardtypesLegendDTOCustomColors =
-	DashboardtypesLegendDTOCustomColorsAnyOf | null;
-
-export interface DashboardtypesLegendDTO {
-	/**
-	 * @type object,null
-	 */
-	customColors?: DashboardtypesLegendDTOCustomColors;
-	mode?: DashboardtypesLegendModeDTO;
-	position?: DashboardtypesLegendPositionDTO;
+export enum DashboardtypesAIBuilderQuerySpecDTOSignal {
+	traces = 'traces',
 }
-
-export interface DashboardtypesThresholdWithLabelDTO {
+export interface Querybuildertypesv5TraceAggregationDTO {
 	/**
 	 * @type string
-	 */
-	color: string;
-	/**
-	 * @type string
-	 */
-	label?: string;
-	/**
-	 * @type string
-	 */
-	unit?: string;
-	/**
-	 * @type number
-	 * @format double
-	 */
-	value: number;
-}
-
-export enum DashboardtypesTimePreferenceDTO {
-	global_time = 'global_time',
-	last_5_min = 'last_5_min',
-	last_15_min = 'last_15_min',
-	last_30_min = 'last_30_min',
-	last_1_hr = 'last_1_hr',
-	last_6_hr = 'last_6_hr',
-	last_1_day = 'last_1_day',
-	last_3_days = 'last_3_days',
-	last_1_week = 'last_1_week',
-	last_1_month = 'last_1_month',
-}
-export interface DashboardtypesBarChartVisualizationDTO {
-	/**
-	 * @type boolean
-	 */
-	fillSpans?: boolean;
-	/**
-	 * @type boolean
-	 */
-	stackedBarChart?: boolean;
-	timePreference?: DashboardtypesTimePreferenceDTO;
-}
-
-export interface DashboardtypesBarChartPanelSpecDTO {
-	axes?: DashboardtypesAxesDTO;
-	formatting?: DashboardtypesPanelFormattingDTO;
-	legend?: DashboardtypesLegendDTO;
-	/**
-	 * @type array,null
-	 */
-	thresholds?: DashboardtypesThresholdWithLabelDTO[] | null;
-	visualization?: DashboardtypesBarChartVisualizationDTO;
-}
-
-export interface DashboardtypesBasicVisualizationDTO {
-	timePreference?: DashboardtypesTimePreferenceDTO;
-}
-
-export interface Querybuildertypesv5LogAggregationDTO {
-	/**
-	 * @type string
+	 * @description The name the aggregation is reported under; when omitted, the result carries the alias __result_N, with N the zero-based index of the aggregation.
 	 */
 	alias?: string;
 	/**
 	 * @type string
+	 * @description The aggregation over spans, such as count(), sum(item_price), p99(duration_nano) or countIf(day > 10).
 	 */
 	expression?: string;
 }
+
+/**
+ * How the upper bounds are spaced.
+ */
+export enum Querybuildertypesv5BucketOptionsLinearDTOKind {
+	linear = 'linear',
+}
+export interface Querybuildertypesv5LinearBucketsSpecDTO {
+	/**
+	 * @type number
+	 * @format double
+	 * @description The upper bound of the last regular band; values above it are counted in a trailing overflow band.
+	 */
+	maxValue: number;
+	/**
+	 * @type integer
+	 * @description The number of evenly spaced bands between 0 and maxValue. A default applies when omitted or 0.
+	 */
+	numBuckets?: number;
+}
+
+export interface Querybuildertypesv5BucketOptionsLinearDTO {
+	/**
+	 * @type string
+	 * @enum linear
+	 * @description How the upper bounds are spaced.
+	 */
+	kind: Querybuildertypesv5BucketOptionsLinearDTOKind;
+	/**
+	 * @description The evenly spaced bucket specification.
+	 */
+	spec: Querybuildertypesv5LinearBucketsSpecDTO;
+}
+
+/**
+ * How the upper bounds are spaced.
+ */
+export enum Querybuildertypesv5BucketOptionsLogDTOKind {
+	log = 'log',
+}
+export interface Querybuildertypesv5LogBucketsSpecDTO {
+	/**
+	 * @type integer,null
+	 * @description The exponential histogram scale: 2^scale bands per doubling of the value. The maximum supported scale applies when omitted.
+	 */
+	scale?: number | null;
+}
+
+export interface Querybuildertypesv5BucketOptionsLogDTO {
+	/**
+	 * @type string
+	 * @enum log
+	 * @description How the upper bounds are spaced.
+	 */
+	kind: Querybuildertypesv5BucketOptionsLogDTOKind;
+	/**
+	 * @description The logarithmic bucket specification.
+	 */
+	spec: Querybuildertypesv5LogBucketsSpecDTO;
+}
+
+export type Querybuildertypesv5BucketOptionsDTO =
+	| Querybuildertypesv5BucketOptionsLinearDTO
+	| Querybuildertypesv5BucketOptionsLogDTO;
 
 export interface Querybuildertypesv5FilterDTO {
 	/**
 	 * @type string
+	 * @description A filter in the query filter syntax: comparisons such as =, !=, <, >, IN, LIKE, CONTAINS and EXISTS on field names, combined with AND, OR and NOT, with string values in single quotes, for example key = 'value' AND other_key > 10. Which fields exist depends on the signal or endpoint the filter is used with.
 	 */
 	expression?: string;
 }
 
+/**
+ * The argument value as a number, string or boolean, for example the threshold for cutOffMin or the duration for timeShift.
+ */
 export type Querybuildertypesv5FunctionArgDTOValue = number | string;
 
 export interface Querybuildertypesv5FunctionArgDTO {
 	/**
 	 * @type string
+	 * @description The argument name for functions that take named arguments, such as z_score_threshold or seasonality for anomaly.
 	 */
 	name?: string;
+	/**
+	 * @description The argument value as a number, string or boolean, for example the threshold for cutOffMin or the duration for timeShift.
+	 */
 	value?: Querybuildertypesv5FunctionArgDTOValue;
 }
 
@@ -3460,8 +5060,12 @@ export enum Querybuildertypesv5FunctionNameDTO {
 export interface Querybuildertypesv5FunctionDTO {
 	/**
 	 * @type array,null
+	 * @description The function arguments; which ones are required depends on the function, for example a threshold for the cutOff and clamp functions.
 	 */
 	args?: Querybuildertypesv5FunctionArgDTO[] | null;
+	/**
+	 * @description The function to apply, such as cutOffMin, cutOffMax, clampMin, clampMax, absolute, runningDiff, log2, log10, cumulativeSum, ewma3, ewma5, ewma7, median3, median5, median7, timeShift, anomaly or fillZero.
+	 */
 	name?: Querybuildertypesv5FunctionNameDTO;
 }
 
@@ -3469,7 +5073,9 @@ export enum TelemetrytypesFieldContextDTO {
 	metric = 'metric',
 	log = 'log',
 	span = 'span',
+	trace = 'trace',
 	resource = 'resource',
+	scope = 'scope',
 	attribute = 'attribute',
 	body = 'body',
 	'' = '',
@@ -3491,17 +5097,29 @@ export enum TelemetrytypesSignalDTO {
 export interface Querybuildertypesv5GroupByKeyDTO {
 	/**
 	 * @type string
+	 * @description Human-readable summary of the field, present only for well-known fields.
 	 */
 	description?: string;
+	/**
+	 * @description Where the field lives: resource, attribute, scope, span, trace, log, body or metric. Empty means unspecified, so the server resolves it.
+	 */
 	fieldContext?: TelemetrytypesFieldContextDTO;
+	/**
+	 * @description Data type of the field values: string, bool, int64, float64 or number. Empty means unspecified.
+	 */
 	fieldDataType?: TelemetrytypesFieldDataTypeDTO;
 	/**
 	 * @type string
+	 * @description The field name, such as service.name, k8s.pod.name or http.response.status_code. Dots are part of the name, and the names available depend on the signal and the data ingested.
 	 */
 	name: string;
+	/**
+	 * @description The signal the field belongs to: traces, logs or metrics. Empty means any signal.
+	 */
 	signal?: TelemetrytypesSignalDTO;
 	/**
 	 * @type string
+	 * @description Unit of the field values, present only for well-known fields.
 	 */
 	unit?: string;
 }
@@ -3509,6 +5127,7 @@ export interface Querybuildertypesv5GroupByKeyDTO {
 export interface Querybuildertypesv5HavingDTO {
 	/**
 	 * @type string
+	 * @description A condition on aggregation results in the filter syntax, referencing an alias or expression, for example count() > 100.
 	 */
 	expression?: string;
 }
@@ -3516,10 +5135,12 @@ export interface Querybuildertypesv5HavingDTO {
 export interface Querybuildertypesv5LimitByDTO {
 	/**
 	 * @type array,null
+	 * @description The group-by field names that partition the result before the limit is applied.
 	 */
 	keys?: string[] | null;
 	/**
 	 * @type string
+	 * @description The aggregation alias or expression whose value ranks entries within each partition.
 	 */
 	value?: string;
 }
@@ -3531,23 +5152,41 @@ export enum Querybuildertypesv5OrderDirectionDTO {
 export interface Querybuildertypesv5OrderByKeyDTO {
 	/**
 	 * @type string
+	 * @description Human-readable summary of the field, present only for well-known fields.
 	 */
 	description?: string;
+	/**
+	 * @description Where the field lives: resource, attribute, scope, span, trace, log, body or metric. Empty means unspecified, so the server resolves it.
+	 */
 	fieldContext?: TelemetrytypesFieldContextDTO;
+	/**
+	 * @description Data type of the field values: string, bool, int64, float64 or number. Empty means unspecified.
+	 */
 	fieldDataType?: TelemetrytypesFieldDataTypeDTO;
 	/**
 	 * @type string
+	 * @description The field name, such as service.name, k8s.pod.name or http.response.status_code. Dots are part of the name, and the names available depend on the signal and the data ingested.
 	 */
 	name: string;
+	/**
+	 * @description The signal the field belongs to: traces, logs or metrics. Empty means any signal.
+	 */
 	signal?: TelemetrytypesSignalDTO;
 	/**
 	 * @type string
+	 * @description Unit of the field values, present only for well-known fields.
 	 */
 	unit?: string;
 }
 
 export interface Querybuildertypesv5OrderByDTO {
+	/**
+	 * @description The sort direction: asc or desc.
+	 */
 	direction?: Querybuildertypesv5OrderDirectionDTO;
+	/**
+	 * @description The sort key. For aggregation requests name is a group-by field such as service.name, an aggregation alias, or the aggregation expression: count() or p99(duration_nano) for traces and logs; for metrics the spaceAggregation(timeAggregation(metricName)) form such as sum(rate(signoz_calls_total)), p99(metricName) for histogram metrics, or __result. Raw requests sort by any field, such as timestamp.
+	 */
 	key?: Querybuildertypesv5OrderByKeyDTO;
 }
 
@@ -3559,122 +5198,562 @@ export type Querybuildertypesv5StepDTO = string | number;
 export interface Querybuildertypesv5SecondaryAggregationDTO {
 	/**
 	 * @type string
+	 * @description The name the aggregation is reported under; when omitted, the result carries the alias __result_N, with N the zero-based index of the aggregation.
 	 */
 	alias?: string;
 	/**
 	 * @type string
+	 * @description The aggregation over the primary results, such as count(), sum(item_price) or countIf(day > 10).
 	 */
 	expression?: string;
 	/**
 	 * @type array,null
+	 * @description The fields to group this aggregation by.
 	 */
 	groupBy?: Querybuildertypesv5GroupByKeyDTO[] | null;
 	/**
 	 * @type integer
+	 * @description The maximum number of groups to return. Unlimited when 0.
 	 */
 	limit?: number;
+	/**
+	 * @description Applies limit within each distinct combination of the given keys.
+	 */
 	limitBy?: Querybuildertypesv5LimitByDTO;
 	/**
 	 * @type array,null
+	 * @description The sort order of this aggregation result.
 	 */
 	order?: Querybuildertypesv5OrderByDTO[] | null;
+	/**
+	 * @description The time bucket for this aggregation: seconds as a number or a Go duration string. Uses the primary aggregation step when omitted.
+	 */
 	stepInterval?: Querybuildertypesv5StepDTO;
 }
 
 export interface TelemetrytypesTelemetryFieldKeyDTO {
 	/**
 	 * @type string
+	 * @description Human-readable summary of the field, present only for well-known fields.
 	 */
 	description?: string;
+	/**
+	 * @description Where the field lives: resource, attribute, scope, span, trace, log, body or metric. Empty means unspecified, so the server resolves it.
+	 */
 	fieldContext?: TelemetrytypesFieldContextDTO;
+	/**
+	 * @description Data type of the field values: string, bool, int64, float64 or number. Empty means unspecified.
+	 */
 	fieldDataType?: TelemetrytypesFieldDataTypeDTO;
 	/**
 	 * @type string
+	 * @description The field name, such as service.name, k8s.pod.name or http.response.status_code. Dots are part of the name, and the names available depend on the signal and the data ingested.
 	 */
 	name: string;
+	/**
+	 * @description The signal the field belongs to: traces, logs or metrics. Empty means any signal.
+	 */
 	signal?: TelemetrytypesSignalDTO;
 	/**
 	 * @type string
+	 * @description Unit of the field values, present only for well-known fields.
 	 */
 	unit?: string;
 }
 
-export enum Querybuildertypesv5QueryBuilderQueryGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5LogAggregationDTOSignal {
-	logs = 'logs',
-}
 export enum TelemetrytypesSourceDTO {
 	meter = 'meter',
 	'' = '',
 }
-export interface Querybuildertypesv5QueryBuilderQueryGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5LogAggregationDTO {
+export interface DashboardtypesAIBuilderQuerySpecDTO {
 	/**
 	 * @type array,null
+	 * @description The aggregations to compute, one result per entry. Traces and logs take expressions such as count() or p99(duration_nano); metrics take a metricName with time and space aggregations. Omit for raw requests.
 	 */
-	aggregations?: Querybuildertypesv5LogAggregationDTO[] | null;
+	aggregations?: Querybuildertypesv5TraceAggregationDTO[] | null;
+	/**
+	 * @description The value axis to count this query into, as a kind-discriminated linear or log bucket spec. Read only by heatmap requests, and only from the query they draw.
+	 */
+	bucketOptions?: Querybuildertypesv5BucketOptionsDTO;
 	/**
 	 * @type string
+	 * @description The opaque nextCursor value from a previous raw result, used to fetch the next page.
 	 */
 	cursor?: string;
 	/**
 	 * @type boolean
+	 * @description When true, the result is excluded from the response; the query may still run and can still feed a formula or trace operator. Defaults to false.
 	 */
 	disabled?: boolean;
+	/**
+	 * @description The filter that selects spans, in the query filter syntax, for example service.name = 'frontend' AND http.response.status_code >= 500.
+	 */
 	filter?: Querybuildertypesv5FilterDTO;
 	/**
 	 * @type array,null
+	 * @description Post-processing functions applied in order to each result series, such as absolute, cumulativeSum, timeShift or anomaly.
 	 */
 	functions?: Querybuildertypesv5FunctionDTO[] | null;
 	/**
 	 * @type array,null
+	 * @description The fields to group aggregations by; each group becomes a series or a row with the field as a label or column.
 	 */
 	groupBy?: Querybuildertypesv5GroupByKeyDTO[] | null;
+	/**
+	 * @description A filter applied to aggregation results, referencing aliases or expressions, for example count() > 100.
+	 */
 	having?: Querybuildertypesv5HavingDTO;
 	/**
 	 * @type string
+	 * @description The display name template for each series; {{field}} placeholders are replaced by group-by label values.
 	 */
 	legend?: string;
 	/**
 	 * @type integer
+	 * @description The maximum number of rows for raw requests, or of series or rows for grouped aggregations, keeping the top entries by order. When 0, aggregations are unlimited while raw requests ordered by timestamp return a page of 10000 rows; follow nextCursor for the rest.
 	 */
 	limit?: number;
+	/**
+	 * @description Reserved for applying limit within each combination of the given group-by keys. Accepted but currently ignored.
+	 */
 	limitBy?: Querybuildertypesv5LimitByDTO;
 	/**
 	 * @type string
+	 * @description The unique name of the query, such as A or B; formulas, trace operators and selectedQueryName refer to it.
 	 */
 	name?: string;
 	/**
 	 * @type integer
+	 * @description The number of rows to skip before returning results. Prefer cursor for raw requests.
 	 */
 	offset?: number;
 	/**
 	 * @type array,null
+	 * @description The sort order of the result. Order by a group-by field, an aggregation alias, or for raw requests a selected field such as timestamp.
 	 */
 	order?: Querybuildertypesv5OrderByDTO[] | null;
 	/**
 	 * @type array,null
+	 * @description Accepted but currently ignored, including their nested order, limit and limitBy.
 	 */
 	secondaryAggregations?: Querybuildertypesv5SecondaryAggregationDTO[] | null;
 	/**
 	 * @type array,null
+	 * @description The fields to return for each row in raw requests, in addition to the columns always present: timestamp and id for logs, timestamp, trace_id and span_id for traces. Ignored by aggregating requests.
+	 */
+	selectFields?: TelemetrytypesTelemetryFieldKeyDTO[] | null;
+	/**
+	 * @enum traces
+	 * @type string
+	 * @description The telemetry signal to query: traces, logs or metrics. It selects the aggregation shape and is required for builder_query.
+	 */
+	signal: DashboardtypesAIBuilderQuerySpecDTOSignal;
+	/**
+	 * @description The data source within the signal. Set to meter for Cost Meter metrics; leave empty for regular telemetry.
+	 */
+	source?: TelemetrytypesSourceDTO;
+	/**
+	 * @description The time bucket for time_series aggregation: seconds as a number or a Go duration string such as 60s or 1m. Derived from the time range when omitted.
+	 */
+	stepInterval?: Querybuildertypesv5StepDTO;
+}
+
+/**
+ * @minimum 0
+ * @maximum 1
+ * @nullable
+ */
+export type DashboardtypesFillOpacityDTO = number | null;
+
+/**
+ * The fill opacity from 0 (transparent) to 1 (opaque). Null uses the chart default.
+ */
+export type DashboardtypesAreaChartAppearanceDTOFillOpacity = DashboardtypesFillOpacityDTO | null;
+
+export enum DashboardtypesAreaFillModeDTO {
+	solid = 'solid',
+	gradient = 'gradient',
+}
+export enum DashboardtypesLineInterpolationDTO {
+	linear = 'linear',
+	spline = 'spline',
+	step_after = 'step_after',
+	step_before = 'step_before',
+}
+export enum DashboardtypesLineStyleDTO {
+	solid = 'solid',
+	dashed = 'dashed',
+}
+export interface DashboardtypesSpanGapsDTO {
+	/**
+	 * @type string
+	 * @description The largest gap still connected when fillOnlyBelow is true; longer gaps are left disconnected. Required in that case, as a positive Prometheus duration such as 30s, 5m or 1d.
+	 */
+	fillLessThan?: string;
+	/**
+	 * @type boolean
+	 * @description Controls whether lines connect across null values. When false (default), all gaps are connected. When true, only gaps smaller than fillLessThan are connected.
+	 */
+	fillOnlyBelow?: boolean;
+}
+
+export interface DashboardtypesAreaChartAppearanceDTO {
+	/**
+	 * @description The fill under each line: solid (default) or gradient.
+	 */
+	fillMode?: DashboardtypesAreaFillModeDTO;
+	/**
+	 * @description The fill opacity from 0 (transparent) to 1 (opaque). Null uses the chart default.
+	 */
+	fillOpacity?: DashboardtypesAreaChartAppearanceDTOFillOpacity;
+	/**
+	 * @description How points are joined: linear, spline (default), step_after or step_before.
+	 */
+	lineInterpolation?: DashboardtypesLineInterpolationDTO;
+	/**
+	 * @description The line stroke: solid (default) or dashed.
+	 */
+	lineStyle?: DashboardtypesLineStyleDTO;
+	/**
+	 * @type boolean
+	 * @description Whether each data point is marked on the line.
+	 */
+	showPoints?: boolean;
+	/**
+	 * @description Whether lines connect across missing points.
+	 */
+	spanGaps?: DashboardtypesSpanGapsDTO;
+}
+
+export interface DashboardtypesAxesDTO {
+	/**
+	 * @type boolean
+	 * @description Whether the Y axis uses a logarithmic scale.
+	 */
+	isLogScale?: boolean;
+	/**
+	 * @type number,null
+	 * @description The highest value the Y axis always shows; data above it still extends the axis. Null fits the data.
+	 */
+	softMax?: number | null;
+	/**
+	 * @type number,null
+	 * @description The lowest value the Y axis always shows; data below it still extends the axis. Null fits the data.
+	 */
+	softMin?: number | null;
+}
+
+export enum DashboardtypesPrecisionOptionDTO {
+	NUMBER_0 = '0',
+	NUMBER_1 = '1',
+	NUMBER_2 = '2',
+	NUMBER_3 = '3',
+	NUMBER_4 = '4',
+	full = 'full',
+}
+export interface DashboardtypesPanelFormattingDTO {
+	/**
+	 * @description Decimal places shown: 0, 1, 2 (default), 3, 4 or full.
+	 */
+	decimalPrecision?: DashboardtypesPrecisionOptionDTO;
+	/**
+	 * @type string
+	 * @description The display unit of the values, such as By, ms, s, percent or percentunit. Use percent for values already expressed as percentages (95 displays as 95%) and percentunit for fractions (0.95 displays as 95%). Empty shows plain numbers.
+	 */
+	unit?: string;
+}
+
+export enum DashboardtypesLegendModeDTO {
+	list = 'list',
+}
+export enum DashboardtypesLegendPositionDTO {
+	bottom = 'bottom',
+	right = 'right',
+}
+/**
+ * Hex colors keyed by series label, overriding the automatic palette.
+ */
+export type DashboardtypesLegendDTOCustomColorsAnyOf = {
+	[key: string]: string;
+};
+
+/**
+ * Hex colors keyed by series label, overriding the automatic palette.
+ * @nullable
+ */
+export type DashboardtypesLegendDTOCustomColors = DashboardtypesLegendDTOCustomColorsAnyOf | null;
+
+export interface DashboardtypesLegendDTO {
+	/**
+	 * @type object,null
+	 * @description Hex colors keyed by series label, overriding the automatic palette.
+	 */
+	customColors?: DashboardtypesLegendDTOCustomColors;
+	/**
+	 * @description The legend layout. Only list is supported.
+	 */
+	mode?: DashboardtypesLegendModeDTO;
+	/**
+	 * @description Where the legend sits: bottom (default) or right.
+	 */
+	position?: DashboardtypesLegendPositionDTO;
+}
+
+export interface DashboardtypesThresholdWithLabelDTO {
+	/**
+	 * @type string
+	 * @description The CSS color of the line, for example #F1575F, which matches the SigNoz red preset; CSS named colors such as red also work.
+	 */
+	color: string;
+	/**
+	 * @type string
+	 * @description The caption shown on the line.
+	 */
+	label?: string;
+	/**
+	 * @type string
+	 * @description The unit id of value, such as ms or percent. Empty means the panel's unit, or the column's unit for a table threshold. Prefer the panel's unit; a different unit works only when it converts to it, such as s against a panel in ms.
+	 */
+	unit?: string;
+	/**
+	 * @type number
+	 * @format double
+	 * @description The value the line is drawn at, in unit.
+	 */
+	value: number;
+}
+
+export enum DashboardtypesStackModeDTO {
+	none = 'none',
+	normal = 'normal',
+	percent = 'percent',
+}
+export enum DashboardtypesTimePreferenceDTO {
+	global_time = 'global_time',
+	last_5_min = 'last_5_min',
+	last_15_min = 'last_15_min',
+	last_30_min = 'last_30_min',
+	last_1_hr = 'last_1_hr',
+	last_6_hr = 'last_6_hr',
+	last_1_day = 'last_1_day',
+	last_3_days = 'last_3_days',
+	last_1_week = 'last_1_week',
+	last_1_month = 'last_1_month',
+}
+export interface DashboardtypesAreaChartVisualizationDTO {
+	/**
+	 * @type boolean
+	 * @description Whether intervals with no data are drawn as zero instead of a gap.
+	 */
+	fillSpans?: boolean;
+	/**
+	 * @description How the areas combine: none (default) overlays them, normal stacks the values, percent stacks them as shares of the total.
+	 */
+	stack?: DashboardtypesStackModeDTO;
+	/**
+	 * @description The time range the panel queries: global_time (default) follows the dashboard range; last_5_min, last_15_min, last_30_min, last_1_hr, last_6_hr, last_1_day, last_3_days, last_1_week or last_1_month pin a fixed window.
+	 */
+	timePreference?: DashboardtypesTimePreferenceDTO;
+}
+
+export interface DashboardtypesAreaChartPanelSpecDTO {
+	/**
+	 * @description Y axis bounds and scale.
+	 */
+	axes?: DashboardtypesAxesDTO;
+	/**
+	 * @description Line and fill drawing options.
+	 */
+	chartAppearance?: DashboardtypesAreaChartAppearanceDTO;
+	/**
+	 * @description Unit and decimal precision of the values.
+	 */
+	formatting?: DashboardtypesPanelFormattingDTO;
+	/**
+	 * @description Legend placement and series colors.
+	 */
+	legend?: DashboardtypesLegendDTO;
+	/**
+	 * @type array,null
+	 * @description Horizontal reference lines drawn at fixed values.
+	 */
+	thresholds?: DashboardtypesThresholdWithLabelDTO[] | null;
+	/**
+	 * @description Time range, gap handling and stacking.
+	 */
+	visualization?: DashboardtypesAreaChartVisualizationDTO;
+}
+
+export interface DashboardtypesBarChartVisualizationDTO {
+	/**
+	 * @type boolean
+	 * @description Whether intervals with no data are drawn as zero instead of a gap.
+	 */
+	fillSpans?: boolean;
+	/**
+	 * @type boolean
+	 * @description Whether the series are stacked on top of each other.
+	 */
+	stackedBarChart?: boolean;
+	/**
+	 * @description The time range the panel queries: global_time (default) follows the dashboard range; last_5_min, last_15_min, last_30_min, last_1_hr, last_6_hr, last_1_day, last_3_days, last_1_week or last_1_month pin a fixed window.
+	 */
+	timePreference?: DashboardtypesTimePreferenceDTO;
+}
+
+export interface DashboardtypesBarChartPanelSpecDTO {
+	/**
+	 * @description Y axis bounds and scale.
+	 */
+	axes?: DashboardtypesAxesDTO;
+	/**
+	 * @description Unit and decimal precision of the values.
+	 */
+	formatting?: DashboardtypesPanelFormattingDTO;
+	/**
+	 * @description Legend placement and series colors.
+	 */
+	legend?: DashboardtypesLegendDTO;
+	/**
+	 * @type array,null
+	 * @description Horizontal reference lines drawn at fixed values.
+	 */
+	thresholds?: DashboardtypesThresholdWithLabelDTO[] | null;
+	/**
+	 * @description Time range, gap handling and stacking.
+	 */
+	visualization?: DashboardtypesBarChartVisualizationDTO;
+}
+
+export interface DashboardtypesBasicVisualizationDTO {
+	/**
+	 * @description The time range the panel queries: global_time (default) follows the dashboard range; last_5_min, last_15_min, last_30_min, last_1_hr, last_6_hr, last_1_day, last_3_days, last_1_week or last_1_month pin a fixed window.
+	 */
+	timePreference?: DashboardtypesTimePreferenceDTO;
+}
+
+export interface Querybuildertypesv5LogAggregationDTO {
+	/**
+	 * @type string
+	 * @description The name the aggregation is reported under; when omitted, the result carries the alias __result_N, with N the zero-based index of the aggregation.
+	 */
+	alias?: string;
+	/**
+	 * @type string
+	 * @description The aggregation over log records, such as count(), sum(item_price), count_distinct(user_id) or countIf(day > 10).
+	 */
+	expression?: string;
+}
+
+/**
+ * The telemetry signal to query: traces, logs or metrics. It selects the aggregation shape and is required for builder_query.
+ */
+export enum Querybuildertypesv5QueryBuilderQueryGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5LogAggregationDTOSignal {
+	logs = 'logs',
+}
+export interface Querybuildertypesv5QueryBuilderQueryGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5LogAggregationDTO {
+	/**
+	 * @type array,null
+	 * @description The aggregations to compute, one result per entry. Traces and logs take expressions such as count() or p99(duration_nano); metrics take a metricName with time and space aggregations. Omit for raw requests.
+	 */
+	aggregations?: Querybuildertypesv5LogAggregationDTO[] | null;
+	/**
+	 * @description The value axis to count this query into, as a kind-discriminated linear or log bucket spec. Read only by heatmap requests, and only from the query they draw.
+	 */
+	bucketOptions?: Querybuildertypesv5BucketOptionsDTO;
+	/**
+	 * @type string
+	 * @description The opaque nextCursor value from a previous raw result, used to fetch the next page.
+	 */
+	cursor?: string;
+	/**
+	 * @type boolean
+	 * @description When true, the result is excluded from the response; the query may still run and can still feed a formula or trace operator. Defaults to false.
+	 */
+	disabled?: boolean;
+	/**
+	 * @description The filter that selects log records, in the query filter syntax, for example severity_text = 'ERROR' AND body CONTAINS 'timeout'.
+	 */
+	filter?: Querybuildertypesv5FilterDTO;
+	/**
+	 * @type array,null
+	 * @description Post-processing functions applied in order to each result series, such as absolute, cumulativeSum, timeShift or anomaly.
+	 */
+	functions?: Querybuildertypesv5FunctionDTO[] | null;
+	/**
+	 * @type array,null
+	 * @description The fields to group aggregations by; each group becomes a series or a row with the field as a label or column.
+	 */
+	groupBy?: Querybuildertypesv5GroupByKeyDTO[] | null;
+	/**
+	 * @description A filter applied to aggregation results, referencing aliases or expressions, for example count() > 100.
+	 */
+	having?: Querybuildertypesv5HavingDTO;
+	/**
+	 * @type string
+	 * @description The display name template for each series; {{field}} placeholders are replaced by group-by label values.
+	 */
+	legend?: string;
+	/**
+	 * @type integer
+	 * @description The maximum number of rows for raw requests, or of series or rows for grouped aggregations, keeping the top entries by order. When 0, aggregations are unlimited while raw requests ordered by timestamp return a page of 10000 rows; follow nextCursor for the rest.
+	 */
+	limit?: number;
+	/**
+	 * @description Reserved for applying limit within each combination of the given group-by keys. Accepted but currently ignored.
+	 */
+	limitBy?: Querybuildertypesv5LimitByDTO;
+	/**
+	 * @type string
+	 * @description The unique name of the query, such as A or B; formulas, trace operators and selectedQueryName refer to it.
+	 */
+	name?: string;
+	/**
+	 * @type integer
+	 * @description The number of rows to skip before returning results. Prefer cursor for raw requests.
+	 */
+	offset?: number;
+	/**
+	 * @type array,null
+	 * @description The sort order of the result. Order by a group-by field, an aggregation alias, or for raw requests a selected field such as timestamp.
+	 */
+	order?: Querybuildertypesv5OrderByDTO[] | null;
+	/**
+	 * @type array,null
+	 * @description Accepted but currently ignored, including their nested order, limit and limitBy.
+	 */
+	secondaryAggregations?: Querybuildertypesv5SecondaryAggregationDTO[] | null;
+	/**
+	 * @type array,null
+	 * @description The fields to return for each row in raw requests, in addition to the columns always present: timestamp and id for logs, timestamp, trace_id and span_id for traces. Ignored by aggregating requests.
 	 */
 	selectFields?: TelemetrytypesTelemetryFieldKeyDTO[] | null;
 	/**
 	 * @enum logs
 	 * @type string
+	 * @description The telemetry signal to query: traces, logs or metrics. It selects the aggregation shape and is required for builder_query.
 	 */
 	signal: Querybuildertypesv5QueryBuilderQueryGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5LogAggregationDTOSignal;
+	/**
+	 * @description The data source within the signal. Set to meter for Cost Meter metrics; leave empty for regular telemetry.
+	 */
 	source?: TelemetrytypesSourceDTO;
+	/**
+	 * @description The time bucket for time_series aggregation: seconds as a number or a Go duration string such as 60s or 1m. Derived from the time range when omitted.
+	 */
 	stepInterval?: Querybuildertypesv5StepDTO;
 }
 
 export interface MetrictypesComparisonSpaceAggregationParamDTO {
 	/**
 	 * @type string
+	 * @description Comparison applied to histogram bucket bounds when spaceAggregation is count: <= gives the estimated count of observations at or below threshold, > the estimated count above it.
 	 */
 	operator: string;
 	/**
 	 * @type number
 	 * @format double
+	 * @description Bucket bound the comparison uses, in the unit of the histogram metric. The count is exact when threshold equals one of the metric's le bucket bounds, and otherwise an estimate interpolated linearly between the two nearest bounds.
 	 */
 	threshold: number;
 }
@@ -3719,153 +5798,228 @@ export enum MetrictypesTimeAggregationDTO {
 	'' = '',
 }
 export interface Querybuildertypesv5MetricAggregationDTO {
+	/**
+	 * @description Histogram metrics with spaceAggregation count only: the comparison operator and bucket bound used to estimate how many observations fall at or below, or above, the threshold. Ignored for other metric types and aggregations.
+	 */
 	comparisonSpaceAggregationParam?: MetrictypesComparisonSpaceAggregationParamDTO;
 	/**
 	 * @type string
+	 * @description The name of the metric to query, for example k8s.pod.cpu_request_utilization.
 	 */
 	metricName?: string;
+	/**
+	 * @description How a series collapses to one number in scalar requests: sum, count, avg, min, max, last or median. Ignored by time_series requests.
+	 */
 	reduceTo?: Querybuildertypesv5ReduceToDTO;
+	/**
+	 * @description How series are combined across each group, such as sum, avg, min, max or count; histograms take percentiles such as p50, p90, p95 or p99.
+	 */
 	spaceAggregation?: MetrictypesSpaceAggregationDTO;
+	/**
+	 * @description The temporality of the metric: delta, cumulative or unspecified. Resolved from the metric metadata when omitted.
+	 */
 	temporality?: MetrictypesTemporalityDTO;
+	/**
+	 * @description How samples of one series are combined within each step, such as avg, sum, min, max, count, count_distinct, latest, rate or increase.
+	 */
 	timeAggregation?: MetrictypesTimeAggregationDTO;
 }
 
+/**
+ * The telemetry signal to query: traces, logs or metrics. It selects the aggregation shape and is required for builder_query.
+ */
 export enum Querybuildertypesv5QueryBuilderQueryGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5MetricAggregationDTOSignal {
 	metrics = 'metrics',
 }
 export interface Querybuildertypesv5QueryBuilderQueryGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5MetricAggregationDTO {
 	/**
 	 * @type array,null
+	 * @description The aggregations to compute, one result per entry. Traces and logs take expressions such as count() or p99(duration_nano); metrics take a metricName with time and space aggregations. Omit for raw requests.
 	 */
 	aggregations?: Querybuildertypesv5MetricAggregationDTO[] | null;
 	/**
+	 * @description The value axis to count this query into, as a kind-discriminated linear or log bucket spec. Read only by heatmap requests, and only from the query they draw.
+	 */
+	bucketOptions?: Querybuildertypesv5BucketOptionsDTO;
+	/**
 	 * @type string
+	 * @description The opaque nextCursor value from a previous raw result, used to fetch the next page.
 	 */
 	cursor?: string;
 	/**
 	 * @type boolean
+	 * @description When true, the result is excluded from the response; the query may still run and can still feed a formula or trace operator. Defaults to false.
 	 */
 	disabled?: boolean;
+	/**
+	 * @description The filter that selects series by their attributes, in the query filter syntax, for example k8s.namespace.name = 'prod' AND k8s.pod.name LIKE 'api%'.
+	 */
 	filter?: Querybuildertypesv5FilterDTO;
 	/**
 	 * @type array,null
+	 * @description Post-processing functions applied in order to each result series, such as absolute, cumulativeSum, timeShift or anomaly.
 	 */
 	functions?: Querybuildertypesv5FunctionDTO[] | null;
 	/**
 	 * @type array,null
+	 * @description The fields to group aggregations by; each group becomes a series or a row with the field as a label or column.
 	 */
 	groupBy?: Querybuildertypesv5GroupByKeyDTO[] | null;
+	/**
+	 * @description A filter applied to aggregation results, referencing aliases or expressions, for example count() > 100.
+	 */
 	having?: Querybuildertypesv5HavingDTO;
 	/**
 	 * @type string
+	 * @description The display name template for each series; {{field}} placeholders are replaced by group-by label values.
 	 */
 	legend?: string;
 	/**
 	 * @type integer
+	 * @description The maximum number of rows for raw requests, or of series or rows for grouped aggregations, keeping the top entries by order. When 0, aggregations are unlimited while raw requests ordered by timestamp return a page of 10000 rows; follow nextCursor for the rest.
 	 */
 	limit?: number;
+	/**
+	 * @description Reserved for applying limit within each combination of the given group-by keys. Accepted but currently ignored.
+	 */
 	limitBy?: Querybuildertypesv5LimitByDTO;
 	/**
 	 * @type string
+	 * @description The unique name of the query, such as A or B; formulas, trace operators and selectedQueryName refer to it.
 	 */
 	name?: string;
 	/**
 	 * @type integer
+	 * @description The number of rows to skip before returning results. Prefer cursor for raw requests.
 	 */
 	offset?: number;
 	/**
 	 * @type array,null
+	 * @description The sort order of the result. Order by a group-by field, an aggregation alias, or for raw requests a selected field such as timestamp.
 	 */
 	order?: Querybuildertypesv5OrderByDTO[] | null;
 	/**
 	 * @type array,null
+	 * @description Accepted but currently ignored, including their nested order, limit and limitBy.
 	 */
 	secondaryAggregations?: Querybuildertypesv5SecondaryAggregationDTO[] | null;
 	/**
 	 * @type array,null
+	 * @description The fields to return for each row in raw requests, in addition to the columns always present: timestamp and id for logs, timestamp, trace_id and span_id for traces. Ignored by aggregating requests.
 	 */
 	selectFields?: TelemetrytypesTelemetryFieldKeyDTO[] | null;
 	/**
 	 * @enum metrics
 	 * @type string
+	 * @description The telemetry signal to query: traces, logs or metrics. It selects the aggregation shape and is required for builder_query.
 	 */
 	signal: Querybuildertypesv5QueryBuilderQueryGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5MetricAggregationDTOSignal;
+	/**
+	 * @description The data source within the signal. Set to meter for Cost Meter metrics; leave empty for regular telemetry.
+	 */
 	source?: TelemetrytypesSourceDTO;
+	/**
+	 * @description The time bucket for time_series aggregation: seconds as a number or a Go duration string such as 60s or 1m. Derived from the time range when omitted.
+	 */
 	stepInterval?: Querybuildertypesv5StepDTO;
 }
 
-export interface Querybuildertypesv5TraceAggregationDTO {
-	/**
-	 * @type string
-	 */
-	alias?: string;
-	/**
-	 * @type string
-	 */
-	expression?: string;
-}
-
+/**
+ * The telemetry signal to query: traces, logs or metrics. It selects the aggregation shape and is required for builder_query.
+ */
 export enum Querybuildertypesv5QueryBuilderQueryGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5TraceAggregationDTOSignal {
 	traces = 'traces',
 }
 export interface Querybuildertypesv5QueryBuilderQueryGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5TraceAggregationDTO {
 	/**
 	 * @type array,null
+	 * @description The aggregations to compute, one result per entry. Traces and logs take expressions such as count() or p99(duration_nano); metrics take a metricName with time and space aggregations. Omit for raw requests.
 	 */
 	aggregations?: Querybuildertypesv5TraceAggregationDTO[] | null;
 	/**
+	 * @description The value axis to count this query into, as a kind-discriminated linear or log bucket spec. Read only by heatmap requests, and only from the query they draw.
+	 */
+	bucketOptions?: Querybuildertypesv5BucketOptionsDTO;
+	/**
 	 * @type string
+	 * @description The opaque nextCursor value from a previous raw result, used to fetch the next page.
 	 */
 	cursor?: string;
 	/**
 	 * @type boolean
+	 * @description When true, the result is excluded from the response; the query may still run and can still feed a formula or trace operator. Defaults to false.
 	 */
 	disabled?: boolean;
+	/**
+	 * @description The filter that selects spans, in the query filter syntax, for example service.name = 'frontend' AND http.response.status_code >= 500.
+	 */
 	filter?: Querybuildertypesv5FilterDTO;
 	/**
 	 * @type array,null
+	 * @description Post-processing functions applied in order to each result series, such as absolute, cumulativeSum, timeShift or anomaly.
 	 */
 	functions?: Querybuildertypesv5FunctionDTO[] | null;
 	/**
 	 * @type array,null
+	 * @description The fields to group aggregations by; each group becomes a series or a row with the field as a label or column.
 	 */
 	groupBy?: Querybuildertypesv5GroupByKeyDTO[] | null;
+	/**
+	 * @description A filter applied to aggregation results, referencing aliases or expressions, for example count() > 100.
+	 */
 	having?: Querybuildertypesv5HavingDTO;
 	/**
 	 * @type string
+	 * @description The display name template for each series; {{field}} placeholders are replaced by group-by label values.
 	 */
 	legend?: string;
 	/**
 	 * @type integer
+	 * @description The maximum number of rows for raw requests, or of series or rows for grouped aggregations, keeping the top entries by order. When 0, aggregations are unlimited while raw requests ordered by timestamp return a page of 10000 rows; follow nextCursor for the rest.
 	 */
 	limit?: number;
+	/**
+	 * @description Reserved for applying limit within each combination of the given group-by keys. Accepted but currently ignored.
+	 */
 	limitBy?: Querybuildertypesv5LimitByDTO;
 	/**
 	 * @type string
+	 * @description The unique name of the query, such as A or B; formulas, trace operators and selectedQueryName refer to it.
 	 */
 	name?: string;
 	/**
 	 * @type integer
+	 * @description The number of rows to skip before returning results. Prefer cursor for raw requests.
 	 */
 	offset?: number;
 	/**
 	 * @type array,null
+	 * @description The sort order of the result. Order by a group-by field, an aggregation alias, or for raw requests a selected field such as timestamp.
 	 */
 	order?: Querybuildertypesv5OrderByDTO[] | null;
 	/**
 	 * @type array,null
+	 * @description Accepted but currently ignored, including their nested order, limit and limitBy.
 	 */
 	secondaryAggregations?: Querybuildertypesv5SecondaryAggregationDTO[] | null;
 	/**
 	 * @type array,null
+	 * @description The fields to return for each row in raw requests, in addition to the columns always present: timestamp and id for logs, timestamp, trace_id and span_id for traces. Ignored by aggregating requests.
 	 */
 	selectFields?: TelemetrytypesTelemetryFieldKeyDTO[] | null;
 	/**
 	 * @enum traces
 	 * @type string
+	 * @description The telemetry signal to query: traces, logs or metrics. It selects the aggregation shape and is required for builder_query.
 	 */
 	signal: Querybuildertypesv5QueryBuilderQueryGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5TraceAggregationDTOSignal;
+	/**
+	 * @description The data source within the signal. Set to meter for Cost Meter metrics; leave empty for regular telemetry.
+	 */
 	source?: TelemetrytypesSourceDTO;
+	/**
+	 * @description The time bucket for time_series aggregation: seconds as a number or a Go duration string such as 60s or 1m. Derived from the time range when omitted.
+	 */
 	stepInterval?: Querybuildertypesv5StepDTO;
 }
 
@@ -3889,17 +6043,26 @@ export enum DashboardtypesThresholdFormatDTO {
 export interface DashboardtypesComparisonThresholdDTO {
 	/**
 	 * @type string
+	 * @description The CSS color applied to the text or background, per format, while the threshold is active. For example #F1575F matches the SigNoz red preset; CSS named colors such as red also work.
 	 */
 	color: string;
+	/**
+	 * @description What the color is applied to: text (default) or background.
+	 */
 	format?: DashboardtypesThresholdFormatDTO;
+	/**
+	 * @description The comparison that activates the threshold: above (default), below, above_or_equal, below_or_equal, equal or not_equal.
+	 */
 	operator?: DashboardtypesComparisonOperatorDTO;
 	/**
 	 * @type string
+	 * @description The unit id of value, such as ms or percent. Empty means the panel's unit, or the column's unit for a table threshold. Prefer the panel's unit; a different unit works only when it converts to it, such as s against a panel in ms.
 	 */
 	unit?: string;
 	/**
 	 * @type number
 	 * @format double
+	 * @description The value compared against, in unit.
 	 */
 	value: number;
 }
@@ -3907,77 +6070,40 @@ export interface DashboardtypesComparisonThresholdDTO {
 export interface DashboardtypesCustomVariableSpecDTO {
 	/**
 	 * @type string
+	 * @description The fixed values as a comma-separated list, such as 1,10,100.
 	 */
 	customValue: string;
-}
-
-export interface DashboardtypesStorableDashboardDataDTO {
-	[key: string]: unknown;
-}
-
-export enum DashboardtypesSourceDTO {
-	user = 'user',
-	system = 'system',
-	integration = 'integration',
-}
-export interface DashboardtypesDashboardDTO {
-	/**
-	 * @type string
-	 * @format date-time
-	 */
-	createdAt?: string;
-	/**
-	 * @type string
-	 */
-	createdBy?: string;
-	data?: DashboardtypesStorableDashboardDataDTO;
-	/**
-	 * @type string
-	 */
-	id?: string;
-	/**
-	 * @type boolean
-	 */
-	locked?: boolean;
-	/**
-	 * @type string
-	 */
-	org_id?: string;
-	source?: DashboardtypesSourceDTO;
-	/**
-	 * @type string
-	 * @format date-time
-	 */
-	updatedAt?: string;
-	/**
-	 * @type string
-	 */
-	updatedBy?: string;
 }
 
 export interface DashboardtypesDashboardPanelRefDTO {
 	/**
 	 * @type string
+	 * @description The id of the dashboard containing the panel.
 	 */
 	dashboardId: string;
 	/**
 	 * @type string
+	 * @description The dashboard name.
 	 */
 	dashboardName: string;
 	/**
 	 * @type array
+	 * @description The metric labels the panel filters on.
 	 */
 	filterBy?: string[];
 	/**
 	 * @type array
+	 * @description The metric labels the panel groups by.
 	 */
 	groupBy?: string[];
 	/**
 	 * @type string
+	 * @description The panel id within the dashboard.
 	 */
 	panelId: string;
 	/**
 	 * @type string
+	 * @description The panel title.
 	 */
 	panelName: string;
 }
@@ -3988,10 +6114,13 @@ export enum DashboardtypesPanelKindDTO {
 export interface DashboardtypesDisplayDTO {
 	/**
 	 * @type string
+	 * @description A free-text description.
 	 */
 	description?: string;
 	/**
 	 * @type string
+	 * @maxLength 128
+	 * @description The human-readable title, at most 128 characters.
 	 */
 	name: string;
 }
@@ -3999,26 +6128,34 @@ export interface DashboardtypesDisplayDTO {
 export interface DashboardtypesLinkDTO {
 	/**
 	 * @type string
+	 * @description The link label.
 	 */
 	name?: string;
 	/**
 	 * @type boolean
+	 * @description Whether dashboard variable values are substituted into url before opening it.
 	 */
 	renderVariables?: boolean;
 	/**
 	 * @type boolean
+	 * @description Whether the link opens in a new tab.
 	 */
 	targetBlank?: boolean;
 	/**
 	 * @type string
+	 * @description Hover text for the link. Stored, but not shown by the UI.
 	 */
 	tooltip?: string;
 	/**
 	 * @type string
+	 * @description The link target. May reference dashboard variables as {{name}} when renderVariables is true.
 	 */
 	url?: string;
 }
 
+/**
+ * The panel kind.
+ */
 export enum DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesTimeSeriesPanelSpecDTOKind {
 	'signoz/TimeSeriesPanel' = 'signoz/TimeSeriesPanel',
 }
@@ -4027,57 +6164,67 @@ export enum DashboardtypesFillModeDTO {
 	gradient = 'gradient',
 	none = 'none',
 }
-export enum DashboardtypesLineInterpolationDTO {
-	linear = 'linear',
-	spline = 'spline',
-	step_after = 'step_after',
-	step_before = 'step_before',
-}
-export enum DashboardtypesLineStyleDTO {
-	solid = 'solid',
-	dashed = 'dashed',
-}
-export interface DashboardtypesSpanGapsDTO {
-	/**
-	 * @type string
-	 * @description The maximum gap size to connect when fillOnlyBelow is true. Gaps larger than this duration are left disconnected.
-	 */
-	fillLessThan?: string;
-	/**
-	 * @type boolean
-	 * @description Controls whether lines connect across null values. When false (default), all gaps are connected. When true, only gaps smaller than fillLessThan are connected.
-	 */
-	fillOnlyBelow?: boolean;
-}
-
 export interface DashboardtypesTimeSeriesChartAppearanceDTO {
+	/**
+	 * @description The fill under each line: none (default), solid or gradient.
+	 */
 	fillMode?: DashboardtypesFillModeDTO;
+	/**
+	 * @description How points are joined: linear, spline (default), step_after or step_before.
+	 */
 	lineInterpolation?: DashboardtypesLineInterpolationDTO;
+	/**
+	 * @description The line stroke: solid (default) or dashed.
+	 */
 	lineStyle?: DashboardtypesLineStyleDTO;
 	/**
 	 * @type boolean
+	 * @description Whether each data point is marked on the line.
 	 */
 	showPoints?: boolean;
+	/**
+	 * @description Whether lines connect across missing points.
+	 */
 	spanGaps?: DashboardtypesSpanGapsDTO;
 }
 
 export interface DashboardtypesTimeSeriesVisualizationDTO {
 	/**
 	 * @type boolean
+	 * @description Whether intervals with no data are drawn as zero instead of a gap.
 	 */
 	fillSpans?: boolean;
+	/**
+	 * @description The time range the panel queries: global_time (default) follows the dashboard range; last_5_min, last_15_min, last_30_min, last_1_hr, last_6_hr, last_1_day, last_3_days, last_1_week or last_1_month pin a fixed window.
+	 */
 	timePreference?: DashboardtypesTimePreferenceDTO;
 }
 
 export interface DashboardtypesTimeSeriesPanelSpecDTO {
+	/**
+	 * @description Y axis bounds and scale.
+	 */
 	axes?: DashboardtypesAxesDTO;
+	/**
+	 * @description Line drawing options.
+	 */
 	chartAppearance?: DashboardtypesTimeSeriesChartAppearanceDTO;
+	/**
+	 * @description Unit and decimal precision of the values.
+	 */
 	formatting?: DashboardtypesPanelFormattingDTO;
+	/**
+	 * @description Legend placement and series colors.
+	 */
 	legend?: DashboardtypesLegendDTO;
 	/**
 	 * @type array,null
+	 * @description Horizontal reference lines drawn at fixed values.
 	 */
 	thresholds?: DashboardtypesThresholdWithLabelDTO[] | null;
+	/**
+	 * @description Time range and gap handling.
+	 */
 	visualization?: DashboardtypesTimeSeriesVisualizationDTO;
 }
 
@@ -4085,11 +6232,18 @@ export interface DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDa
 	/**
 	 * @enum signoz/TimeSeriesPanel
 	 * @type string
+	 * @description The panel kind.
 	 */
 	kind: DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesTimeSeriesPanelSpecDTOKind;
+	/**
+	 * @description The options for this panel kind. {} accepts every default.
+	 */
 	spec: DashboardtypesTimeSeriesPanelSpecDTO;
 }
 
+/**
+ * The panel kind.
+ */
 export enum DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesBarChartPanelSpecDTOKind {
 	'signoz/BarChartPanel' = 'signoz/BarChartPanel',
 }
@@ -4097,20 +6251,53 @@ export interface DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDa
 	/**
 	 * @enum signoz/BarChartPanel
 	 * @type string
+	 * @description The panel kind.
 	 */
 	kind: DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesBarChartPanelSpecDTOKind;
+	/**
+	 * @description The options for this panel kind. {} accepts every default.
+	 */
 	spec: DashboardtypesBarChartPanelSpecDTO;
 }
 
+/**
+ * The panel kind.
+ */
+export enum DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesAreaChartPanelSpecDTOKind {
+	'signoz/AreaChartPanel' = 'signoz/AreaChartPanel',
+}
+export interface DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesAreaChartPanelSpecDTO {
+	/**
+	 * @enum signoz/AreaChartPanel
+	 * @type string
+	 * @description The panel kind.
+	 */
+	kind: DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesAreaChartPanelSpecDTOKind;
+	/**
+	 * @description The options for this panel kind. {} accepts every default.
+	 */
+	spec: DashboardtypesAreaChartPanelSpecDTO;
+}
+
+/**
+ * The panel kind.
+ */
 export enum DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesNumberPanelSpecDTOKind {
 	'signoz/NumberPanel' = 'signoz/NumberPanel',
 }
 export interface DashboardtypesNumberPanelSpecDTO {
+	/**
+	 * @description Unit and decimal precision of the value.
+	 */
 	formatting?: DashboardtypesPanelFormattingDTO;
 	/**
 	 * @type array,null
+	 * @description Rules that recolor the value when it compares to a threshold as specified.
 	 */
 	thresholds?: DashboardtypesComparisonThresholdDTO[] | null;
+	/**
+	 * @description The time range the value is computed over.
+	 */
 	visualization?: DashboardtypesBasicVisualizationDTO;
 }
 
@@ -4118,17 +6305,33 @@ export interface DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDa
 	/**
 	 * @enum signoz/NumberPanel
 	 * @type string
+	 * @description The panel kind.
 	 */
 	kind: DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesNumberPanelSpecDTOKind;
+	/**
+	 * @description The options for this panel kind. {} accepts every default.
+	 */
 	spec: DashboardtypesNumberPanelSpecDTO;
 }
 
+/**
+ * The panel kind.
+ */
 export enum DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesPieChartPanelSpecDTOKind {
 	'signoz/PieChartPanel' = 'signoz/PieChartPanel',
 }
 export interface DashboardtypesPieChartPanelSpecDTO {
+	/**
+	 * @description Unit and decimal precision of the slice values.
+	 */
 	formatting?: DashboardtypesPanelFormattingDTO;
+	/**
+	 * @description Legend placement and slice colors.
+	 */
 	legend?: DashboardtypesLegendDTO;
+	/**
+	 * @description The time range the slices are computed over.
+	 */
 	visualization?: DashboardtypesBasicVisualizationDTO;
 }
 
@@ -4136,60 +6339,91 @@ export interface DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDa
 	/**
 	 * @enum signoz/PieChartPanel
 	 * @type string
+	 * @description The panel kind.
 	 */
 	kind: DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesPieChartPanelSpecDTOKind;
+	/**
+	 * @description The options for this panel kind. {} accepts every default.
+	 */
 	spec: DashboardtypesPieChartPanelSpecDTO;
 }
 
+/**
+ * The panel kind.
+ */
 export enum DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesTablePanelSpecDTOKind {
 	'signoz/TablePanel' = 'signoz/TablePanel',
 }
+/**
+ * Unit id per value column, keyed by the column key: the query name for a builder query with one aggregation (A), the query name dotted with the aggregation expression for several (A.count()), or the SQL alias for a ClickHouse SQL column. Aggregation aliases are display labels, not keys.
+ */
 export type DashboardtypesTableFormattingDTOColumnUnitsAnyOf = {
 	[key: string]: string;
 };
 
 /**
+ * Unit id per value column, keyed by the column key: the query name for a builder query with one aggregation (A), the query name dotted with the aggregation expression for several (A.count()), or the SQL alias for a ClickHouse SQL column. Aggregation aliases are display labels, not keys.
  * @nullable
  */
-export type DashboardtypesTableFormattingDTOColumnUnits =
-	DashboardtypesTableFormattingDTOColumnUnitsAnyOf | null;
+export type DashboardtypesTableFormattingDTOColumnUnits = DashboardtypesTableFormattingDTOColumnUnitsAnyOf | null;
 
 export interface DashboardtypesTableFormattingDTO {
 	/**
 	 * @type object,null
+	 * @description Unit id per value column, keyed by the column key: the query name for a builder query with one aggregation (A), the query name dotted with the aggregation expression for several (A.count()), or the SQL alias for a ClickHouse SQL column. Aggregation aliases are display labels, not keys.
 	 */
 	columnUnits?: DashboardtypesTableFormattingDTOColumnUnits;
+	/**
+	 * @description Decimal places shown: 0, 1, 2 (default), 3, 4 or full.
+	 */
 	decimalPrecision?: DashboardtypesPrecisionOptionDTO;
 }
 
 export interface DashboardtypesTableThresholdDTO {
 	/**
 	 * @type string
+	 * @description The CSS color applied to the text or background, per format, while the threshold is active. For example #F1575F matches the SigNoz red preset; CSS named colors such as red also work.
 	 */
 	color: string;
 	/**
 	 * @type string
+	 * @description The key of the value column the rule applies to: the query name for a builder query with one aggregation (A), the query name dotted with the aggregation expression for several (A.count()), or the SQL alias for a ClickHouse SQL column. Group-by columns are never colored, and aggregation aliases are display labels, not keys.
 	 */
 	columnName: string;
+	/**
+	 * @description What the color is applied to: text (default) or background.
+	 */
 	format?: DashboardtypesThresholdFormatDTO;
+	/**
+	 * @description The comparison that activates the threshold: above (default), below, above_or_equal, below_or_equal, equal or not_equal.
+	 */
 	operator?: DashboardtypesComparisonOperatorDTO;
 	/**
 	 * @type string
+	 * @description The unit id of value, such as ms or percent. Empty means the panel's unit, or the column's unit for a table threshold. Prefer the panel's unit; a different unit works only when it converts to it, such as s against a panel in ms.
 	 */
 	unit?: string;
 	/**
 	 * @type number
 	 * @format double
+	 * @description The value compared against, in unit.
 	 */
 	value: number;
 }
 
 export interface DashboardtypesTablePanelSpecDTO {
+	/**
+	 * @description Per-column units and decimal precision.
+	 */
 	formatting?: DashboardtypesTableFormattingDTO;
 	/**
 	 * @type array,null
+	 * @description Rules that recolor a cell when its column value compares to a threshold as specified.
 	 */
 	thresholds?: DashboardtypesTableThresholdDTO[] | null;
+	/**
+	 * @description The time range the rows are computed over.
+	 */
 	visualization?: DashboardtypesBasicVisualizationDTO;
 }
 
@@ -4197,31 +6431,47 @@ export interface DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDa
 	/**
 	 * @enum signoz/TablePanel
 	 * @type string
+	 * @description The panel kind.
 	 */
 	kind: DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesTablePanelSpecDTOKind;
+	/**
+	 * @description The options for this panel kind. {} accepts every default.
+	 */
 	spec: DashboardtypesTablePanelSpecDTO;
 }
 
+/**
+ * The panel kind.
+ */
 export enum DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesHistogramPanelSpecDTOKind {
 	'signoz/HistogramPanel' = 'signoz/HistogramPanel',
 }
 export interface DashboardtypesHistogramBucketsDTO {
 	/**
 	 * @type number,null
+	 * @description The approximate target number of buckets. Ignored when bucketWidth is positive. Null uses the chart default.
 	 */
 	bucketCount?: number | null;
 	/**
 	 * @type number,null
+	 * @description The width of each bucket in the value unit. A positive value takes precedence over bucketCount; null or 0 lets the chart choose.
 	 */
 	bucketWidth?: number | null;
 	/**
 	 * @type boolean
+	 * @description Whether every series is combined into a single histogram instead of one per series.
 	 */
 	mergeAllActiveQueries?: boolean;
 }
 
 export interface DashboardtypesHistogramPanelSpecDTO {
+	/**
+	 * @description How values are grouped into buckets.
+	 */
 	histogramBuckets?: DashboardtypesHistogramBucketsDTO;
+	/**
+	 * @description Legend placement and series colors.
+	 */
 	legend?: DashboardtypesLegendDTO;
 }
 
@@ -4229,17 +6479,25 @@ export interface DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDa
 	/**
 	 * @enum signoz/HistogramPanel
 	 * @type string
+	 * @description The panel kind.
 	 */
 	kind: DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesHistogramPanelSpecDTOKind;
+	/**
+	 * @description The options for this panel kind. {} accepts every default.
+	 */
 	spec: DashboardtypesHistogramPanelSpecDTO;
 }
 
+/**
+ * The panel kind.
+ */
 export enum DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesListPanelSpecDTOKind {
 	'signoz/ListPanel' = 'signoz/ListPanel',
 }
 export interface DashboardtypesListPanelSpecDTO {
 	/**
 	 * @type array,null
+	 * @description The columns shown for each row, as field keys with name and optional fieldContext, fieldDataType and signal. Empty shows the default columns.
 	 */
 	selectFields?: TelemetrytypesTelemetryFieldKeyDTO[] | null;
 }
@@ -4248,19 +6506,227 @@ export interface DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDa
 	/**
 	 * @enum signoz/ListPanel
 	 * @type string
+	 * @description The panel kind.
 	 */
 	kind: DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesListPanelSpecDTOKind;
+	/**
+	 * @description The options for this panel kind. {} accepts every default.
+	 */
 	spec: DashboardtypesListPanelSpecDTO;
+}
+
+/**
+ * The panel kind.
+ */
+export enum DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesTextPanelSpecDTOKind {
+	'signoz/TextPanel' = 'signoz/TextPanel',
+}
+export interface DashboardtypesHeaderOptionsDTO {
+	/**
+	 * @type boolean
+	 * @description Whether the title and description row above the content is hidden.
+	 */
+	hide?: boolean;
+}
+
+export enum DashboardtypesTextModeDTO {
+	markdown = 'markdown',
+}
+export enum DashboardtypesTextAlignDTO {
+	left = 'left',
+	center = 'center',
+	right = 'right',
+}
+export enum DashboardtypesVerticalAlignDTO {
+	top = 'top',
+	center = 'center',
+	bottom = 'bottom',
+}
+export interface DashboardtypesTextPresentationDTO {
+	/**
+	 * @type string,null
+	 * @description A hex background color such as #1f2937. Omit for the panel default.
+	 */
+	background?: string | null;
+	/**
+	 * @description Horizontal alignment: left (default), center or right.
+	 */
+	textAlign?: DashboardtypesTextAlignDTO;
+	/**
+	 * @description Vertical alignment: top (default), center or bottom.
+	 */
+	verticalAlign?: DashboardtypesVerticalAlignDTO;
+}
+
+export interface DashboardtypesTextPanelSpecDTO {
+	/**
+	 * @description Whether the panel header is shown.
+	 */
+	headerOptions?: DashboardtypesHeaderOptionsDTO;
+	/**
+	 * @description How text is interpreted. Only markdown is supported.
+	 */
+	mode?: DashboardtypesTextModeDTO;
+	/**
+	 * @description Alignment and background of the content.
+	 */
+	presentation?: DashboardtypesTextPresentationDTO;
+	/**
+	 * @type string
+	 * @description The content to render.
+	 */
+	text?: string;
+}
+
+export interface DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesTextPanelSpecDTO {
+	/**
+	 * @enum signoz/TextPanel
+	 * @type string
+	 * @description The panel kind.
+	 */
+	kind: DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesTextPanelSpecDTOKind;
+	/**
+	 * @description The options for this panel kind. {} accepts every default.
+	 */
+	spec: DashboardtypesTextPanelSpecDTO;
+}
+
+/**
+ * The panel kind.
+ */
+export enum DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesHeatmapPanelSpecDTOKind {
+	'signoz/HeatmapPanel' = 'signoz/HeatmapPanel',
+}
+export enum DashboardtypesHeatmapYScaleDTO {
+	auto = 'auto',
+	linear = 'linear',
+	log = 'log',
+	symlog = 'symlog',
+}
+export interface DashboardtypesHeatmapAxisDTO {
+	/**
+	 * @description How bucket bounds are spaced on the axis: auto (default), linear, log or symlog.
+	 */
+	scale?: DashboardtypesHeatmapYScaleDTO;
+}
+
+export interface DashboardtypesHeatmapAxesDTO {
+	/**
+	 * @description The bucket axis.
+	 */
+	y?: DashboardtypesHeatmapAxisDTO;
+}
+
+export enum DashboardtypesHeatmapColorModeDTO {
+	palette = 'palette',
+	opacity = 'opacity',
+}
+export enum DashboardtypesHeatmapPaletteDTO {
+	ice = 'ice',
+	moss = 'moss',
+	rust = 'rust',
+	graphite = 'graphite',
+	ember = 'ember',
+	lagoon = 'lagoon',
+	orchid = 'orchid',
+	verdant = 'verdant',
+	lava = 'lava',
+	beacon = 'beacon',
+}
+export enum DashboardtypesHeatmapColorScaleDTO {
+	log = 'log',
+	sqrt = 'sqrt',
+	linear = 'linear',
+}
+export interface DashboardtypesHeatmapColorsDTO {
+	/**
+	 * @type string
+	 * @description The hex color varied in opacity mode. Empty uses the series legend color.
+	 */
+	fill?: string;
+	/**
+	 * @type number,null
+	 * @description The count mapped to the highest color. Null uses the highest count in the grid.
+	 */
+	maxCount?: number | null;
+	/**
+	 * @type number,null
+	 * @description The count mapped to the lowest color. Null uses 0. Must not exceed maxCount.
+	 */
+	minCount?: number | null;
+	/**
+	 * @description How counts are colored: palette (default) picks a hue from palette, opacity varies the opacity of fill.
+	 */
+	mode?: DashboardtypesHeatmapColorModeDTO;
+	/**
+	 * @description The named color ramp used in palette mode, such as lava (default), ice or ember.
+	 */
+	palette?: DashboardtypesHeatmapPaletteDTO;
+	/**
+	 * @description How counts map onto the color range: log (default), sqrt or linear.
+	 */
+	scale?: DashboardtypesHeatmapColorScaleDTO;
+	/**
+	 * @type integer
+	 * @description The number of distinct color steps, 2 to 128. 0 uses the chart default.
+	 */
+	steps?: number;
+}
+
+export interface DashboardtypesHeatmapChartAppearanceDTO {
+	/**
+	 * @description The color scale applied to bucket counts.
+	 */
+	colors?: DashboardtypesHeatmapColorsDTO;
+}
+
+export interface DashboardtypesHeatmapPanelSpecDTO {
+	/**
+	 * @description The Y axis scale.
+	 */
+	axes?: DashboardtypesHeatmapAxesDTO;
+	/**
+	 * @description How bucket counts map to colors.
+	 */
+	chartAppearance?: DashboardtypesHeatmapChartAppearanceDTO;
+	/**
+	 * @description Unit and decimal precision of the bucket bounds.
+	 */
+	formatting?: DashboardtypesPanelFormattingDTO;
+	/**
+	 * @description Legend placement and series colors.
+	 */
+	legend?: DashboardtypesLegendDTO;
+	/**
+	 * @description The time range the heatmap covers.
+	 */
+	visualization?: DashboardtypesBasicVisualizationDTO;
+}
+
+export interface DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesHeatmapPanelSpecDTO {
+	/**
+	 * @enum signoz/HeatmapPanel
+	 * @type string
+	 * @description The panel kind.
+	 */
+	kind: DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesHeatmapPanelSpecDTOKind;
+	/**
+	 * @description The options for this panel kind. {} accepts every default.
+	 */
+	spec: DashboardtypesHeatmapPanelSpecDTO;
 }
 
 export type DashboardtypesPanelPluginDTO =
 	| DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesTimeSeriesPanelSpecDTO
 	| DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesBarChartPanelSpecDTO
+	| DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesAreaChartPanelSpecDTO
 	| DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesNumberPanelSpecDTO
 	| DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesPieChartPanelSpecDTO
 	| DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesTablePanelSpecDTO
 	| DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesHistogramPanelSpecDTO
-	| DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesListPanelSpecDTO;
+	| DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesListPanelSpecDTO
+	| DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesTextPanelSpecDTO
+	| DashboardtypesPanelPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesHeatmapPanelSpecDTO;
 
 export enum Querybuildertypesv5RequestTypeDTO {
 	scalar = 'scalar',
@@ -4268,7 +6734,11 @@ export enum Querybuildertypesv5RequestTypeDTO {
 	raw = 'raw',
 	raw_stream = 'raw_stream',
 	trace = 'trace',
+	heatmap = 'heatmap',
 }
+/**
+ * The query kind.
+ */
 export enum DashboardtypesQueryPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesBuilderQuerySpecDTOKind {
 	'signoz/BuilderQuery' = 'signoz/BuilderQuery',
 }
@@ -4276,11 +6746,37 @@ export interface DashboardtypesQueryPluginVariantGithubComSigNozSignozPkgTypesDa
 	/**
 	 * @enum signoz/BuilderQuery
 	 * @type string
+	 * @description The query kind.
 	 */
 	kind: DashboardtypesQueryPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesBuilderQuerySpecDTOKind;
+	/**
+	 * @description The kind-specific query spec.
+	 */
 	spec: DashboardtypesBuilderQuerySpecDTO;
 }
 
+/**
+ * The query kind.
+ */
+export enum DashboardtypesQueryPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesAIBuilderQuerySpecDTOKind {
+	'signoz/AIBuilderQuery' = 'signoz/AIBuilderQuery',
+}
+export interface DashboardtypesQueryPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesAIBuilderQuerySpecDTO {
+	/**
+	 * @enum signoz/AIBuilderQuery
+	 * @type string
+	 * @description The query kind.
+	 */
+	kind: DashboardtypesQueryPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesAIBuilderQuerySpecDTOKind;
+	/**
+	 * @description The kind-specific query spec.
+	 */
+	spec: DashboardtypesAIBuilderQuerySpecDTO;
+}
+
+/**
+ * The query kind.
+ */
 export enum DashboardtypesQueryPluginVariantGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5CompositeQueryDTOKind {
 	'signoz/CompositeQuery' = 'signoz/CompositeQuery',
 }
@@ -4289,70 +6785,105 @@ export type Querybuildertypesv5BuilderQuerySpecDTO =
 	| Querybuildertypesv5QueryBuilderQueryGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5LogAggregationDTO
 	| Querybuildertypesv5QueryBuilderQueryGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5MetricAggregationDTO;
 
+/**
+ * The type of the query.
+ */
 export enum Querybuildertypesv5QueryEnvelopeBuilderDTOType {
 	builder_query = 'builder_query',
 }
 export interface Querybuildertypesv5QueryEnvelopeBuilderDTO {
+	/**
+	 * @description The builder query specification.
+	 */
 	spec?: Querybuildertypesv5BuilderQuerySpecDTO;
 	/**
 	 * @type string
 	 * @enum builder_query
+	 * @description The type of the query.
 	 */
 	type: Querybuildertypesv5QueryEnvelopeBuilderDTOType;
 }
 
+/**
+ * The type of the query.
+ */
 export enum Querybuildertypesv5QueryEnvelopeBuilderAIDTOType {
 	builder_ai_query = 'builder_ai_query',
 }
 export interface Querybuildertypesv5QueryEnvelopeBuilderAIDTO {
+	/**
+	 * @description The AI builder query specification.
+	 */
 	spec?: Querybuildertypesv5QueryBuilderQueryGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5TraceAggregationDTO;
 	/**
 	 * @type string
 	 * @enum builder_ai_query
+	 * @description The type of the query.
 	 */
 	type: Querybuildertypesv5QueryEnvelopeBuilderAIDTOType;
 }
 
 export interface Querybuildertypesv5QueryBuilderFormulaDTO {
 	/**
+	 * @description The value axis to count the formula result into, as a kind-discriminated linear or log bucket spec. Read only by heatmap requests, and only from the query they draw.
+	 */
+	bucketOptions?: Querybuildertypesv5BucketOptionsDTO;
+	/**
 	 * @type boolean
+	 * @description When true, the result is excluded from the response; the formula may still be evaluated. Defaults to false.
 	 */
 	disabled?: boolean;
 	/**
 	 * @type string
+	 * @description An arithmetic expression over builder query names, for example A / B * 100. Reference queries, not other formulas.
 	 */
 	expression?: string;
 	/**
 	 * @type array,null
+	 * @description Post-processing functions applied in order to each result series.
 	 */
 	functions?: Querybuildertypesv5FunctionDTO[] | null;
+	/**
+	 * @description Accepted but currently ignored; the computed values are returned unfiltered.
+	 */
 	having?: Querybuildertypesv5HavingDTO;
 	/**
 	 * @type string
+	 * @description The display name template for each series; {{field}} placeholders are replaced by label values.
 	 */
 	legend?: string;
 	/**
 	 * @type integer
+	 * @description The maximum number of series or rows to return. Unlimited when 0.
 	 */
 	limit?: number;
 	/**
 	 * @type string
+	 * @description The unique name of the formula, such as F1, used by selectedQueryName and by panels. Referencing a formula from another formula is not reliable.
 	 */
 	name?: string;
 	/**
 	 * @type array,null
+	 * @description The sort order of the formula result.
 	 */
 	order?: Querybuildertypesv5OrderByDTO[] | null;
 }
 
+/**
+ * The type of the query.
+ */
 export enum Querybuildertypesv5QueryEnvelopeFormulaDTOType {
 	builder_formula = 'builder_formula',
 }
 export interface Querybuildertypesv5QueryEnvelopeFormulaDTO {
+	/**
+	 * @description The formula specification.
+	 */
 	spec?: Querybuildertypesv5QueryBuilderFormulaDTO;
 	/**
 	 * @type string
 	 * @enum builder_formula
+	 * @description The type of the query.
 	 */
 	type: Querybuildertypesv5QueryEnvelopeFormulaDTOType;
 }
@@ -4360,69 +6891,98 @@ export interface Querybuildertypesv5QueryEnvelopeFormulaDTO {
 export interface Querybuildertypesv5QueryBuilderTraceOperatorDTO {
 	/**
 	 * @type array,null
+	 * @description The aggregations to compute over the matched traces for scalar and time_series requests.
 	 */
 	aggregations?: Querybuildertypesv5TraceAggregationDTO[] | null;
 	/**
 	 * @type string
+	 * @description Accepted but currently ignored by the trace operator; page raw results with offset.
 	 */
 	cursor?: string;
 	/**
 	 * @type boolean
+	 * @description When true, the result is excluded from the response but the query may still run. Defaults to false.
 	 */
 	disabled?: boolean;
 	/**
 	 * @type string
+	 * @description A trace-structure expression over traces builder query names using => for direct child, -> for descendant, && for both present, || for either present and NOT for absence, for example A => B && NOT C. At most 10 operators.
 	 */
 	expression?: string;
+	/**
+	 * @description Accepted but currently not applied to the matched traces. Put filters on the operand queries instead.
+	 */
 	filter?: Querybuildertypesv5FilterDTO;
 	/**
 	 * @type array,null
+	 * @description Post-processing functions applied in order to each result series.
 	 */
 	functions?: Querybuildertypesv5FunctionDTO[] | null;
 	/**
 	 * @type array,null
+	 * @description The fields to group aggregations by.
 	 */
 	groupBy?: Querybuildertypesv5GroupByKeyDTO[] | null;
+	/**
+	 * @description A condition on the aggregation results, for example count() > 10.
+	 */
 	having?: Querybuildertypesv5HavingDTO;
 	/**
 	 * @type string
+	 * @description The display name template for each series; {{field}} placeholders are replaced by group-by label values.
 	 */
 	legend?: string;
 	/**
 	 * @type integer
+	 * @description The maximum number of traces or groups to return. For raw requests 0 means 100 rows; for aggregations 0 means unlimited.
 	 */
 	limit?: number;
 	/**
 	 * @type string
+	 * @description The unique name of the trace operator query.
 	 */
 	name?: string;
 	/**
 	 * @type integer
+	 * @description The number of raw results to skip before returning. Aggregation requests ignore it.
 	 */
 	offset?: number;
 	/**
 	 * @type array,null
+	 * @description The sort order of the matched traces; only span_count and trace_duration may be used as keys.
 	 */
 	order?: Querybuildertypesv5OrderByDTO[] | null;
 	/**
 	 * @type string
+	 * @description The name of the operand query whose spans are returned; when empty, the spans matched by the whole expression are returned.
 	 */
 	returnSpansFrom?: string;
 	/**
 	 * @type array,null
+	 * @description The span fields to return for each row in raw requests, in addition to the always-present timestamp, trace_id and span_id columns.
 	 */
 	selectFields?: TelemetrytypesTelemetryFieldKeyDTO[] | null;
+	/**
+	 * @description The time bucket for time_series aggregation: seconds as a number or a Go duration string such as 60s.
+	 */
 	stepInterval?: Querybuildertypesv5StepDTO;
 }
 
+/**
+ * The type of the query.
+ */
 export enum Querybuildertypesv5QueryEnvelopeTraceOperatorDTOType {
 	builder_trace_operator = 'builder_trace_operator',
 }
 export interface Querybuildertypesv5QueryEnvelopeTraceOperatorDTO {
+	/**
+	 * @description The trace operator specification.
+	 */
 	spec?: Querybuildertypesv5QueryBuilderTraceOperatorDTO;
 	/**
 	 * @type string
 	 * @enum builder_trace_operator
+	 * @description The type of the query.
 	 */
 	type: Querybuildertypesv5QueryEnvelopeTraceOperatorDTOType;
 }
@@ -4430,35 +6990,55 @@ export interface Querybuildertypesv5QueryEnvelopeTraceOperatorDTO {
 export interface Querybuildertypesv5PromQueryDTO {
 	/**
 	 * @type boolean
+	 * @description When true, the result is excluded from the response but the query may still run. Defaults to false.
 	 */
 	disabled?: boolean;
 	/**
 	 * @type string
+	 * @description The display name template for each series; {{label}} placeholders are replaced by label values.
 	 */
 	legend?: string;
 	/**
 	 * @type string
+	 * @description The unique name of the query, such as A.
 	 */
 	name?: string;
 	/**
 	 * @type string
+	 * @description The PromQL expression. Dotted metric and label names must use the UTF-8 quoted selector form, for example {'http.server.duration'}.
 	 */
 	query?: string;
 	/**
 	 * @type boolean
+	 * @description When true, start and end are evaluated as given instead of rounded down to the step, and the result is not cached. Defaults to false.
+	 */
+	skipStepAlignment?: boolean;
+	/**
+	 * @type boolean
+	 * @description Reserved; currently has no effect.
 	 */
 	stats?: boolean;
+	/**
+	 * @description The evaluation step: seconds as a number or a Go duration string such as 60s. Derived from the time range when omitted.
+	 */
 	step?: Querybuildertypesv5StepDTO;
 }
 
+/**
+ * The type of the query.
+ */
 export enum Querybuildertypesv5QueryEnvelopePromQLDTOType {
 	promql = 'promql',
 }
 export interface Querybuildertypesv5QueryEnvelopePromQLDTO {
+	/**
+	 * @description The PromQL query specification.
+	 */
 	spec?: Querybuildertypesv5PromQueryDTO;
 	/**
 	 * @type string
 	 * @enum promql
+	 * @description The type of the query.
 	 */
 	type: Querybuildertypesv5QueryEnvelopePromQLDTOType;
 }
@@ -4466,30 +7046,41 @@ export interface Querybuildertypesv5QueryEnvelopePromQLDTO {
 export interface Querybuildertypesv5ClickHouseQueryDTO {
 	/**
 	 * @type boolean
+	 * @description When true, the result is excluded from the response but the query may still run. Defaults to false.
 	 */
 	disabled?: boolean;
 	/**
 	 * @type string
+	 * @description The display name template for each series; {{column}} placeholders are replaced by result column values.
 	 */
 	legend?: string;
 	/**
 	 * @type string
+	 * @description The unique name of the query, such as A.
 	 */
 	name?: string;
 	/**
 	 * @type string
+	 * @description The ClickHouse SQL statement. Reserved time placeholders such as {{.start_timestamp}}, {{.end_timestamp}}, {{.start_timestamp_ms}} and {{.start_datetime}} and dashboard variables written as {{name}}, [[name]] or $name are substituted before execution.
 	 */
 	query?: string;
 }
 
+/**
+ * The type of the query.
+ */
 export enum Querybuildertypesv5QueryEnvelopeClickHouseSQLDTOType {
 	clickhouse_sql = 'clickhouse_sql',
 }
 export interface Querybuildertypesv5QueryEnvelopeClickHouseSQLDTO {
+	/**
+	 * @description The ClickHouse SQL query specification.
+	 */
 	spec?: Querybuildertypesv5ClickHouseQueryDTO;
 	/**
 	 * @type string
 	 * @enum clickhouse_sql
+	 * @description The type of the query.
 	 */
 	type: Querybuildertypesv5QueryEnvelopeClickHouseSQLDTOType;
 }
@@ -4508,6 +7099,7 @@ export type Querybuildertypesv5QueryEnvelopeDTO =
 export interface Querybuildertypesv5CompositeQueryDTO {
 	/**
 	 * @type array,null
+	 * @description The queries to run, each wrapped in a type-discriminated envelope. Names must be unique; formulas and trace operators reference other queries by name.
 	 */
 	queries?: Querybuildertypesv5QueryEnvelopeDTO[] | null;
 }
@@ -4516,11 +7108,18 @@ export interface DashboardtypesQueryPluginVariantGithubComSigNozSignozPkgTypesQu
 	/**
 	 * @enum signoz/CompositeQuery
 	 * @type string
+	 * @description The query kind.
 	 */
 	kind: DashboardtypesQueryPluginVariantGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5CompositeQueryDTOKind;
+	/**
+	 * @description The kind-specific query spec.
+	 */
 	spec: Querybuildertypesv5CompositeQueryDTO;
 }
 
+/**
+ * The query kind.
+ */
 export enum DashboardtypesQueryPluginVariantGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5QueryBuilderFormulaDTOKind {
 	'signoz/Formula' = 'signoz/Formula',
 }
@@ -4528,11 +7127,18 @@ export interface DashboardtypesQueryPluginVariantGithubComSigNozSignozPkgTypesQu
 	/**
 	 * @enum signoz/Formula
 	 * @type string
+	 * @description The query kind.
 	 */
 	kind: DashboardtypesQueryPluginVariantGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5QueryBuilderFormulaDTOKind;
+	/**
+	 * @description The kind-specific query spec.
+	 */
 	spec: Querybuildertypesv5QueryBuilderFormulaDTO;
 }
 
+/**
+ * The query kind.
+ */
 export enum DashboardtypesQueryPluginVariantGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5PromQueryDTOKind {
 	'signoz/PromQLQuery' = 'signoz/PromQLQuery',
 }
@@ -4540,11 +7146,18 @@ export interface DashboardtypesQueryPluginVariantGithubComSigNozSignozPkgTypesQu
 	/**
 	 * @enum signoz/PromQLQuery
 	 * @type string
+	 * @description The query kind.
 	 */
 	kind: DashboardtypesQueryPluginVariantGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5PromQueryDTOKind;
+	/**
+	 * @description The kind-specific query spec.
+	 */
 	spec: Querybuildertypesv5PromQueryDTO;
 }
 
+/**
+ * The query kind.
+ */
 export enum DashboardtypesQueryPluginVariantGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5ClickHouseQueryDTOKind {
 	'signoz/ClickHouseSQL' = 'signoz/ClickHouseSQL',
 }
@@ -4552,11 +7165,18 @@ export interface DashboardtypesQueryPluginVariantGithubComSigNozSignozPkgTypesQu
 	/**
 	 * @enum signoz/ClickHouseSQL
 	 * @type string
+	 * @description The query kind.
 	 */
 	kind: DashboardtypesQueryPluginVariantGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5ClickHouseQueryDTOKind;
+	/**
+	 * @description The kind-specific query spec.
+	 */
 	spec: Querybuildertypesv5ClickHouseQueryDTO;
 }
 
+/**
+ * The query kind.
+ */
 export enum DashboardtypesQueryPluginVariantGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5QueryBuilderTraceOperatorDTOKind {
 	'signoz/TraceOperator' = 'signoz/TraceOperator',
 }
@@ -4564,13 +7184,18 @@ export interface DashboardtypesQueryPluginVariantGithubComSigNozSignozPkgTypesQu
 	/**
 	 * @enum signoz/TraceOperator
 	 * @type string
+	 * @description The query kind.
 	 */
 	kind: DashboardtypesQueryPluginVariantGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5QueryBuilderTraceOperatorDTOKind;
+	/**
+	 * @description The kind-specific query spec.
+	 */
 	spec: Querybuildertypesv5QueryBuilderTraceOperatorDTO;
 }
 
 export type DashboardtypesQueryPluginDTO =
 	| DashboardtypesQueryPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesBuilderQuerySpecDTO
+	| DashboardtypesQueryPluginVariantGithubComSigNozSignozPkgTypesDashboardtypesAIBuilderQuerySpecDTO
 	| DashboardtypesQueryPluginVariantGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5CompositeQueryDTO
 	| DashboardtypesQueryPluginVariantGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5QueryBuilderFormulaDTO
 	| DashboardtypesQueryPluginVariantGithubComSigNozSignozPkgTypesQuerybuildertypesQuerybuildertypesv5PromQueryDTO
@@ -4580,38 +7205,68 @@ export type DashboardtypesQueryPluginDTO =
 export interface DashboardtypesQuerySpecDTO {
 	/**
 	 * @type string
+	 * @description An optional label for the query. The name queries refer to each other by lives in the plugin spec.
 	 */
 	name?: string;
+	/**
+	 * @description The query: kind is one of signoz/BuilderQuery, signoz/AIBuilderQuery (builder query over AI observability traces), signoz/CompositeQuery (several named queries and formulas), signoz/Formula, signoz/PromQLQuery, signoz/ClickHouseSQL or signoz/TraceOperator, and spec holds that kind's query. Pie and table panels reject signoz/PromQLQuery; heatmap panels reject signoz/AIBuilderQuery and signoz/TraceOperator; list panels accept only signoz/BuilderQuery and signoz/AIBuilderQuery.
+	 */
 	plugin: DashboardtypesQueryPluginDTO;
 }
 
 export interface DashboardtypesQueryDTO {
+	/**
+	 * @description The result shape the panel requests: time_series for time series, bar, area and histogram panels, scalar for number, table and pie panels, raw for list panels, heatmap for heatmap panels, trace for trace panels.
+	 */
 	kind: Querybuildertypesv5RequestTypeDTO;
+	/**
+	 * @description The query content: an optional name and the query plugin.
+	 */
 	spec: DashboardtypesQuerySpecDTO;
 }
 
 export interface DashboardtypesPanelSpecDTO {
+	/**
+	 * @description The panel title and description.
+	 */
 	display: DashboardtypesDisplayDTO;
 	/**
 	 * @type array,null
+	 * @description Context links offered in the data point drilldown menu of the panel, with dashboard variables resolved in the URL.
 	 */
 	links?: DashboardtypesLinkDTO[] | null;
+	/**
+	 * @description The visualization: kind is one of signoz/TimeSeriesPanel, signoz/BarChartPanel, signoz/AreaChartPanel, signoz/NumberPanel, signoz/PieChartPanel, signoz/TablePanel, signoz/HistogramPanel, signoz/ListPanel, signoz/TextPanel or signoz/HeatmapPanel, and spec holds that kind's options ({} accepts every default).
+	 */
 	plugin: DashboardtypesPanelPluginDTO;
 	/**
 	 * @type array
+	 * @description The queries the panel runs. Use exactly one entry for a data panel and [] for signoz/TextPanel. To run several named queries or formulas, use one entry whose spec.plugin.kind is signoz/CompositeQuery and put the constituent queries in its plugin spec.
 	 */
 	queries: DashboardtypesQueryDTO[];
 }
 
 export interface DashboardtypesPanelDTO {
+	/**
+	 * @description The panel envelope kind. Always Panel.
+	 */
 	kind: DashboardtypesPanelKindDTO;
+	/**
+	 * @description The panel content: display, plugin, queries and links.
+	 */
 	spec: DashboardtypesPanelSpecDTO;
 }
 
+/**
+ * The panels keyed by panel id. An id has up to 75 characters from letters, digits, dot, underscore and hyphen. A panel is shown only where a layout item references it as #/spec/panels/<id>. Use {} for none.
+ */
 export type DashboardtypesDashboardSpecDTOPanels = {
 	[key: string]: DashboardtypesPanelDTO;
 };
 
+/**
+ * The layout kind.
+ */
 export enum DashboardtypesLayoutEnvelopeGithubComPersesSpecGoDashboardGridLayoutSpecDTOKind {
 	Grid = 'Grid',
 }
@@ -4619,19 +7274,29 @@ export interface DashboardtypesLayoutEnvelopeGithubComPersesSpecGoDashboardGridL
 	/**
 	 * @enum Grid
 	 * @type string
+	 * @description The layout kind.
 	 */
 	kind: DashboardtypesLayoutEnvelopeGithubComPersesSpecGoDashboardGridLayoutSpecDTOKind;
+	/**
+	 * @description The grid section: an optional display title and up to 100 items that place panels. Each item has a content.$ref of #/spec/panels/<id> plus x, y, width and height on a 12-column grid: x and y at least 0, width and height at least 1, x plus width at most 12, and no two items overlapping.
+	 */
 	spec: DashboardGridLayoutSpecDTO;
 }
 
 export type DashboardtypesLayoutDTO =
 	DashboardtypesLayoutEnvelopeGithubComPersesSpecGoDashboardGridLayoutSpecDTO;
 
+/**
+ * The variable kind.
+ */
 export enum DashboardtypesVariableEnvelopeGithubComSigNozSignozPkgTypesDashboardtypesListVariableSpecDTOKind {
 	ListVariable = 'ListVariable',
 }
 export type DashboardtypesVariableDefaultValueDTO = string | string[];
 
+/**
+ * The value source kind.
+ */
 export enum DashboardtypesVariablePluginVariantGithubComSigNozSignozPkgTypesDashboardtypesDynamicVariableSpecDTOKind {
 	'signoz/DynamicVariable' = 'signoz/DynamicVariable',
 }
@@ -4644,8 +7309,12 @@ export enum DashboardtypesDynamicVariableSignalDTO {
 export interface DashboardtypesDynamicVariableSpecDTO {
 	/**
 	 * @type string
+	 * @description The attribute key whose observed values populate the variable, such as service.name.
 	 */
 	name: string;
+	/**
+	 * @description The signal the values are read from: traces, logs, metrics or all (default).
+	 */
 	signal: DashboardtypesDynamicVariableSignalDTO;
 }
 
@@ -4653,17 +7322,25 @@ export interface DashboardtypesVariablePluginVariantGithubComSigNozSignozPkgType
 	/**
 	 * @enum signoz/DynamicVariable
 	 * @type string
+	 * @description The value source kind.
 	 */
 	kind: DashboardtypesVariablePluginVariantGithubComSigNozSignozPkgTypesDashboardtypesDynamicVariableSpecDTOKind;
+	/**
+	 * @description The kind-specific value source spec.
+	 */
 	spec: DashboardtypesDynamicVariableSpecDTO;
 }
 
+/**
+ * The value source kind.
+ */
 export enum DashboardtypesVariablePluginVariantGithubComSigNozSignozPkgTypesDashboardtypesQueryVariableSpecDTOKind {
 	'signoz/QueryVariable' = 'signoz/QueryVariable',
 }
 export interface DashboardtypesQueryVariableSpecDTO {
 	/**
 	 * @type string
+	 * @description A ClickHouse SQL query returning one column of selectable values; every returned column is offered.
 	 */
 	queryValue: string;
 }
@@ -4672,11 +7349,18 @@ export interface DashboardtypesVariablePluginVariantGithubComSigNozSignozPkgType
 	/**
 	 * @enum signoz/QueryVariable
 	 * @type string
+	 * @description The value source kind.
 	 */
 	kind: DashboardtypesVariablePluginVariantGithubComSigNozSignozPkgTypesDashboardtypesQueryVariableSpecDTOKind;
+	/**
+	 * @description The kind-specific value source spec.
+	 */
 	spec: DashboardtypesQueryVariableSpecDTO;
 }
 
+/**
+ * The value source kind.
+ */
 export enum DashboardtypesVariablePluginVariantGithubComSigNozSignozPkgTypesDashboardtypesCustomVariableSpecDTOKind {
 	'signoz/CustomVariable' = 'signoz/CustomVariable',
 }
@@ -4684,8 +7368,12 @@ export interface DashboardtypesVariablePluginVariantGithubComSigNozSignozPkgType
 	/**
 	 * @enum signoz/CustomVariable
 	 * @type string
+	 * @description The value source kind.
 	 */
 	kind: DashboardtypesVariablePluginVariantGithubComSigNozSignozPkgTypesDashboardtypesCustomVariableSpecDTOKind;
+	/**
+	 * @description The kind-specific value source spec.
+	 */
 	spec: DashboardtypesCustomVariableSpecDTO;
 }
 
@@ -4706,28 +7394,45 @@ export enum DashboardtypesListVariableSpecSortDTO {
 export interface DashboardtypesListVariableSpecDTO {
 	/**
 	 * @type boolean
+	 * @description Whether an all option is offered. Requires allowMultiple.
 	 */
 	allowAllValue?: boolean;
 	/**
 	 * @type boolean
+	 * @description Whether several values can be selected at once.
 	 */
 	allowMultiple?: boolean;
 	/**
 	 * @type string
+	 * @description A regular expression meant to keep only matching values, reduced to the capture group when one is present. Stored, but not applied by the UI.
 	 */
 	capturingRegexp?: string;
 	/**
 	 * @type string
+	 * @description The value meant to replace every value when all is selected. Requires allowAllValue. Stored, but currently ignored by the UI.
 	 */
 	customAllValue?: string;
+	/**
+	 * @description The initially selected value: a string, or a list of strings when allowMultiple is true.
+	 */
 	defaultValue?: DashboardtypesVariableDefaultValueDTO;
+	/**
+	 * @description The label shown for the variable control.
+	 */
 	display: DashboardtypesDisplayDTO;
 	/**
 	 * @type string
 	 * @minLength 1
+	 * @description The handle queries reference as $name. Up to 75 characters from letters, digits, dot, underscore and hyphen, not all digits, unique within the dashboard.
 	 */
 	name: string;
+	/**
+	 * @description Where the values come from: kind is signoz/DynamicVariable (observed attribute values), signoz/QueryVariable (a ClickHouse query) or signoz/CustomVariable (a fixed list), and spec holds that kind's settings.
+	 */
 	plugin?: DashboardtypesVariablePluginDTO;
+	/**
+	 * @description How the values are ordered: none (default), alphabetical-asc, alphabetical-desc, numerical-asc, numerical-desc, alphabetical-ci-asc or alphabetical-ci-desc.
+	 */
 	sort?: DashboardtypesListVariableSpecSortDTO;
 }
 
@@ -4735,27 +7440,40 @@ export interface DashboardtypesVariableEnvelopeGithubComSigNozSignozPkgTypesDash
 	/**
 	 * @enum ListVariable
 	 * @type string
+	 * @description The variable kind.
 	 */
 	kind: DashboardtypesVariableEnvelopeGithubComSigNozSignozPkgTypesDashboardtypesListVariableSpecDTOKind;
+	/**
+	 * @description The kind-specific variable spec.
+	 */
 	spec: DashboardtypesListVariableSpecDTO;
 }
 
+/**
+ * The variable kind.
+ */
 export enum DashboardtypesVariableEnvelopeGithubComSigNozSignozPkgTypesDashboardtypesTextVariableSpecDTOKind {
 	TextVariable = 'TextVariable',
 }
 export interface DashboardtypesTextVariableSpecDTO {
 	/**
 	 * @type boolean
+	 * @description Whether the value is meant to be fixed. Stored, but not applied by the UI.
 	 */
 	constant?: boolean;
+	/**
+	 * @description The label shown for the variable control.
+	 */
 	display: DashboardtypesDisplayDTO;
 	/**
 	 * @type string
 	 * @minLength 1
+	 * @description The handle queries reference as $name. Up to 75 characters from letters, digits, dot, underscore and hyphen, not all digits, unique within the dashboard.
 	 */
 	name: string;
 	/**
 	 * @type string
+	 * @description The default text. Must be non-empty when constant is true.
 	 */
 	value: string;
 }
@@ -4764,8 +7482,12 @@ export interface DashboardtypesVariableEnvelopeGithubComSigNozSignozPkgTypesDash
 	/**
 	 * @enum TextVariable
 	 * @type string
+	 * @description The variable kind.
 	 */
 	kind: DashboardtypesVariableEnvelopeGithubComSigNozSignozPkgTypesDashboardtypesTextVariableSpecDTOKind;
+	/**
+	 * @description The kind-specific variable spec.
+	 */
 	spec: DashboardtypesTextVariableSpecDTO;
 }
 
@@ -4774,29 +7496,38 @@ export type DashboardtypesVariableDTO =
 	| DashboardtypesVariableEnvelopeGithubComSigNozSignozPkgTypesDashboardtypesTextVariableSpecDTO;
 
 export interface DashboardtypesDashboardSpecDTO {
+	/**
+	 * @description The dashboard title and description.
+	 */
 	display: DashboardtypesDisplayDTO;
 	/**
 	 * @type string
+	 * @description The default time range, as a Prometheus duration such as 1h or 7d. Stored, but not applied by the UI.
 	 */
 	duration?: string;
 	/**
 	 * @type array
+	 * @description The Grid layouts that place panels, at most 500. Each panel can be placed at most once. Use [] for none.
 	 */
 	layouts: DashboardtypesLayoutDTO[];
 	/**
 	 * @type array,null
+	 * @description External links stored with the dashboard. Not shown by the UI.
 	 */
 	links?: DashboardtypesLinkDTO[] | null;
 	/**
 	 * @type object
+	 * @description The panels keyed by panel id. An id has up to 75 characters from letters, digits, dot, underscore and hyphen. A panel is shown only where a layout item references it as #/spec/panels/<id>. Use {} for none.
 	 */
 	panels: DashboardtypesDashboardSpecDTOPanels;
 	/**
 	 * @type string
+	 * @description The auto refresh interval, as a Prometheus duration such as 30s. Stored, but not applied by the UI.
 	 */
 	refreshInterval?: string;
 	/**
 	 * @type array
+	 * @description The dashboard variables, each a ListVariable or TextVariable envelope, referenced in queries as $name. Names must be unique. Use [] for none.
 	 */
 	variables: DashboardtypesVariableDTO[];
 }
@@ -4811,14 +7542,22 @@ export enum DashboardtypesListSortDTO {
 	name = 'name',
 }
 export interface DashboardtypesDashboardViewDataDTO {
+	/**
+	 * @description The sort direction: asc or desc (default).
+	 */
 	order?: DashboardtypesListOrderDTO;
 	/**
 	 * @type string
+	 * @description A filter expression over the reserved keys name, description, created_at, updated_at, created_by and locked, and over tag keys, using the SigNoz filter grammar: comparisons such as =, !=, CONTAINS, LIKE, IN, < and >, single-quoted strings, RFC3339 timestamps in quotes for created_at and updated_at, combined with AND, OR and NOT, for example name CONTAINS 'overview' AND created_at >= '2026-10-21T00:00:00Z'. At most 1024 characters. Empty matches every dashboard.
 	 */
 	query?: string;
+	/**
+	 * @description The sort field: updated_at (default), created_at or name.
+	 */
 	sort?: DashboardtypesListSortDTO;
 	/**
 	 * @type string
+	 * @description The view data schema version. Must be v1.
 	 */
 	version: string;
 }
@@ -4829,6 +7568,9 @@ export interface DashboardtypesDashboardViewDTO {
 	 * @format date-time
 	 */
 	createdAt?: string;
+	/**
+	 * @description The saved list filter and sort.
+	 */
 	data: DashboardtypesDashboardViewDataDTO;
 	/**
 	 * @type string
@@ -4836,10 +7578,12 @@ export interface DashboardtypesDashboardViewDTO {
 	id: string;
 	/**
 	 * @type string
+	 * @description The view name.
 	 */
 	name: string;
 	/**
 	 * @type string
+	 * @description The organization that owns the view.
 	 */
 	orgId: string;
 	/**
@@ -4849,6 +7593,11 @@ export interface DashboardtypesDashboardViewDTO {
 	updatedAt?: string;
 }
 
+export enum DashboardtypesSourceDTO {
+	user = 'user',
+	system = 'system',
+	integration = 'integration',
+}
 export interface TagtypesGettableTagDTO {
 	/**
 	 * @type string
@@ -4876,28 +7625,41 @@ export interface DashboardtypesGettableDashboardV2DTO {
 	id: string;
 	/**
 	 * @type string
+	 * @description Icon or logo shown in the dashboard list: the path of an icon or logo bundled with the UI under /assets/Icons/ or /assets/Logos/ (only the prefix is validated), or a base64 image data URI for png, jpeg, gif, webp, avif or svg. Empty for none.
 	 */
 	image?: string;
 	/**
 	 * @type boolean
+	 * @description Whether the dashboard is locked. A locked dashboard rejects update and patch until it is unlocked.
 	 */
 	locked: boolean;
 	/**
 	 * @type string
+	 * @description The dashboard's unique, immutable name, a DNS-1123 label.
 	 */
 	name: string;
 	/**
 	 * @type string
+	 * @description The organization that owns the dashboard.
 	 */
 	orgId: string;
 	/**
 	 * @type string
+	 * @pattern ^v6$
+	 * @description The dashboard schema version. Must be v6.
 	 */
 	schemaVersion: string;
+	/**
+	 * @description Where the dashboard came from: user, integration or system. Only user dashboards can be modified.
+	 */
 	source: DashboardtypesSourceDTO;
+	/**
+	 * @description The dashboard content: display, variables, panels, layouts and links.
+	 */
 	spec: DashboardtypesDashboardSpecDTO;
 	/**
 	 * @type array,null
+	 * @description The key/value tags attached to the dashboard, for example key team with value payments.
 	 */
 	tags: TagtypesGettableTagDTO[] | null;
 	/**
@@ -4914,26 +7676,90 @@ export interface DashboardtypesGettableDashboardV2DTO {
 export interface DashboardtypesGettablePublicDasbhboardDTO {
 	/**
 	 * @type string
+	 * @description The time range shown to anonymous viewers by default, as a Go duration such as 30m, 1h or 24h. Accepted units are ns, us, ms, s, m and h; write a day as 24h.
 	 */
 	defaultTimeRange?: string;
 	/**
 	 * @type string
+	 * @description The path segment of the public URL.
 	 */
 	publicPath?: string;
 	/**
 	 * @type boolean
+	 * @description Whether anonymous viewers may change the time range.
 	 */
 	timeRangeEnabled?: boolean;
 }
 
-export interface DashboardtypesGettablePublicDashboardDataDTO {
-	dashboard?: DashboardtypesDashboardDTO;
+export interface DashboardtypesGettablePublicDashboardDataV2DTO {
+	/**
+	 * @description The dashboard with panel and variable queries redacted.
+	 */
+	dashboard?: DashboardtypesGettableDashboardV2DTO;
+	/**
+	 * @description The sharing settings.
+	 */
 	publicDashboard?: DashboardtypesGettablePublicDasbhboardDTO;
 }
 
-export interface DashboardtypesGettablePublicDashboardDataV2DTO {
-	dashboard?: DashboardtypesGettableDashboardV2DTO;
-	publicDashboard?: DashboardtypesGettablePublicDasbhboardDTO;
+export interface DashboardtypesGettableSystemDashboardDTO {
+	/**
+	 * @type string
+	 * @format date-time
+	 */
+	createdAt?: string;
+	/**
+	 * @type string
+	 */
+	createdBy?: string;
+	/**
+	 * @type string
+	 * @description Icon or logo shown in the dashboard list: the path of an icon or logo bundled with the UI under /assets/Icons/ or /assets/Logos/ (only the prefix is validated), or a base64 image data URI for png, jpeg, gif, webp, avif or svg. Empty for none.
+	 */
+	image?: string;
+	/**
+	 * @type boolean
+	 * @description Whether the dashboard is locked. A locked dashboard rejects update and patch until it is unlocked.
+	 */
+	locked: boolean;
+	/**
+	 * @type string
+	 * @description The dashboard's unique, immutable name, a DNS-1123 label.
+	 */
+	name: string;
+	/**
+	 * @type string
+	 * @description The organization that owns the dashboard.
+	 */
+	orgId: string;
+	/**
+	 * @type string
+	 * @pattern ^v6$
+	 * @description The dashboard schema version. Must be v6.
+	 */
+	schemaVersion: string;
+	/**
+	 * @description Where the dashboard came from: user, integration or system. Only user dashboards can be modified.
+	 */
+	source: DashboardtypesSourceDTO;
+	/**
+	 * @description The dashboard content: display, variables, panels, layouts and links.
+	 */
+	spec: DashboardtypesDashboardSpecDTO;
+	/**
+	 * @type array,null
+	 * @description The key/value tags attached to the dashboard, for example key team with value payments.
+	 */
+	tags: TagtypesGettableTagDTO[] | null;
+	/**
+	 * @type string
+	 * @format date-time
+	 */
+	updatedAt?: string;
+	/**
+	 * @type string
+	 */
+	updatedBy?: string;
 }
 
 export enum DashboardtypesPatchOpDTO {
@@ -4950,6 +7776,9 @@ export interface DashboardtypesJSONPatchOperationDTO {
 	 * @description Source JSON Pointer for move/copy ops; ignored for other ops.
 	 */
 	from?: string;
+	/**
+	 * @description The RFC 6902 verb: add, remove, replace, move, copy or test. remove on a missing path is a no-op and add creates missing parents.
+	 */
 	op: DashboardtypesPatchOpDTO;
 	/**
 	 * @type string
@@ -4963,6 +7792,9 @@ export interface DashboardtypesJSONPatchOperationDTO {
 }
 
 export interface DashboardtypesListedDashboardV2SpecDTO {
+	/**
+	 * @description The dashboard name and description.
+	 */
 	display?: DashboardtypesDisplayDTO;
 }
 
@@ -4982,36 +7814,50 @@ export interface DashboardtypesListedDashboardForUserV2DTO {
 	id: string;
 	/**
 	 * @type string
+	 * @description Icon or logo shown in the dashboard list: the path of an icon or logo bundled with the UI under /assets/Icons/ or /assets/Logos/, or a base64 image data URI. Omitted when none is set.
 	 */
 	image?: string;
 	/**
 	 * @type boolean
+	 * @description Whether the dashboard is still in the v1 schema. It is listed but cannot be fetched or edited through the v2 endpoints.
 	 */
 	legacy: boolean;
 	/**
 	 * @type boolean
+	 * @description Whether the dashboard is locked against update and patch.
 	 */
 	locked: boolean;
 	/**
 	 * @type string
+	 * @description The dashboard's unique, immutable name.
 	 */
 	name: string;
 	/**
 	 * @type string
+	 * @description The organization that owns the dashboard.
 	 */
 	orgId: string;
 	/**
 	 * @type boolean
+	 * @description Whether the calling user has pinned the dashboard.
 	 */
 	pinned: boolean;
 	/**
 	 * @type string
+	 * @description The dashboard schema version, v6 for v2 dashboards.
 	 */
 	schemaVersion: string;
+	/**
+	 * @description Where the dashboard came from: user or integration. System dashboards are not listed.
+	 */
 	source: DashboardtypesSourceDTO;
+	/**
+	 * @description The display part of the dashboard spec. Panels, variables and layouts are not included in list rows.
+	 */
 	spec: DashboardtypesListedDashboardV2SpecDTO;
 	/**
 	 * @type array
+	 * @description The tags attached to the dashboard.
 	 */
 	tags: TagtypesGettableTagDTO[];
 	/**
@@ -5028,19 +7874,23 @@ export interface DashboardtypesListedDashboardForUserV2DTO {
 export interface DashboardtypesListableDashboardForUserV2DTO {
 	/**
 	 * @type array
+	 * @description The dashboards on this page, each with the calling user's pin state.
 	 */
 	dashboards: DashboardtypesListedDashboardForUserV2DTO[];
 	/**
 	 * @type array
+	 * @description The filter keys that address dashboard columns rather than tags.
 	 */
 	reservedKeywords: string[];
 	/**
 	 * @type array
+	 * @description Every dashboard tag in the organization, for building filters.
 	 */
 	tags: TagtypesGettableTagDTO[];
 	/**
 	 * @type integer
 	 * @format int64
+	 * @description The number of dashboards matching the filter across every page.
 	 */
 	total: number;
 }
@@ -5061,32 +7911,45 @@ export interface DashboardtypesListedDashboardV2DTO {
 	id: string;
 	/**
 	 * @type string
+	 * @description Icon or logo shown in the dashboard list: the path of an icon or logo bundled with the UI under /assets/Icons/ or /assets/Logos/, or a base64 image data URI. Omitted when none is set.
 	 */
 	image?: string;
 	/**
 	 * @type boolean
+	 * @description Whether the dashboard is still in the v1 schema. It is listed but cannot be fetched or edited through the v2 endpoints.
 	 */
 	legacy: boolean;
 	/**
 	 * @type boolean
+	 * @description Whether the dashboard is locked against update and patch.
 	 */
 	locked: boolean;
 	/**
 	 * @type string
+	 * @description The dashboard's unique, immutable name.
 	 */
 	name: string;
 	/**
 	 * @type string
+	 * @description The organization that owns the dashboard.
 	 */
 	orgId: string;
 	/**
 	 * @type string
+	 * @description The dashboard schema version, v6 for v2 dashboards.
 	 */
 	schemaVersion: string;
+	/**
+	 * @description Where the dashboard came from: user or integration. System dashboards are not listed.
+	 */
 	source: DashboardtypesSourceDTO;
+	/**
+	 * @description The display part of the dashboard spec. Panels, variables and layouts are not included in list rows.
+	 */
 	spec: DashboardtypesListedDashboardV2SpecDTO;
 	/**
 	 * @type array
+	 * @description The tags attached to the dashboard.
 	 */
 	tags: TagtypesGettableTagDTO[];
 	/**
@@ -5103,19 +7966,23 @@ export interface DashboardtypesListedDashboardV2DTO {
 export interface DashboardtypesListableDashboardV2DTO {
 	/**
 	 * @type array
+	 * @description The dashboards on this page.
 	 */
 	dashboards: DashboardtypesListedDashboardV2DTO[];
 	/**
 	 * @type array
+	 * @description The filter keys that address dashboard columns rather than tags.
 	 */
 	reservedKeywords: string[];
 	/**
 	 * @type array
+	 * @description Every dashboard tag in the organization, for building filters.
 	 */
 	tags: TagtypesGettableTagDTO[];
 	/**
 	 * @type integer
 	 * @format int64
+	 * @description The number of dashboards matching the filter across every page.
 	 */
 	total: number;
 }
@@ -5123,6 +7990,7 @@ export interface DashboardtypesListableDashboardV2DTO {
 export interface DashboardtypesListableDashboardViewDTO {
 	/**
 	 * @type array
+	 * @description The saved dashboard list views.
 	 */
 	views: DashboardtypesDashboardViewDTO[];
 }
@@ -5130,13 +7998,17 @@ export interface DashboardtypesListableDashboardViewDTO {
 export enum DashboardtypesPanelPluginKindDTO {
 	'signoz/TimeSeriesPanel' = 'signoz/TimeSeriesPanel',
 	'signoz/BarChartPanel' = 'signoz/BarChartPanel',
+	'signoz/AreaChartPanel' = 'signoz/AreaChartPanel',
 	'signoz/NumberPanel' = 'signoz/NumberPanel',
 	'signoz/PieChartPanel' = 'signoz/PieChartPanel',
 	'signoz/TablePanel' = 'signoz/TablePanel',
 	'signoz/HistogramPanel' = 'signoz/HistogramPanel',
 	'signoz/ListPanel' = 'signoz/ListPanel',
+	'signoz/TextPanel' = 'signoz/TextPanel',
+	'signoz/HeatmapPanel' = 'signoz/HeatmapPanel',
 }
 /**
+ * The RFC 6902 operations, applied in order against the dashboard's postable shape.
  * @nullable
  */
 export type DashboardtypesPatchableDashboardV2DTO =
@@ -5157,31 +8029,45 @@ export interface TagtypesPostableTagDTO {
 export interface DashboardtypesPostableDashboardV2DTO {
 	/**
 	 * @type boolean
+	 * @description When true the server derives name from spec.display.name plus a random suffix. Requires an empty name and a non-empty spec.display.name.
 	 */
 	generateName?: boolean;
 	/**
 	 * @type string
+	 * @description Icon or logo shown in the dashboard list: the path of an icon or logo bundled with the UI under /assets/Icons/ or /assets/Logos/ (only the prefix is validated), or a base64 image data URI for png, jpeg, gif, webp, avif or svg. Empty for none.
 	 */
 	image?: string;
 	/**
 	 * @type string
+	 * @description The dashboard's unique name, a DNS-1123 label (lowercase letters, digits and hyphens, at most 63 characters). Immutable after creation. Must be empty when generateName is true.
 	 */
 	name?: string;
 	/**
 	 * @type string
+	 * @pattern ^v6$
+	 * @description The dashboard schema version. Must be v6.
 	 */
 	schemaVersion: string;
+	/**
+	 * @description The dashboard content: display, variables, panels, layouts and links.
+	 */
 	spec: DashboardtypesDashboardSpecDTO;
 	/**
 	 * @type array,null
+	 * @description Up to 10 key/value tags, for example key team with value payments. Keys must not be one of the reserved list filter keys: name, description, created_at, updated_at, created_by, locked, source. Use [] for none.
 	 */
 	tags: TagtypesPostableTagDTO[] | null;
 }
 
 export interface DashboardtypesPostableDashboardViewDTO {
+	/**
+	 * @description The list filter and sort to save.
+	 */
 	data: DashboardtypesDashboardViewDataDTO;
 	/**
 	 * @type string
+	 * @maxLength 64
+	 * @description The view name, at most 64 characters.
 	 */
 	name: string;
 }
@@ -5189,16 +8075,19 @@ export interface DashboardtypesPostableDashboardViewDTO {
 export interface DashboardtypesPostablePublicDashboardDTO {
 	/**
 	 * @type string
+	 * @description The time range shown to anonymous viewers by default, as a Go duration such as 30m, 1h or 24h. Accepted units are ns, us, ms, s, m and h; write a day as 24h.
 	 */
 	defaultTimeRange?: string;
 	/**
 	 * @type boolean
+	 * @description Whether anonymous viewers may change the time range.
 	 */
 	timeRangeEnabled?: boolean;
 }
 
 export enum DashboardtypesQueryPluginKindDTO {
 	'signoz/BuilderQuery' = 'signoz/BuilderQuery',
+	'signoz/AIBuilderQuery' = 'signoz/AIBuilderQuery',
 	'signoz/CompositeQuery' = 'signoz/CompositeQuery',
 	'signoz/Formula' = 'signoz/Formula',
 	'signoz/PromQLQuery' = 'signoz/PromQLQuery',
@@ -5208,19 +8097,27 @@ export enum DashboardtypesQueryPluginKindDTO {
 export interface DashboardtypesUpdatableDashboardV2DTO {
 	/**
 	 * @type string
+	 * @description Icon or logo shown in the dashboard list: the path of an icon or logo bundled with the UI under /assets/Icons/ or /assets/Logos/ (only the prefix is validated), or a base64 image data URI for png, jpeg, gif, webp, avif or svg. Empty for none.
 	 */
 	image?: string;
 	/**
 	 * @type string
+	 * @description The dashboard's current name. The name is immutable, so a different value is rejected.
 	 */
 	name: string;
 	/**
 	 * @type string
+	 * @pattern ^v6$
+	 * @description The dashboard schema version. Must be v6.
 	 */
 	schemaVersion: string;
+	/**
+	 * @description The full replacement dashboard content: display, variables, panels, layouts and links.
+	 */
 	spec: DashboardtypesDashboardSpecDTO;
 	/**
 	 * @type array,null
+	 * @description The full replacement tag set, up to 10 key/value tags, for example key team with value payments. Keys must not be one of the reserved list filter keys: name, description, created_at, updated_at, created_by, locked, source.
 	 */
 	tags: TagtypesPostableTagDTO[] | null;
 }
@@ -5228,10 +8125,12 @@ export interface DashboardtypesUpdatableDashboardV2DTO {
 export interface DashboardtypesUpdatablePublicDashboardDTO {
 	/**
 	 * @type string
+	 * @description The time range shown to anonymous viewers by default, as a Go duration such as 30m, 1h or 24h. Accepted units are ns, us, ms, s, m and h; write a day as 24h.
 	 */
 	defaultTimeRange?: string;
 	/**
 	 * @type boolean
+	 * @description Whether anonymous viewers may change the time range.
 	 */
 	timeRangeEnabled?: boolean;
 }
@@ -5266,8 +8165,7 @@ export type FeaturetypesGettableFeatureDTOVariantsAnyOf = {
 /**
  * @nullable
  */
-export type FeaturetypesGettableFeatureDTOVariants =
-	FeaturetypesGettableFeatureDTOVariantsAnyOf | null;
+export type FeaturetypesGettableFeatureDTOVariants = FeaturetypesGettableFeatureDTOVariantsAnyOf | null;
 
 export interface FeaturetypesGettableFeatureDTO {
 	/**
@@ -5295,6 +8193,34 @@ export interface FeaturetypesGettableFeatureDTO {
 	 * @type object,null
 	 */
 	variants?: FeaturetypesGettableFeatureDTOVariants;
+}
+
+export interface GatewaytypesLimitValueDTO {
+	/**
+	 * @type integer,null
+	 */
+	count?: number | null;
+	/**
+	 * @type integer,null
+	 */
+	size?: number | null;
+}
+
+export interface GatewaytypesLimitConfigDTO {
+	day?: GatewaytypesLimitValueDTO;
+	second?: GatewaytypesLimitValueDTO;
+}
+
+export interface GatewaytypesDeprecatedPostableIngestionKeyLimitDTO {
+	config?: GatewaytypesLimitConfigDTO;
+	/**
+	 * @type string
+	 */
+	signal?: string;
+	/**
+	 * @type array,null
+	 */
+	tags?: string[] | null;
 }
 
 export interface GatewaytypesGettableCreatedIngestionKeyDTO {
@@ -5332,22 +8258,6 @@ export interface GatewaytypesPaginationDTO {
 	 * @type integer
 	 */
 	total?: number;
-}
-
-export interface GatewaytypesLimitValueDTO {
-	/**
-	 * @type integer,null
-	 */
-	count?: number | null;
-	/**
-	 * @type integer,null
-	 */
-	size?: number | null;
-}
-
-export interface GatewaytypesLimitConfigDTO {
-	day?: GatewaytypesLimitValueDTO;
-	second?: GatewaytypesLimitValueDTO;
 }
 
 export interface GatewaytypesLimitMetricValueDTO {
@@ -5467,6 +8377,10 @@ export interface GatewaytypesPostableIngestionKeyDTO {
 
 export interface GatewaytypesPostableIngestionKeyLimitDTO {
 	config?: GatewaytypesLimitConfigDTO;
+	/**
+	 * @type string
+	 */
+	keyId: string;
 	/**
 	 * @type string
 	 */
@@ -5648,6 +8562,48 @@ export interface InframonitoringtypesChecksDTO {
 	type: InframonitoringtypesCheckTypeDTO;
 }
 
+export enum InframonitoringtypesNodeConditionDTO {
+	ready = 'ready',
+	not_ready = 'not_ready',
+	no_data = 'no_data',
+}
+export enum InframonitoringtypesPodStatusDTO {
+	pending = 'pending',
+	running = 'running',
+	failed = 'failed',
+	unknown = 'unknown',
+	crashloopbackoff = 'crashloopbackoff',
+	imagepullbackoff = 'imagepullbackoff',
+	errimagepull = 'errimagepull',
+	createcontainerconfigerror = 'createcontainerconfigerror',
+	containercreating = 'containercreating',
+	oomkilled = 'oomkilled',
+	completed = 'completed',
+	error = 'error',
+	containercannotrun = 'containercannotrun',
+	evicted = 'evicted',
+	nodeaffinity = 'nodeaffinity',
+	nodelost = 'nodelost',
+	shutdown = 'shutdown',
+	unexpectedadmissionerror = 'unexpectedadmissionerror',
+	no_data = 'no_data',
+}
+export interface InframonitoringtypesClusterFilterDTO {
+	/**
+	 * @type string
+	 * @description A filter in the query filter syntax: comparisons such as =, !=, <, >, IN, LIKE, CONTAINS and EXISTS on field names, combined with AND, OR and NOT, with string values in single quotes, for example key = 'value' AND other_key > 10. Which fields exist depends on the signal or endpoint the filter is used with.
+	 */
+	expression?: string;
+	/**
+	 * @type array,null
+	 */
+	filterByNodeReadiness?: InframonitoringtypesNodeConditionDTO[] | null;
+	/**
+	 * @type array,null
+	 */
+	filterByPodStatus?: InframonitoringtypesPodStatusDTO[] | null;
+}
+
 export type InframonitoringtypesClusterRecordDTOCounts = {
 	/**
 	 * @type integer
@@ -5688,8 +8644,7 @@ export type InframonitoringtypesClusterRecordDTOMetaAnyOf = {
 /**
  * @nullable
  */
-export type InframonitoringtypesClusterRecordDTOMeta =
-	InframonitoringtypesClusterRecordDTOMetaAnyOf | null;
+export type InframonitoringtypesClusterRecordDTOMeta = InframonitoringtypesClusterRecordDTOMetaAnyOf | null;
 
 export interface InframonitoringtypesNodeCountsByReadinessDTO {
 	/**
@@ -5821,6 +8776,7 @@ export enum InframonitoringtypesResponseTypeDTO {
 export interface Querybuildertypesv5QueryWarnDataAdditionalDTO {
 	/**
 	 * @type string
+	 * @description The warning text.
 	 */
 	message?: string;
 }
@@ -5828,14 +8784,17 @@ export interface Querybuildertypesv5QueryWarnDataAdditionalDTO {
 export interface Querybuildertypesv5QueryWarnDataDTO {
 	/**
 	 * @type string
+	 * @description A summary of the warnings raised while executing the request.
 	 */
 	message?: string;
 	/**
 	 * @type string
+	 * @description A documentation link explaining the warnings.
 	 */
 	url?: string;
 	/**
 	 * @type array
+	 * @description The individual warnings.
 	 */
 	warnings?: Querybuildertypesv5QueryWarnDataAdditionalDTO[];
 }
@@ -5923,21 +8882,6 @@ export interface InframonitoringtypesContainerCountsByStatusDTO {
 	waiting: number;
 }
 
-export enum InframonitoringtypesContainerReadyDTO {
-	ready = 'ready',
-	not_ready = 'not_ready',
-	no_data = 'no_data',
-}
-export type InframonitoringtypesContainerRecordDTOMetaAnyOf = {
-	[key: string]: string;
-};
-
-/**
- * @nullable
- */
-export type InframonitoringtypesContainerRecordDTOMeta =
-	InframonitoringtypesContainerRecordDTOMetaAnyOf | null;
-
 export enum InframonitoringtypesContainerStatusDTO {
 	running = 'running',
 	waiting = 'waiting',
@@ -5954,6 +8898,32 @@ export enum InframonitoringtypesContainerStatusDTO {
 	unknown = 'unknown',
 	no_data = 'no_data',
 }
+export interface InframonitoringtypesContainerFilterDTO {
+	/**
+	 * @type string
+	 * @description A filter in the query filter syntax: comparisons such as =, !=, <, >, IN, LIKE, CONTAINS and EXISTS on field names, combined with AND, OR and NOT, with string values in single quotes, for example key = 'value' AND other_key > 10. Which fields exist depends on the signal or endpoint the filter is used with.
+	 */
+	expression?: string;
+	/**
+	 * @type array,null
+	 */
+	filterByContainerStatus?: InframonitoringtypesContainerStatusDTO[] | null;
+}
+
+export enum InframonitoringtypesContainerReadyDTO {
+	ready = 'ready',
+	not_ready = 'not_ready',
+	no_data = 'no_data',
+}
+export type InframonitoringtypesContainerRecordDTOMetaAnyOf = {
+	[key: string]: string;
+};
+
+/**
+ * @nullable
+ */
+export type InframonitoringtypesContainerRecordDTOMeta = InframonitoringtypesContainerRecordDTOMetaAnyOf | null;
+
 export interface InframonitoringtypesContainerRecordDTO {
 	containerCountsByReady: InframonitoringtypesContainerCountsByReadyDTO;
 	containerCountsByStatus: InframonitoringtypesContainerCountsByStatusDTO;
@@ -6025,6 +8995,18 @@ export interface InframonitoringtypesContainersDTO {
 	warning?: Querybuildertypesv5QueryWarnDataDTO;
 }
 
+export interface InframonitoringtypesDaemonSetFilterDTO {
+	/**
+	 * @type string
+	 * @description A filter in the query filter syntax: comparisons such as =, !=, <, >, IN, LIKE, CONTAINS and EXISTS on field names, combined with AND, OR and NOT, with string values in single quotes, for example key = 'value' AND other_key > 10. Which fields exist depends on the signal or endpoint the filter is used with.
+	 */
+	expression?: string;
+	/**
+	 * @type array,null
+	 */
+	filterByPodStatus?: InframonitoringtypesPodStatusDTO[] | null;
+}
+
 export type InframonitoringtypesDaemonSetRecordDTOMetaAnyOf = {
 	[key: string]: string;
 };
@@ -6032,8 +9014,7 @@ export type InframonitoringtypesDaemonSetRecordDTOMetaAnyOf = {
 /**
  * @nullable
  */
-export type InframonitoringtypesDaemonSetRecordDTOMeta =
-	InframonitoringtypesDaemonSetRecordDTOMetaAnyOf | null;
+export type InframonitoringtypesDaemonSetRecordDTOMeta = InframonitoringtypesDaemonSetRecordDTOMetaAnyOf | null;
 
 export interface InframonitoringtypesDaemonSetRecordDTO {
 	/**
@@ -6110,6 +9091,18 @@ export interface InframonitoringtypesDaemonSetsDTO {
 	warning?: Querybuildertypesv5QueryWarnDataDTO;
 }
 
+export interface InframonitoringtypesDeploymentFilterDTO {
+	/**
+	 * @type string
+	 * @description A filter in the query filter syntax: comparisons such as =, !=, <, >, IN, LIKE, CONTAINS and EXISTS on field names, combined with AND, OR and NOT, with string values in single quotes, for example key = 'value' AND other_key > 10. Which fields exist depends on the signal or endpoint the filter is used with.
+	 */
+	expression?: string;
+	/**
+	 * @type array,null
+	 */
+	filterByPodStatus?: InframonitoringtypesPodStatusDTO[] | null;
+}
+
 export type InframonitoringtypesDeploymentRecordDTOMetaAnyOf = {
 	[key: string]: string;
 };
@@ -6117,8 +9110,7 @@ export type InframonitoringtypesDeploymentRecordDTOMetaAnyOf = {
 /**
  * @nullable
  */
-export type InframonitoringtypesDeploymentRecordDTOMeta =
-	InframonitoringtypesDeploymentRecordDTOMetaAnyOf | null;
+export type InframonitoringtypesDeploymentRecordDTOMeta = InframonitoringtypesDeploymentRecordDTOMetaAnyOf | null;
 
 export interface InframonitoringtypesDeploymentRecordDTO {
 	/**
@@ -6195,6 +9187,7 @@ export enum InframonitoringtypesHostStatusDTO {
 export interface InframonitoringtypesHostFilterDTO {
 	/**
 	 * @type string
+	 * @description A filter in the query filter syntax: comparisons such as =, !=, <, >, IN, LIKE, CONTAINS and EXISTS on field names, combined with AND, OR and NOT, with string values in single quotes, for example key = 'value' AND other_key > 10. Which fields exist depends on the signal or endpoint the filter is used with.
 	 */
 	expression?: string;
 	filterByStatus?: InframonitoringtypesHostStatusDTO;
@@ -6207,8 +9200,7 @@ export type InframonitoringtypesHostRecordDTOMetaAnyOf = {
 /**
  * @nullable
  */
-export type InframonitoringtypesHostRecordDTOMeta =
-	InframonitoringtypesHostRecordDTOMetaAnyOf | null;
+export type InframonitoringtypesHostRecordDTOMeta = InframonitoringtypesHostRecordDTOMetaAnyOf | null;
 
 export interface InframonitoringtypesHostRecordDTO {
 	/**
@@ -6272,6 +9264,18 @@ export interface InframonitoringtypesHostsDTO {
 	warning?: Querybuildertypesv5QueryWarnDataDTO;
 }
 
+export interface InframonitoringtypesJobFilterDTO {
+	/**
+	 * @type string
+	 * @description A filter in the query filter syntax: comparisons such as =, !=, <, >, IN, LIKE, CONTAINS and EXISTS on field names, combined with AND, OR and NOT, with string values in single quotes, for example key = 'value' AND other_key > 10. Which fields exist depends on the signal or endpoint the filter is used with.
+	 */
+	expression?: string;
+	/**
+	 * @type array,null
+	 */
+	filterByPodStatus?: InframonitoringtypesPodStatusDTO[] | null;
+}
+
 export type InframonitoringtypesJobRecordDTOMetaAnyOf = {
 	[key: string]: string;
 };
@@ -6279,8 +9283,7 @@ export type InframonitoringtypesJobRecordDTOMetaAnyOf = {
 /**
  * @nullable
  */
-export type InframonitoringtypesJobRecordDTOMeta =
-	InframonitoringtypesJobRecordDTOMetaAnyOf | null;
+export type InframonitoringtypesJobRecordDTOMeta = InframonitoringtypesJobRecordDTOMetaAnyOf | null;
 
 export interface InframonitoringtypesJobRecordDTO {
 	/**
@@ -6357,6 +9360,18 @@ export interface InframonitoringtypesJobsDTO {
 	warning?: Querybuildertypesv5QueryWarnDataDTO;
 }
 
+export interface InframonitoringtypesNamespaceFilterDTO {
+	/**
+	 * @type string
+	 * @description A filter in the query filter syntax: comparisons such as =, !=, <, >, IN, LIKE, CONTAINS and EXISTS on field names, combined with AND, OR and NOT, with string values in single quotes, for example key = 'value' AND other_key > 10. Which fields exist depends on the signal or endpoint the filter is used with.
+	 */
+	expression?: string;
+	/**
+	 * @type array,null
+	 */
+	filterByPodStatus?: InframonitoringtypesPodStatusDTO[] | null;
+}
+
 export type InframonitoringtypesNamespaceRecordDTOCounts = {
 	/**
 	 * @type integer
@@ -6387,8 +9402,7 @@ export type InframonitoringtypesNamespaceRecordDTOMetaAnyOf = {
 /**
  * @nullable
  */
-export type InframonitoringtypesNamespaceRecordDTOMeta =
-	InframonitoringtypesNamespaceRecordDTOMetaAnyOf | null;
+export type InframonitoringtypesNamespaceRecordDTOMeta = InframonitoringtypesNamespaceRecordDTOMetaAnyOf | null;
 
 export interface InframonitoringtypesNamespaceRecordDTO {
 	/**
@@ -6433,11 +9447,22 @@ export interface InframonitoringtypesNamespacesDTO {
 	warning?: Querybuildertypesv5QueryWarnDataDTO;
 }
 
-export enum InframonitoringtypesNodeConditionDTO {
-	ready = 'ready',
-	not_ready = 'not_ready',
-	no_data = 'no_data',
+export interface InframonitoringtypesNodeFilterDTO {
+	/**
+	 * @type string
+	 * @description A filter in the query filter syntax: comparisons such as =, !=, <, >, IN, LIKE, CONTAINS and EXISTS on field names, combined with AND, OR and NOT, with string values in single quotes, for example key = 'value' AND other_key > 10. Which fields exist depends on the signal or endpoint the filter is used with.
+	 */
+	expression?: string;
+	/**
+	 * @type array,null
+	 */
+	filterByNodeReadiness?: InframonitoringtypesNodeConditionDTO[] | null;
+	/**
+	 * @type array,null
+	 */
+	filterByPodStatus?: InframonitoringtypesPodStatusDTO[] | null;
 }
+
 export type InframonitoringtypesNodeRecordDTOMetaAnyOf = {
 	[key: string]: string;
 };
@@ -6445,8 +9470,7 @@ export type InframonitoringtypesNodeRecordDTOMetaAnyOf = {
 /**
  * @nullable
  */
-export type InframonitoringtypesNodeRecordDTOMeta =
-	InframonitoringtypesNodeRecordDTOMetaAnyOf | null;
+export type InframonitoringtypesNodeRecordDTOMeta = InframonitoringtypesNodeRecordDTOMetaAnyOf | null;
 
 export interface InframonitoringtypesNodeRecordDTO {
 	condition: InframonitoringtypesNodeConditionDTO;
@@ -6499,6 +9523,18 @@ export interface InframonitoringtypesNodesDTO {
 	warning?: Querybuildertypesv5QueryWarnDataDTO;
 }
 
+export interface InframonitoringtypesPodFilterDTO {
+	/**
+	 * @type string
+	 * @description A filter in the query filter syntax: comparisons such as =, !=, <, >, IN, LIKE, CONTAINS and EXISTS on field names, combined with AND, OR and NOT, with string values in single quotes, for example key = 'value' AND other_key > 10. Which fields exist depends on the signal or endpoint the filter is used with.
+	 */
+	expression?: string;
+	/**
+	 * @type array,null
+	 */
+	filterByPodStatus?: InframonitoringtypesPodStatusDTO[] | null;
+}
+
 export type InframonitoringtypesPodRecordDTOMetaAnyOf = {
 	[key: string]: string;
 };
@@ -6506,30 +9542,8 @@ export type InframonitoringtypesPodRecordDTOMetaAnyOf = {
 /**
  * @nullable
  */
-export type InframonitoringtypesPodRecordDTOMeta =
-	InframonitoringtypesPodRecordDTOMetaAnyOf | null;
+export type InframonitoringtypesPodRecordDTOMeta = InframonitoringtypesPodRecordDTOMetaAnyOf | null;
 
-export enum InframonitoringtypesPodStatusDTO {
-	pending = 'pending',
-	running = 'running',
-	failed = 'failed',
-	unknown = 'unknown',
-	crashloopbackoff = 'crashloopbackoff',
-	imagepullbackoff = 'imagepullbackoff',
-	errimagepull = 'errimagepull',
-	createcontainerconfigerror = 'createcontainerconfigerror',
-	containercreating = 'containercreating',
-	oomkilled = 'oomkilled',
-	completed = 'completed',
-	error = 'error',
-	containercannotrun = 'containercannotrun',
-	evicted = 'evicted',
-	nodeaffinity = 'nodeaffinity',
-	nodelost = 'nodelost',
-	shutdown = 'shutdown',
-	unexpectedadmissionerror = 'unexpectedadmissionerror',
-	no_data = 'no_data',
-}
 export interface InframonitoringtypesPodRecordDTO {
 	/**
 	 * @type object,null
@@ -6606,7 +9620,7 @@ export interface InframonitoringtypesPostableClustersDTO {
 	 * @format int64
 	 */
 	end: number;
-	filter?: Querybuildertypesv5FilterDTO;
+	filter?: InframonitoringtypesClusterFilterDTO;
 	/**
 	 * @type array,null
 	 */
@@ -6633,7 +9647,7 @@ export interface InframonitoringtypesPostableContainersDTO {
 	 * @format int64
 	 */
 	end: number;
-	filter?: Querybuildertypesv5FilterDTO;
+	filter?: InframonitoringtypesContainerFilterDTO;
 	/**
 	 * @type array,null
 	 */
@@ -6660,7 +9674,7 @@ export interface InframonitoringtypesPostableDaemonSetsDTO {
 	 * @format int64
 	 */
 	end: number;
-	filter?: Querybuildertypesv5FilterDTO;
+	filter?: InframonitoringtypesDaemonSetFilterDTO;
 	/**
 	 * @type array,null
 	 */
@@ -6687,7 +9701,7 @@ export interface InframonitoringtypesPostableDeploymentsDTO {
 	 * @format int64
 	 */
 	end: number;
-	filter?: Querybuildertypesv5FilterDTO;
+	filter?: InframonitoringtypesDeploymentFilterDTO;
 	/**
 	 * @type array,null
 	 */
@@ -6741,7 +9755,7 @@ export interface InframonitoringtypesPostableJobsDTO {
 	 * @format int64
 	 */
 	end: number;
-	filter?: Querybuildertypesv5FilterDTO;
+	filter?: InframonitoringtypesJobFilterDTO;
 	/**
 	 * @type array,null
 	 */
@@ -6768,7 +9782,7 @@ export interface InframonitoringtypesPostableNamespacesDTO {
 	 * @format int64
 	 */
 	end: number;
-	filter?: Querybuildertypesv5FilterDTO;
+	filter?: InframonitoringtypesNamespaceFilterDTO;
 	/**
 	 * @type array,null
 	 */
@@ -6795,7 +9809,7 @@ export interface InframonitoringtypesPostableNodesDTO {
 	 * @format int64
 	 */
 	end: number;
-	filter?: Querybuildertypesv5FilterDTO;
+	filter?: InframonitoringtypesNodeFilterDTO;
 	/**
 	 * @type array,null
 	 */
@@ -6822,7 +9836,7 @@ export interface InframonitoringtypesPostablePodsDTO {
 	 * @format int64
 	 */
 	end: number;
-	filter?: Querybuildertypesv5FilterDTO;
+	filter?: InframonitoringtypesPodFilterDTO;
 	/**
 	 * @type array,null
 	 */
@@ -6843,13 +9857,25 @@ export interface InframonitoringtypesPostablePodsDTO {
 	start: number;
 }
 
+export interface InframonitoringtypesStatefulSetFilterDTO {
+	/**
+	 * @type string
+	 * @description A filter in the query filter syntax: comparisons such as =, !=, <, >, IN, LIKE, CONTAINS and EXISTS on field names, combined with AND, OR and NOT, with string values in single quotes, for example key = 'value' AND other_key > 10. Which fields exist depends on the signal or endpoint the filter is used with.
+	 */
+	expression?: string;
+	/**
+	 * @type array,null
+	 */
+	filterByPodStatus?: InframonitoringtypesPodStatusDTO[] | null;
+}
+
 export interface InframonitoringtypesPostableStatefulSetsDTO {
 	/**
 	 * @type integer
 	 * @format int64
 	 */
 	end: number;
-	filter?: Querybuildertypesv5FilterDTO;
+	filter?: InframonitoringtypesStatefulSetFilterDTO;
 	/**
 	 * @type array,null
 	 */
@@ -6904,8 +9930,7 @@ export type InframonitoringtypesStatefulSetRecordDTOMetaAnyOf = {
 /**
  * @nullable
  */
-export type InframonitoringtypesStatefulSetRecordDTOMeta =
-	InframonitoringtypesStatefulSetRecordDTOMetaAnyOf | null;
+export type InframonitoringtypesStatefulSetRecordDTOMeta = InframonitoringtypesStatefulSetRecordDTOMetaAnyOf | null;
 
 export interface InframonitoringtypesStatefulSetRecordDTO {
 	/**
@@ -6981,8 +10006,7 @@ export type InframonitoringtypesVolumeRecordDTOMetaAnyOf = {
 /**
  * @nullable
  */
-export type InframonitoringtypesVolumeRecordDTOMeta =
-	InframonitoringtypesVolumeRecordDTOMetaAnyOf | null;
+export type InframonitoringtypesVolumeRecordDTOMeta = InframonitoringtypesVolumeRecordDTOMetaAnyOf | null;
 
 export interface InframonitoringtypesVolumeRecordDTO {
 	/**
@@ -7040,6 +10064,249 @@ export interface InframonitoringtypesVolumesDTO {
 	total: number;
 	type: InframonitoringtypesResponseTypeDTO;
 	warning?: Querybuildertypesv5QueryWarnDataDTO;
+}
+
+export interface LicensetypesFeatureDTO {
+	/**
+	 * @type boolean
+	 */
+	active?: boolean;
+	/**
+	 * @type string
+	 */
+	name?: string;
+	/**
+	 * @type string
+	 */
+	route?: string;
+	/**
+	 * @type integer
+	 * @format int64
+	 */
+	usage?: number;
+	/**
+	 * @type integer
+	 * @format int64
+	 */
+	usage_limit?: number;
+}
+
+export interface LicensetypesLicenseEventQueueDTO {
+	/**
+	 * @type string
+	 * @format date-time
+	 */
+	createdAt: string;
+	/**
+	 * @type string
+	 */
+	event: string;
+	/**
+	 * @type string
+	 * @format date-time
+	 */
+	scheduledAt: string;
+	/**
+	 * @type string
+	 */
+	status: string;
+	/**
+	 * @type string
+	 * @format date-time
+	 */
+	updatedAt: string;
+}
+
+export interface LicensetypesLicensePlanDTO {
+	/**
+	 * @type string
+	 * @format date-time
+	 */
+	createdAt: string;
+	/**
+	 * @type string
+	 */
+	description: string;
+	/**
+	 * @type string
+	 */
+	id: string;
+	/**
+	 * @type boolean
+	 */
+	isActive: boolean;
+	/**
+	 * @type string
+	 */
+	name: string;
+	/**
+	 * @type string
+	 * @format date-time
+	 */
+	updatedAt: string;
+}
+
+export interface LicensetypesGettableActiveLicenseDTO {
+	/**
+	 * @type string
+	 * @format date-time
+	 */
+	createdAt: string;
+	eventQueue: LicensetypesLicenseEventQueueDTO;
+	/**
+	 * @type array
+	 */
+	features: LicensetypesFeatureDTO[];
+	/**
+	 * @type string
+	 * @format date-time
+	 */
+	freeUntil: string;
+	/**
+	 * @type string
+	 */
+	id: string;
+	plan: LicensetypesLicensePlanDTO;
+	/**
+	 * @type string
+	 */
+	platform: string;
+	/**
+	 * @type string
+	 */
+	state: string;
+	/**
+	 * @type string
+	 */
+	status: string;
+	/**
+	 * @type string
+	 * @format date-time
+	 */
+	updatedAt: string;
+	/**
+	 * @type integer
+	 * @format int64
+	 */
+	validFrom: number;
+	/**
+	 * @type integer
+	 * @format int64
+	 */
+	validUntil: number;
+}
+
+export interface LicensetypesGettableLicenseDTO {
+	/**
+	 * @type string
+	 * @format date-time
+	 */
+	createdAt: string;
+	eventQueue: LicensetypesLicenseEventQueueDTO;
+	/**
+	 * @type array
+	 */
+	features: LicensetypesFeatureDTO[];
+	/**
+	 * @type string
+	 * @format date-time
+	 */
+	freeUntil: string;
+	/**
+	 * @type string
+	 */
+	id: string;
+	plan: LicensetypesLicensePlanDTO;
+	/**
+	 * @type string
+	 */
+	platform: string;
+	/**
+	 * @type string
+	 */
+	state: string;
+	/**
+	 * @type string
+	 */
+	status: string;
+	/**
+	 * @type string
+	 * @format date-time
+	 */
+	updatedAt: string;
+	/**
+	 * @type integer
+	 * @format int64
+	 */
+	validFrom: number;
+	/**
+	 * @type integer
+	 * @format int64
+	 */
+	validUntil: number;
+}
+
+export interface LicensetypesGettableLicenseWithKeyDTO {
+	/**
+	 * @type string
+	 * @format date-time
+	 */
+	createdAt: string;
+	eventQueue: LicensetypesLicenseEventQueueDTO;
+	/**
+	 * @type array
+	 */
+	features: LicensetypesFeatureDTO[];
+	/**
+	 * @type string
+	 * @format date-time
+	 */
+	freeUntil: string;
+	/**
+	 * @type string
+	 */
+	id: string;
+	/**
+	 * @type string
+	 * @format password
+	 */
+	key: string;
+	plan: LicensetypesLicensePlanDTO;
+	/**
+	 * @type string
+	 */
+	platform: string;
+	/**
+	 * @type string
+	 */
+	state: string;
+	/**
+	 * @type string
+	 */
+	status: string;
+	/**
+	 * @type string
+	 * @format date-time
+	 */
+	updatedAt: string;
+	/**
+	 * @type integer
+	 * @format int64
+	 */
+	validFrom: number;
+	/**
+	 * @type integer
+	 * @format int64
+	 */
+	validUntil: number;
+}
+
+export interface LicensetypesPostableLicenseDTO {
+	/**
+	 * @type string
+	 * @format password
+	 */
+	key?: string;
 }
 
 /**
@@ -7447,53 +10714,63 @@ export interface MetricsexplorertypesInspectMetricsRequestDTO {
 	/**
 	 * @type integer
 	 * @format int64
+	 * @description End of the time range as a Unix timestamp in milliseconds. At most 30 minutes after start.
 	 */
 	end: number;
+	/**
+	 * @description Query builder filter over the metric attributes, for example host.name = 'web-1'. Omitting it applies no attribute restriction; inspection returns at most 50 series either way.
+	 */
 	filter?: Querybuildertypesv5FilterDTO;
 	/**
 	 * @type string
+	 * @description The name of the metric to inspect.
 	 */
 	metricName: string;
 	/**
 	 * @type integer
 	 * @format int64
+	 * @description Start of the time range as a Unix timestamp in milliseconds. Must be greater than 0 and less than end.
 	 */
 	start: number;
 }
 
+/**
+ * The label value as a string, number or boolean.
+ */
 export type Querybuildertypesv5LabelDTOValue = string | number | boolean;
 
 export interface Querybuildertypesv5LabelDTO {
+	/**
+	 * @description The group-by field this label value belongs to.
+	 */
 	key?: TelemetrytypesTelemetryFieldKeyDTO;
+	/**
+	 * @description The label value as a string, number or boolean.
+	 */
 	value?: Querybuildertypesv5LabelDTOValue;
 }
 
-export interface Querybuildertypesv5BucketDTO {
-	/**
-	 * @type number
-	 * @format double
-	 */
-	step?: number;
-}
-
 export interface Querybuildertypesv5TimeSeriesValueDTO {
-	bucket?: Querybuildertypesv5BucketDTO;
 	/**
 	 * @type boolean
+	 * @description True when the step is only partly covered by the requested time range, so the value is incomplete.
 	 */
 	partial?: boolean;
 	/**
 	 * @type integer
 	 * @format int64
+	 * @description The start of the step as a Unix timestamp in milliseconds.
 	 */
 	timestamp?: number;
 	/**
 	 * @type number
 	 * @format double
+	 * @description The aggregated value for the step; omitted for heatmap results, which use values.
 	 */
 	value?: number;
 	/**
 	 * @type array
+	 * @description The per-band counts for heatmap results, in the order of meta.buckets plus a trailing overflow count.
 	 */
 	values?: number[];
 }
@@ -7501,10 +10778,12 @@ export interface Querybuildertypesv5TimeSeriesValueDTO {
 export interface Querybuildertypesv5TimeSeriesDTO {
 	/**
 	 * @type array
+	 * @description The group-by field values that identify this series.
 	 */
 	labels?: Querybuildertypesv5LabelDTO[];
 	/**
 	 * @type array,null
+	 * @description The data points of the series in ascending timestamp order.
 	 */
 	values?: Querybuildertypesv5TimeSeriesValueDTO[] | null;
 }
@@ -7512,6 +10791,7 @@ export interface Querybuildertypesv5TimeSeriesDTO {
 export interface MetricsexplorertypesInspectMetricsResponseDTO {
 	/**
 	 * @type array,null
+	 * @description Raw time series, at most 50, each with its labels and timestamp-value pairs.
 	 */
 	series: Querybuildertypesv5TimeSeriesDTO[] | null;
 }
@@ -7526,20 +10806,30 @@ export enum MetrictypesTypeDTO {
 export interface MetricsexplorertypesListMetricDTO {
 	/**
 	 * @type string
+	 * @description Human-readable description from the metric metadata; empty when none was reported.
 	 */
 	description: string;
 	/**
 	 * @type boolean
+	 * @description True when the metric is a monotonically increasing Sum (a counter).
 	 */
 	isMonotonic: boolean;
 	/**
 	 * @type string
+	 * @description The name of the metric.
 	 */
 	metricName: string;
+	/**
+	 * @description Aggregation temporality of the metric: cumulative, delta or unspecified.
+	 */
 	temporality: MetrictypesTemporalityDTO;
+	/**
+	 * @description The metric type, such as gauge, sum, histogram, summary or exponentialhistogram.
+	 */
 	type: MetrictypesTypeDTO;
 	/**
 	 * @type string
+	 * @description The unit reported in the metric metadata, for example ms or By; empty when none was reported.
 	 */
 	unit: string;
 }
@@ -7547,6 +10837,7 @@ export interface MetricsexplorertypesListMetricDTO {
 export interface MetricsexplorertypesListMetricsResponseDTO {
 	/**
 	 * @type array,null
+	 * @description Matching metrics with their metadata, ordered by name.
 	 */
 	metrics: MetricsexplorertypesListMetricDTO[] | null;
 }
@@ -7554,10 +10845,12 @@ export interface MetricsexplorertypesListMetricsResponseDTO {
 export interface MetricsexplorertypesMetricAlertDTO {
 	/**
 	 * @type string
+	 * @description The id of the alert rule.
 	 */
 	alertId: string;
 	/**
 	 * @type string
+	 * @description The name of the alert rule that queries the metric.
 	 */
 	alertName: string;
 }
@@ -7565,6 +10858,7 @@ export interface MetricsexplorertypesMetricAlertDTO {
 export interface MetricsexplorertypesMetricAlertsResponseDTO {
 	/**
 	 * @type array,null
+	 * @description Alert rules whose queries reference the metric.
 	 */
 	alerts: MetricsexplorertypesMetricAlertDTO[] | null;
 }
@@ -7572,15 +10866,18 @@ export interface MetricsexplorertypesMetricAlertsResponseDTO {
 export interface MetricsexplorertypesMetricAttributeDTO {
 	/**
 	 * @type string
+	 * @description The attribute (label) name.
 	 */
 	key: string;
 	/**
 	 * @type integer
 	 * @minimum 0
+	 * @description Total number of distinct values observed, which can exceed the length of values.
 	 */
 	valueCount: number;
 	/**
 	 * @type array,null
+	 * @description Distinct values observed for the attribute, capped at 1000.
 	 */
 	values: string[] | null;
 }
@@ -7588,67 +10885,48 @@ export interface MetricsexplorertypesMetricAttributeDTO {
 export interface MetricsexplorertypesMetricAttributesResponseDTO {
 	/**
 	 * @type array,null
+	 * @description Attributes of the metric, ordered by distinct value count descending.
 	 */
 	attributes: MetricsexplorertypesMetricAttributeDTO[] | null;
 	/**
 	 * @type integer
 	 * @format int64
+	 * @description Number of attributes returned.
 	 */
 	totalKeys: number;
-}
-
-export interface MetricsexplorertypesMetricDashboardDTO {
-	/**
-	 * @type string
-	 */
-	dashboardId: string;
-	/**
-	 * @type string
-	 */
-	dashboardName: string;
-	/**
-	 * @type string
-	 */
-	widgetId: string;
-	/**
-	 * @type string
-	 */
-	widgetName: string;
 }
 
 export interface MetricsexplorertypesMetricDashboardPanelsResponseDTO {
 	/**
 	 * @type array,null
+	 * @description One entry per dashboard panel whose query references the metric.
 	 */
 	dashboards: DashboardtypesDashboardPanelRefDTO[] | null;
-}
-
-export interface MetricsexplorertypesMetricDashboardsResponseDTO {
-	/**
-	 * @type array,null
-	 */
-	dashboards: MetricsexplorertypesMetricDashboardDTO[] | null;
 }
 
 export interface MetricsexplorertypesMetricHighlightsResponseDTO {
 	/**
 	 * @type integer
 	 * @minimum 0
+	 * @description Number of distinct time series active in the last 120 minutes, approximate: a series that last reported early in that window can be missed.
 	 */
 	activeTimeSeries: number;
 	/**
 	 * @type integer
 	 * @minimum 0
+	 * @description Number of samples ingested for the metric over retained data.
 	 */
 	dataPoints: number;
 	/**
 	 * @type integer
 	 * @minimum 0
+	 * @description Unix timestamp in milliseconds of the most recently received sample.
 	 */
 	lastReceived: number;
 	/**
 	 * @type integer
 	 * @minimum 0
+	 * @description Number of distinct time series for the metric over retained data.
 	 */
 	totalTimeSeries: number;
 }
@@ -7656,16 +10934,25 @@ export interface MetricsexplorertypesMetricHighlightsResponseDTO {
 export interface MetricsexplorertypesMetricMetadataDTO {
 	/**
 	 * @type string
+	 * @description Human-readable description of the metric; empty when none was reported.
 	 */
 	description: string;
 	/**
 	 * @type boolean
+	 * @description True when the metric is a monotonically increasing Sum (a counter).
 	 */
 	isMonotonic: boolean;
+	/**
+	 * @description Aggregation temporality of the metric: cumulative, delta or unspecified.
+	 */
 	temporality: MetrictypesTemporalityDTO;
+	/**
+	 * @description The metric type, such as gauge, sum, histogram, summary or exponentialhistogram.
+	 */
 	type: MetrictypesTypeDTO;
 	/**
 	 * @type string
+	 * @description The unit of the metric values, for example ms or By; empty when none was reported.
 	 */
 	unit: string;
 }
@@ -7673,6 +10960,7 @@ export interface MetricsexplorertypesMetricMetadataDTO {
 export interface MetricsexplorertypesMetricsOnboardingResponseDTO {
 	/**
 	 * @type boolean
+	 * @description True when at least one metric not emitted by SigNoz itself has been ingested.
 	 */
 	hasMetrics: boolean;
 }
@@ -7680,25 +10968,33 @@ export interface MetricsexplorertypesMetricsOnboardingResponseDTO {
 export interface MetricsexplorertypesStatDTO {
 	/**
 	 * @type string
+	 * @description Human-readable description from the metric metadata; empty when none was reported.
 	 */
 	description: string;
 	/**
 	 * @type string
+	 * @description The name of the metric.
 	 */
 	metricName: string;
 	/**
 	 * @type integer
 	 * @minimum 0
+	 * @description Number of samples (data points) ingested for the metric in the requested time range.
 	 */
 	samples: number;
 	/**
 	 * @type integer
 	 * @minimum 0
+	 * @description Number of distinct time series active in the time range, approximate: it can include series last active shortly before start.
 	 */
 	timeseries: number;
+	/**
+	 * @description The metric type, such as gauge, sum, histogram, summary or exponentialhistogram.
+	 */
 	type: MetrictypesTypeDTO;
 	/**
 	 * @type string
+	 * @description The unit reported in the metric metadata, for example ms or By; empty when none was reported.
 	 */
 	unit: string;
 }
@@ -7707,21 +11003,31 @@ export interface MetricsexplorertypesStatsRequestDTO {
 	/**
 	 * @type integer
 	 * @format int64
+	 * @description End of the time range as a Unix timestamp in milliseconds. Must be greater than start.
 	 */
 	end: number;
+	/**
+	 * @description Query builder filter over metric attributes, for example host.name = 'web-1'. A bare word matches the metric name. Omitting it applies no restriction, but metrics whose name starts with signoz are always excluded.
+	 */
 	filter?: Querybuildertypesv5FilterDTO;
 	/**
 	 * @type integer
+	 * @description Maximum number of metrics to return, between 1 and 5000.
 	 */
 	limit: number;
 	/**
 	 * @type integer
+	 * @description Number of metrics to skip for pagination. Must not be negative; defaults to 0.
 	 */
 	offset?: number;
+	/**
+	 * @description Sort order; key.name is timeseries or samples, direction is asc or desc. Defaults to samples descending.
+	 */
 	orderBy?: Querybuildertypesv5OrderByDTO;
 	/**
 	 * @type integer
 	 * @format int64
+	 * @description Start of the time range as a Unix timestamp in milliseconds. Must be greater than 0 and less than end.
 	 */
 	start: number;
 }
@@ -7729,11 +11035,13 @@ export interface MetricsexplorertypesStatsRequestDTO {
 export interface MetricsexplorertypesStatsResponseDTO {
 	/**
 	 * @type array,null
+	 * @description One entry per metric on the requested page, in the requested order.
 	 */
 	metrics: MetricsexplorertypesStatDTO[] | null;
 	/**
 	 * @type integer
 	 * @minimum 0
+	 * @description Total number of metrics matching the filter across all pages.
 	 */
 	total: number;
 }
@@ -7741,16 +11049,19 @@ export interface MetricsexplorertypesStatsResponseDTO {
 export interface MetricsexplorertypesTreemapEntryDTO {
 	/**
 	 * @type string
+	 * @description The name of the metric.
 	 */
 	metricName: string;
 	/**
 	 * @type number
 	 * @format double
+	 * @description Share of the total across all metrics in the time range, from 0 to 100.
 	 */
 	percentage: number;
 	/**
 	 * @type integer
 	 * @minimum 0
+	 * @description Time series count or sample count for the metric, depending on the requested mode.
 	 */
 	totalValue: number;
 }
@@ -7763,17 +11074,26 @@ export interface MetricsexplorertypesTreemapRequestDTO {
 	/**
 	 * @type integer
 	 * @format int64
+	 * @description End of the time range as a Unix timestamp in milliseconds. Must be greater than start.
 	 */
 	end: number;
+	/**
+	 * @description Query builder filter over metric attributes, for example host.name = 'web-1'. A bare word matches the metric name. Omitting it applies no restriction, but metrics whose name starts with signoz are always excluded.
+	 */
 	filter?: Querybuildertypesv5FilterDTO;
 	/**
 	 * @type integer
+	 * @description Maximum number of metrics to return, between 1 and 5000, ordered by percentage descending.
 	 */
 	limit: number;
+	/**
+	 * @description What each metric is sized by: timeseries counts distinct time series; samples counts ingested data points, ranked among a shortlist of the metrics with the most time series. Only the matching response array is populated.
+	 */
 	mode: MetricsexplorertypesTreemapModeDTO;
 	/**
 	 * @type integer
 	 * @format int64
+	 * @description Start of the time range as a Unix timestamp in milliseconds. Must be greater than 0 and less than end.
 	 */
 	start: number;
 }
@@ -7781,10 +11101,12 @@ export interface MetricsexplorertypesTreemapRequestDTO {
 export interface MetricsexplorertypesTreemapResponseDTO {
 	/**
 	 * @type array,null
+	 * @description Entries sized by sample count, chosen among the metrics with the most time series; populated only when mode is samples.
 	 */
 	samples: MetricsexplorertypesTreemapEntryDTO[] | null;
 	/**
 	 * @type array,null
+	 * @description Entries sized by time series count; populated only when mode is timeseries.
 	 */
 	timeseries: MetricsexplorertypesTreemapEntryDTO[] | null;
 }
@@ -7792,20 +11114,30 @@ export interface MetricsexplorertypesTreemapResponseDTO {
 export interface MetricsexplorertypesUpdateMetricMetadataRequestDTO {
 	/**
 	 * @type string
+	 * @description Human-readable description of the metric.
 	 */
 	description: string;
 	/**
 	 * @type boolean
+	 * @description Whether the metric is a monotonically increasing Sum (a counter).
 	 */
 	isMonotonic: boolean;
 	/**
 	 * @type string
+	 * @description The name of the metric whose metadata to replace.
 	 */
 	metricName: string;
+	/**
+	 * @description Aggregation temporality to store. Required as delta or cumulative when type is sum, histogram or exponentialhistogram; gauges are stored as unspecified and summaries as cumulative whatever is sent. A non-monotonic cumulative sum is stored as a gauge.
+	 */
 	temporality: MetrictypesTemporalityDTO;
+	/**
+	 * @description The metric type to store, such as gauge, sum, histogram, summary or exponentialhistogram.
+	 */
 	type: MetrictypesTypeDTO;
 	/**
 	 * @type string
+	 * @description The unit of the metric values, for example ms or By.
 	 */
 	unit: string;
 }
@@ -7843,6 +11175,162 @@ export interface PreferencetypesUpdatablePreferenceDTO {
 	value?: unknown;
 }
 
+export enum PrometheusErrorResponseSchemaDTOErrorType {
+	bad_data = 'bad_data',
+	execution = 'execution',
+	canceled = 'canceled',
+	timeout = 'timeout',
+	internal = 'internal',
+}
+export enum PrometheusErrorResponseSchemaDTOStatus {
+	error = 'error',
+}
+export interface PrometheusErrorResponseSchemaDTO {
+	/**
+	 * @type string
+	 */
+	error: string;
+	/**
+	 * @enum bad_data,execution,canceled,timeout,internal
+	 * @type string
+	 */
+	errorType: PrometheusErrorResponseSchemaDTOErrorType;
+	/**
+	 * @enum error
+	 * @type string
+	 */
+	status: PrometheusErrorResponseSchemaDTOStatus;
+}
+
+export enum PrometheusMatrixDataSchemaDTOResultType {
+	matrix = 'matrix',
+}
+export type PrometheusSamplePairSchemaDTOItem = number | string;
+
+/**
+ * A [timestamp, value] pair: float unix seconds, then the string-encoded sample value ("NaN", "+Inf", "-Inf" included).
+ * @minItems 2
+ * @maxItems 2
+ * @nullable
+ */
+export type PrometheusSamplePairSchemaDTO =
+	| PrometheusSamplePairSchemaDTOItem[]
+	| null;
+
+export type PrometheusMatrixSeriesSchemaDTOMetricAnyOf = {
+	[key: string]: string;
+};
+
+/**
+ * @nullable
+ */
+export type PrometheusMatrixSeriesSchemaDTOMetric = PrometheusMatrixSeriesSchemaDTOMetricAnyOf | null;
+
+export interface PrometheusMatrixSeriesSchemaDTO {
+	/**
+	 * @type object,null
+	 */
+	metric: PrometheusMatrixSeriesSchemaDTOMetric;
+	/**
+	 * @type array,null
+	 */
+	values: (PrometheusSamplePairSchemaDTO | null)[] | null;
+}
+
+export interface PrometheusMatrixDataSchemaDTO {
+	/**
+	 * @type array,null
+	 */
+	result: PrometheusMatrixSeriesSchemaDTO[] | null;
+	/**
+	 * @enum matrix
+	 * @type string
+	 */
+	resultType: PrometheusMatrixDataSchemaDTOResultType;
+}
+
+export type PrometheusVectorSampleSchemaDTOMetricAnyOf = {
+	[key: string]: string;
+};
+
+/**
+ * @nullable
+ */
+export type PrometheusVectorSampleSchemaDTOMetric = PrometheusVectorSampleSchemaDTOMetricAnyOf | null;
+
+export interface PrometheusVectorSampleSchemaDTO {
+	/**
+	 * @type object,null
+	 */
+	metric: PrometheusVectorSampleSchemaDTOMetric;
+	value: PrometheusSamplePairSchemaDTO | null;
+}
+
+export enum PrometheusVectorDataSchemaDTOResultType {
+	vector = 'vector',
+}
+export interface PrometheusVectorDataSchemaDTO {
+	/**
+	 * @type array,null
+	 */
+	result: PrometheusVectorSampleSchemaDTO[] | null;
+	/**
+	 * @enum vector
+	 * @type string
+	 */
+	resultType: PrometheusVectorDataSchemaDTOResultType;
+}
+
+export enum PrometheusScalarDataSchemaDTOResultType {
+	scalar = 'scalar',
+}
+export interface PrometheusScalarDataSchemaDTO {
+	result: PrometheusSamplePairSchemaDTO | null;
+	/**
+	 * @enum scalar
+	 * @type string
+	 */
+	resultType: PrometheusScalarDataSchemaDTOResultType;
+}
+
+export enum PrometheusStringDataSchemaDTOResultType {
+	string = 'string',
+}
+export interface PrometheusStringDataSchemaDTO {
+	result: PrometheusSamplePairSchemaDTO | null;
+	/**
+	 * @enum string
+	 * @type string
+	 */
+	resultType: PrometheusStringDataSchemaDTOResultType;
+}
+
+export type PrometheusQueryDataSchemaDTO =
+	| PrometheusMatrixDataSchemaDTO
+	| PrometheusVectorDataSchemaDTO
+	| PrometheusScalarDataSchemaDTO
+	| PrometheusStringDataSchemaDTO;
+
+export enum PrometheusSuccessResponseSchemaDTOStatus {
+	success = 'success',
+}
+export interface PrometheusSuccessResponseSchemaDTO {
+	data: PrometheusQueryDataSchemaDTO;
+	/**
+	 * @type array
+	 */
+	infos?: string[];
+	/**
+	 * @enum success
+	 * @type string
+	 */
+	status: PrometheusSuccessResponseSchemaDTOStatus;
+	/**
+	 * @type array
+	 */
+	warnings?: string[];
+}
+
 export interface PromotetypesWrappedIndexDTO {
 	fieldDataType?: TelemetrytypesFieldDataTypeDTO;
 	/**
@@ -7857,64 +11345,115 @@ export interface PromotetypesWrappedIndexDTO {
 
 export interface PromotetypesPromotePathDTO {
 	/**
+	 * @type string
+	 */
+	context: string;
+	/**
 	 * @type array
 	 */
 	indexes?: PromotetypesWrappedIndexDTO[];
 	/**
 	 * @type string
 	 */
-	path?: string;
+	path: string;
 	/**
 	 * @type boolean
 	 */
 	promote?: boolean;
-}
-
-export type Querybuildertypesv5AggregationBucketDTOMeta = {
 	/**
 	 * @type string
 	 */
+	signal: string;
+}
+
+export interface PromotetypesIndexMaterializedPathsResultDTO {
+	/**
+	 * @type array,null
+	 */
+	indexed: PromotetypesPromotePathDTO[] | null;
+	/**
+	 * @type array,null
+	 */
+	skipped: PromotetypesPromotePathDTO[] | null;
+}
+
+export interface PromotetypesPostableIndexMaterializedPathsDTO {
+	/**
+	 * @type boolean
+	 */
+	dryRun?: boolean;
+	/**
+	 * @type string
+	 */
+	signal: string;
+}
+
+export interface Querybuildertypesv5AggregationMetaDTO {
+	/**
+	 * @type array
+	 * @description The ascending upper bounds of the value bands, set only for heatmap results; each point then carries one count per bound plus a trailing overflow count in values.
+	 */
+	buckets?: number[];
+	/**
+	 * @type string
+	 * @description The unit of the aggregated values, taken from metric metadata when known.
+	 */
 	unit?: string;
-};
+}
 
 export interface Querybuildertypesv5AggregationBucketDTO {
 	/**
 	 * @type string
+	 * @description The alias of the aggregation, or the internal name __result_N, with N its index, when no alias was given.
 	 */
 	alias?: string;
 	/**
 	 * @type array
+	 * @description The anomaly score per series; present only when the anomaly function is applied.
 	 */
 	anomalyScores?: Querybuildertypesv5TimeSeriesDTO[];
 	/**
 	 * @type integer
+	 * @description The zero-based position of the aggregation in the query.
 	 */
 	index?: number;
 	/**
 	 * @type array
+	 * @description The lower bound of the expected range per series; present only when the anomaly function is applied.
 	 */
 	lowerBoundSeries?: Querybuildertypesv5TimeSeriesDTO[];
 	/**
-	 * @type object
+	 * @description Display metadata for the aggregation.
 	 */
-	meta?: Querybuildertypesv5AggregationBucketDTOMeta;
+	meta?: Querybuildertypesv5AggregationMetaDTO;
 	/**
 	 * @type array
+	 * @description The predicted values per series; present only when the anomaly function is applied.
 	 */
 	predictedSeries?: Querybuildertypesv5TimeSeriesDTO[];
 	/**
 	 * @type array,null
+	 * @description One series per group-by combination.
 	 */
 	series?: Querybuildertypesv5TimeSeriesDTO[] | null;
 	/**
 	 * @type array
+	 * @description The upper bound of the expected range per series; present only when the anomaly function is applied.
 	 */
 	upperBoundSeries?: Querybuildertypesv5TimeSeriesDTO[];
 }
 
+export enum Querybuildertypesv5BucketsKindDTO {
+	linear = 'linear',
+	log = 'log',
+}
+/**
+ * Display metadata for the column.
+ */
 export type Querybuildertypesv5ColumnDescriptorDTOMeta = {
 	/**
 	 * @type string
+	 * @description The unit of the column values when known.
 	 */
 	unit?: string;
 };
@@ -7927,59 +11466,84 @@ export interface Querybuildertypesv5ColumnDescriptorDTO {
 	/**
 	 * @type integer
 	 * @format int64
+	 * @description The zero-based position of the aggregation in the query for aggregation columns.
 	 */
 	aggregationIndex?: number;
+	/**
+	 * @description Whether the column is a group-by field (group) or an aggregated value (aggregation).
+	 */
 	columnType?: Querybuildertypesv5ColumnTypeDTO;
 	/**
 	 * @type string
+	 * @description Human-readable summary of the field, present only for well-known fields.
 	 */
 	description?: string;
+	/**
+	 * @description Where the field lives: resource, attribute, scope, span, trace, log, body or metric. Empty means unspecified, so the server resolves it.
+	 */
 	fieldContext?: TelemetrytypesFieldContextDTO;
+	/**
+	 * @description Data type of the field values: string, bool, int64, float64 or number. Empty means unspecified.
+	 */
 	fieldDataType?: TelemetrytypesFieldDataTypeDTO;
 	/**
 	 * @type object
+	 * @description Display metadata for the column.
 	 */
 	meta?: Querybuildertypesv5ColumnDescriptorDTOMeta;
 	/**
 	 * @type string
+	 * @description The field name, such as service.name, k8s.pod.name or http.response.status_code. Dots are part of the name, and the names available depend on the signal and the data ingested.
 	 */
 	name: string;
 	/**
 	 * @type string
+	 * @description The name of the query that produced the column.
 	 */
 	queryName?: string;
+	/**
+	 * @description The signal the field belongs to: traces, logs or metrics. Empty means any signal.
+	 */
 	signal?: TelemetrytypesSignalDTO;
 	/**
 	 * @type string
+	 * @description Unit of the field values, present only for well-known fields.
 	 */
 	unit?: string;
 }
 
+/**
+ * The step interval in seconds that was used for each query, keyed by query name.
+ */
 export type Querybuildertypesv5ExecStatsDTOStepIntervals = {
 	[key: string]: number;
 };
 
 /**
- * Execution statistics for the query, including rows scanned, bytes scanned, and duration.
+ * Execution cost of the request: rows and bytes scanned and execution time. A measure of cost, not of whether data exists.
  */
 export interface Querybuildertypesv5ExecStatsDTO {
 	/**
 	 * @type integer
 	 * @minimum 0
+	 * @description Bytes scanned to answer every query in the request. A cost indicator only; it does not indicate whether any data matched.
 	 */
 	bytesScanned?: number;
 	/**
 	 * @type integer
 	 * @minimum 0
+	 * @description Total execution time across the queries in the request, in milliseconds. A cost indicator only, not the request latency and not a sign that data exists.
 	 */
 	durationMs?: number;
 	/**
 	 * @type integer
 	 * @minimum 0
+	 * @description Rows scanned to answer every query in the request. A cost indicator only: rows are scanned whether or not any matched, so it says nothing about whether data exists.
 	 */
 	rowsScanned?: number;
 	/**
 	 * @type object
+	 * @description The step interval in seconds that was used for each query, keyed by query name.
 	 */
 	stepIntervals?: Querybuildertypesv5ExecStatsDTOStepIntervals;
 }
@@ -7987,38 +11551,14 @@ export interface Querybuildertypesv5ExecStatsDTO {
 export interface Querybuildertypesv5FormatOptionsDTO {
 	/**
 	 * @type boolean
+	 * @description When true, every builder query and formula in a time_series result gets a zero value for each missing step, whatever its aggregation, so averages and percentiles read as zero where no data exists. PromQL and ClickHouse SQL queries keep their gaps. Defaults to false.
 	 */
 	fillGaps?: boolean;
 	/**
 	 * @type boolean
+	 * @description When true, scalar results from several queries are merged into one table keyed by their group-by columns. Defaults to false.
 	 */
 	formatTableResultForUI?: boolean;
-}
-
-export interface TelemetrystoretypesEstimateEntryDTO {
-	/**
-	 * @type string
-	 */
-	database: string;
-	/**
-	 * @type integer
-	 * @format int64
-	 */
-	marks: number;
-	/**
-	 * @type integer
-	 * @format int64
-	 */
-	parts: number;
-	/**
-	 * @type integer
-	 * @format int64
-	 */
-	rows: number;
-	/**
-	 * @type string
-	 */
-	table: string;
 }
 
 export interface TelemetrystoretypesIndexStepDTO {
@@ -8071,7 +11611,10 @@ export interface TelemetrystoretypesMergeTreeReadDTO {
 	table: string;
 }
 
-export type TelemetrystoretypesGranulesDTOAnyOf = {
+/**
+ * @nullable
+ */
+export type TelemetrystoretypesGranulesDTO = {
 	/**
 	 * @type integer
 	 * @format int64
@@ -8091,37 +11634,70 @@ export type TelemetrystoretypesGranulesDTOAnyOf = {
 	 * @format int64
 	 */
 	skipped: number;
-};
+} | null;
 
 /**
- * @nullable
+ * The granule analysis for the statement; null unless verbose was requested.
  */
-export type TelemetrystoretypesGranulesDTO =
-	TelemetrystoretypesGranulesDTOAnyOf | null;
+export type Querybuildertypesv5PreviewStatementDTOGranules = TelemetrystoretypesGranulesDTO | null;
+
+export interface TelemetrystoretypesEstimateEntryDTO {
+	/**
+	 * @type string
+	 */
+	database: string;
+	/**
+	 * @type integer
+	 * @format int64
+	 */
+	marks: number;
+	/**
+	 * @type integer
+	 * @format int64
+	 */
+	parts: number;
+	/**
+	 * @type integer
+	 * @format int64
+	 */
+	rows: number;
+	/**
+	 * @type string
+	 */
+	table: string;
+}
 
 export interface Querybuildertypesv5PreviewStatementDTO {
 	/**
 	 * @type array
+	 * @description The values bound to the statement placeholders, in order.
 	 */
 	'db.statement.args': unknown[];
 	/**
 	 * @type string
+	 * @description The ClickHouse SQL statement with positional parameter placeholders.
 	 */
 	'db.statement.query': string;
 	/**
 	 * @type array
+	 * @description The EXPLAIN ESTIMATE rows for the statement; empty unless verbose was requested.
 	 */
 	estimate: TelemetrystoretypesEstimateEntryDTO[];
-	granules: TelemetrystoretypesGranulesDTO | null;
+	/**
+	 * @description The granule analysis for the statement; null unless verbose was requested.
+	 */
+	granules: Querybuildertypesv5PreviewStatementDTOGranules;
 }
 
 export interface Querybuildertypesv5TimeSeriesDataDTO {
 	/**
 	 * @type array,null
+	 * @description One bucket per aggregation of the query. The order is not guaranteed; match buckets to aggregations by index.
 	 */
 	aggregations?: Querybuildertypesv5AggregationBucketDTO[] | null;
 	/**
 	 * @type string
+	 * @description The name of the query that produced this result.
 	 */
 	queryName?: string;
 }
@@ -8129,34 +11705,42 @@ export interface Querybuildertypesv5TimeSeriesDataDTO {
 export interface Querybuildertypesv5ScalarDataDTO {
 	/**
 	 * @type array,null
+	 * @description The column definitions, in the same order as the values in each data row.
 	 */
 	columns?: Querybuildertypesv5ColumnDescriptorDTO[] | null;
 	/**
 	 * @type array,null
+	 * @description The rows, each a list of values aligned with columns.
 	 */
 	data?: unknown[][] | null;
 	/**
 	 * @type string
+	 * @description The name of the query that produced this table.
 	 */
 	queryName?: string;
 }
 
+/**
+ * The selected field values keyed by field name.
+ */
 export type Querybuildertypesv5RawRowDTODataAnyOf = { [key: string]: unknown };
 
 /**
+ * The selected field values keyed by field name.
  * @nullable
  */
-export type Querybuildertypesv5RawRowDTOData =
-	Querybuildertypesv5RawRowDTODataAnyOf | null;
+export type Querybuildertypesv5RawRowDTOData = Querybuildertypesv5RawRowDTODataAnyOf | null;
 
 export interface Querybuildertypesv5RawRowDTO {
 	/**
 	 * @type object,null
+	 * @description The selected field values keyed by field name.
 	 */
 	data?: Querybuildertypesv5RawRowDTOData;
 	/**
 	 * @type string
 	 * @format date-time
+	 * @description The record timestamp in RFC 3339 format.
 	 */
 	timestamp?: string;
 }
@@ -8164,14 +11748,17 @@ export interface Querybuildertypesv5RawRowDTO {
 export interface Querybuildertypesv5RawDataDTO {
 	/**
 	 * @type string
+	 * @description The cursor to pass in the next request to continue from the last row; empty when there are no more rows.
 	 */
 	nextCursor?: string;
 	/**
 	 * @type string
+	 * @description The name of the query that produced these rows.
 	 */
 	queryName?: string;
 	/**
 	 * @type array,null
+	 * @description The matching records in the requested order.
 	 */
 	rows?: Querybuildertypesv5RawRowDTO[] | null;
 }
@@ -8180,46 +11767,58 @@ export type Querybuildertypesv5QueryDataDTO =
 	| (Querybuildertypesv5TimeSeriesDataDTO & {
 			/**
 			 * @type array,null
+			 * @description One result per enabled query, typed by the request type: TimeSeriesData for time_series, ScalarData for scalar and RawData for raw requests.
 			 */
 			results?: unknown[] | null;
 	  })
 	| (Querybuildertypesv5ScalarDataDTO & {
 			/**
 			 * @type array,null
+			 * @description One result per enabled query, typed by the request type: TimeSeriesData for time_series, ScalarData for scalar and RawData for raw requests.
 			 */
 			results?: unknown[] | null;
 	  })
 	| (Querybuildertypesv5RawDataDTO & {
 			/**
 			 * @type array,null
+			 * @description One result per enabled query, typed by the request type: TimeSeriesData for time_series, ScalarData for scalar and RawData for raw requests.
 			 */
 			results?: unknown[] | null;
 	  });
 
 export interface Querybuildertypesv5QueryPreviewDTO {
+	/**
+	 * @description The rendering error when valid is false, otherwise null.
+	 */
 	error: unknown;
 	/**
 	 * @type array
+	 * @description The rendered statements, returned only when verbose is true: one per PromQL metric selector, one for builder, ClickHouse SQL and trace operator queries, none for formulas. Empty otherwise.
 	 */
 	statements: Querybuildertypesv5PreviewStatementDTO[];
 	/**
 	 * @type boolean
+	 * @description Whether the query rendered without error.
 	 */
 	valid: boolean;
 	/**
 	 * @type array
+	 * @description Warnings raised while rendering the query.
 	 */
 	warnings: string[];
 }
 
+/**
+ * The rendered statements for each query, keyed by query name.
+ */
 export type Querybuildertypesv5QueryRangePreviewResponseDTOCompositeQueryAnyOf =
 	{ [key: string]: Querybuildertypesv5QueryPreviewDTO };
 
 /**
+ * The rendered statements for each query, keyed by query name.
  * @nullable
  */
-export type Querybuildertypesv5QueryRangePreviewResponseDTOCompositeQuery =
-	Querybuildertypesv5QueryRangePreviewResponseDTOCompositeQueryAnyOf | null;
+export type Querybuildertypesv5QueryRangePreviewResponseDTOCompositeQuery = Querybuildertypesv5QueryRangePreviewResponseDTOCompositeQueryAnyOf | null;
 
 /**
  * Response from the v5 query range preview (dry-run) endpoint. For each query in the composite query, returns the underlying ClickHouse statement(s) it renders to without executing them (one per PromQL metric selector; exactly one for builder/ClickHouse/trace-operator queries), with the optional EXPLAIN ESTIMATE and granule analysis attached per statement when requested.
@@ -8227,6 +11826,7 @@ export type Querybuildertypesv5QueryRangePreviewResponseDTOCompositeQuery =
 export interface Querybuildertypesv5QueryRangePreviewResponseDTO {
 	/**
 	 * @type object,null
+	 * @description The rendered statements for each query, keyed by query name.
 	 */
 	compositeQuery: Querybuildertypesv5QueryRangePreviewResponseDTOCompositeQuery;
 }
@@ -8242,6 +11842,9 @@ export type Querybuildertypesv5VariableItemDTOValueOneOfItem =
 	| number
 	| boolean;
 
+/**
+ * The selected value: a string, number or boolean, or a list of them for multi-select variables. The string __all__ is special only for dynamic variables in builder filters and PromQL, where it removes the condition that references the variable; query, custom and text variables, and ClickHouse SQL for every type, substitute it literally.
+ */
 export type Querybuildertypesv5VariableItemDTOValue =
 	| string
 	| number
@@ -8249,41 +11852,64 @@ export type Querybuildertypesv5VariableItemDTOValue =
 	| Querybuildertypesv5VariableItemDTOValueOneOfItem[];
 
 export interface Querybuildertypesv5VariableItemDTO {
+	/**
+	 * @description The kind of dashboard variable: query, dynamic, custom or text.
+	 */
 	type?: Querybuildertypesv5VariableTypeDTO;
+	/**
+	 * @description The selected value: a string, number or boolean, or a list of them for multi-select variables. The string __all__ is special only for dynamic variables in builder filters and PromQL, where it removes the condition that references the variable; query, custom and text variables, and ClickHouse SQL for every type, substitute it literally.
+	 */
 	value?: Querybuildertypesv5VariableItemDTOValue;
 }
 
+/**
+ * Dashboard variable values keyed by variable name. Builder filters substitute only the $name form and leave a quoted {{name}} unchanged; PromQL and ClickHouse SQL substitute $name, {{name}}, [[name]] and the Go template form {{.name}}.
+ */
 export type Querybuildertypesv5QueryRangeRequestDTOVariables = {
 	[key: string]: Querybuildertypesv5VariableItemDTO;
 };
 
 /**
- * Request body for the v5 query range endpoint. Supports builder queries (traces, logs, metrics), formulas, joins, trace operators, PromQL, and ClickHouse SQL queries.
+ * Request body for the v5 query range endpoint. Supports builder queries (traces, logs, metrics), formulas, trace operators, PromQL, and ClickHouse SQL queries.
  */
 export interface Querybuildertypesv5QueryRangeRequestDTO {
+	/**
+	 * @description The queries to execute together; at least one is required and formulas may reference the others by name.
+	 */
 	compositeQuery?: Querybuildertypesv5CompositeQueryDTO;
 	/**
 	 * @type integer
 	 * @minimum 0
+	 * @description The end of the time range as a Unix timestamp in milliseconds; must be greater than start except for raw_stream requests.
 	 */
 	end?: number;
+	/**
+	 * @description Post-processing applied to the result before it is returned.
+	 */
 	formatOptions?: Querybuildertypesv5FormatOptionsDTO;
 	/**
 	 * @type boolean
+	 * @description When true, results are computed fresh instead of being served from the query result cache. Defaults to false.
 	 */
 	noCache?: boolean;
+	/**
+	 * @description The shape of the result: scalar, time_series, raw, raw_stream, trace, distribution or heatmap. It decides which result type data.results carries.
+	 */
 	requestType?: Querybuildertypesv5RequestTypeDTO;
 	/**
 	 * @type string
+	 * @description The version of the request payload schema, currently v1.
 	 */
 	schemaVersion?: string;
 	/**
 	 * @type integer
 	 * @minimum 0
+	 * @description The inclusive start of the time range as a Unix timestamp in milliseconds.
 	 */
 	start?: number;
 	/**
 	 * @type object
+	 * @description Dashboard variable values keyed by variable name. Builder filters substitute only the $name form and leave a quoted {{name}} unchanged; PromQL and ClickHouse SQL substitute $name, {{name}}, [[name]] and the Go template form {{.name}}.
 	 */
 	variables?: Querybuildertypesv5QueryRangeRequestDTOVariables;
 }
@@ -8292,9 +11918,21 @@ export interface Querybuildertypesv5QueryRangeRequestDTO {
  * Response from the v5 query range endpoint. The data.results array contains typed results depending on the requestType: TimeSeriesData for time_series, ScalarData for scalar, or RawData for raw requests.
  */
 export interface Querybuildertypesv5QueryRangeResponseDTO {
+	/**
+	 * @description The query results.
+	 */
 	data?: Querybuildertypesv5QueryDataDTO;
+	/**
+	 * @description Execution statistics for the whole request: a rough measure of how expensive the query was. Use the results, not these numbers, to decide whether data exists; an empty result can still scan many rows.
+	 */
 	meta?: Querybuildertypesv5ExecStatsDTO;
+	/**
+	 * @description The request type the results are shaped for, echoed from the request.
+	 */
 	type?: Querybuildertypesv5RequestTypeDTO;
+	/**
+	 * @description Warnings raised while executing the request, if any.
+	 */
 	warning?: Querybuildertypesv5QueryWarnDataDTO;
 }
 
@@ -8306,6 +11944,47 @@ export enum Querybuildertypesv5QueryTypeDTO {
 	clickhouse_sql = 'clickhouse_sql',
 	promql = 'promql',
 }
+export enum QuickfiltertypesSourceDTO {
+	traces = 'traces',
+	logs = 'logs',
+	api_monitoring = 'api_monitoring',
+	exceptions = 'exceptions',
+	meter = 'meter',
+	ai_observability = 'ai_observability',
+}
+export interface QuickfiltertypesSourceFiltersDTO {
+	/**
+	 * @type string
+	 * @format date-time
+	 */
+	createdAt?: string;
+	/**
+	 * @type array
+	 */
+	filters: TelemetrytypesTelemetryFieldKeyDTO[];
+	/**
+	 * @type string
+	 */
+	id: string;
+	/**
+	 * @type string
+	 */
+	orgId: string;
+	source: QuickfiltertypesSourceDTO;
+	/**
+	 * @type string
+	 * @format date-time
+	 */
+	updatedAt?: string;
+}
+
+export interface QuickfiltertypesUpdatableQuickFiltersDTO {
+	/**
+	 * @type array
+	 */
+	filters: TelemetrytypesTelemetryFieldKeyDTO[];
+}
+
 export interface RenderErrorResponseDTO {
 	error: ErrorsJSONDTO;
 	/**
@@ -8337,6 +12016,10 @@ export interface RulestatehistorytypesGettableRuleStateHistoryDTO {
 	 * @type boolean
 	 */
 	overallStateChanged: boolean;
+	/**
+	 * @type string
+	 */
+	relatedAITracesLink?: string;
 	/**
 	 * @type string
 	 */
@@ -8385,6 +12068,10 @@ export interface RulestatehistorytypesGettableRuleStateHistoryContributorDTO {
 	 * @type array,null
 	 */
 	labels: Querybuildertypesv5LabelDTO[] | null;
+	/**
+	 * @type string
+	 */
+	relatedAITracesLink?: string;
 	/**
 	 * @type string
 	 */
@@ -8463,14 +12150,22 @@ export enum RuletypesQueryTypeDTO {
 	promql = 'promql',
 }
 export interface RuletypesAlertCompositeQueryDTO {
+	/**
+	 * @description The panel the UI renders the queries with: graph, table or value. Use graph for alerts.
+	 */
 	panelType: RuletypesPanelTypeDTO;
 	/**
 	 * @type array,null
+	 * @description The queries to evaluate, at least one. Every envelope type must match queryType: builder_query and builder_formula for builder, promql for promql, clickhouse_sql for clickhouse_sql.
 	 */
 	queries: Querybuildertypesv5QueryEnvelopeDTO[] | null;
+	/**
+	 * @description The query language of every query: builder, promql or clickhouse_sql.
+	 */
 	queryType: RuletypesQueryTypeDTO;
 	/**
 	 * @type string
+	 * @description The unit of the query result, such as percent, ms or bytes. Used to format values in notifications and to convert thresholds given in a different targetUnit.
 	 */
 	unit?: string;
 }
@@ -8480,6 +12175,7 @@ export enum RuletypesAlertTypeDTO {
 	TRACES_BASED_ALERT = 'TRACES_BASED_ALERT',
 	LOGS_BASED_ALERT = 'LOGS_BASED_ALERT',
 	EXCEPTIONS_BASED_ALERT = 'EXCEPTIONS_BASED_ALERT',
+	AI_TRACES_BASED_ALERT = 'AI_TRACES_BASED_ALERT',
 }
 export enum RuletypesMatchTypeDTO {
 	at_least_once = 'at_least_once',
@@ -8500,26 +12196,37 @@ export enum RuletypesCompareOperatorDTO {
 export interface RuletypesBasicRuleThresholdDTO {
 	/**
 	 * @type array,null
+	 * @description The displayName of each notification channel alerts crossing this threshold are sent to. Ignored when notificationSettings.usePolicy is true.
 	 */
 	channels?: string[] | null;
+	/**
+	 * @description Which points in the window must satisfy op. Accepted as at_least_once, all_the_times, on_average, in_total or last, their aliases avg and sum, or the legacy codes as strings, '1' to '5'.
+	 */
 	matchType: RuletypesMatchTypeDTO;
 	/**
 	 * @type string
+	 * @description The threshold name, conventionally critical, error, warning or info. Alerts carry it as the threshold.name label and, lowercased, as the severity label; templates can read it as $threshold.name.
 	 */
 	name: string;
+	/**
+	 * @description How the value is compared with target. Accepted as above, below, equal, not_equal, above_or_equal, below_or_equal or outside_bounds, their symbols, or the legacy codes as strings, '1' to '7'.
+	 */
 	op: RuletypesCompareOperatorDTO;
 	/**
 	 * @type number,null
 	 * @format double
+	 * @description The value at which a firing alert resolves, in targetUnit. Keeps an alert firing between target and recoveryTarget to avoid flapping; null resolves at target.
 	 */
 	recoveryTarget?: number | null;
 	/**
 	 * @type number,null
 	 * @format double
+	 * @description The value the query result is compared against, in targetUnit.
 	 */
 	target: number | null;
 	/**
 	 * @type string
+	 * @description The unit of target and recoveryTarget, such as percent or ms. Converted to the query unit before comparison when the two differ; empty means the query unit.
 	 */
 	targetUnit?: string;
 }
@@ -8540,19 +12247,26 @@ export enum RuletypesScheduleTypeDTO {
 export interface RuletypesCumulativeScheduleDTO {
 	/**
 	 * @type integer,null
+	 * @description The day of the month of the reset boundary, 1 to 31. Required for monthly.
 	 */
 	day?: number | null;
 	/**
 	 * @type integer,null
+	 * @description The hour of the reset boundary, 0 to 23. Required for daily, weekly and monthly.
 	 */
 	hour?: number | null;
 	/**
 	 * @type integer,null
+	 * @description The minute of the reset boundary, 0 to 59. Required for every type.
 	 */
 	minute?: number | null;
+	/**
+	 * @description How often the window resets: hourly, daily, weekly or monthly.
+	 */
 	type: RuletypesScheduleTypeDTO;
 	/**
 	 * @type integer,null
+	 * @description The weekday of the reset boundary, 0 (Sunday) to 6 (Saturday). Required for weekly.
 	 */
 	weekday?: number | null;
 }
@@ -8560,15 +12274,23 @@ export interface RuletypesCumulativeScheduleDTO {
 export interface RuletypesCumulativeWindowDTO {
 	/**
 	 * @type string
+	 * @description How often the rule is evaluated, as a Go duration such as 1m. Must be positive.
 	 */
 	frequency: string;
+	/**
+	 * @description The boundary the accumulation window starts from. Each evaluation queries from the most recent boundary to now.
+	 */
 	schedule: RuletypesCumulativeScheduleDTO;
 	/**
 	 * @type string
+	 * @description The IANA time zone the schedule is resolved in, such as UTC or Asia/Kolkata.
 	 */
 	timezone: string;
 }
 
+/**
+ * The kind of evaluation.
+ */
 export enum RuletypesEvaluationCumulativeDTOKind {
 	cumulative = 'cumulative',
 }
@@ -8576,21 +12298,30 @@ export interface RuletypesEvaluationCumulativeDTO {
 	/**
 	 * @type string
 	 * @enum cumulative
+	 * @description The kind of evaluation.
 	 */
 	kind: RuletypesEvaluationCumulativeDTOKind;
+	/**
+	 * @description The cumulative window evaluation specification.
+	 */
 	spec: RuletypesCumulativeWindowDTO;
 }
 
+/**
+ * The kind of evaluation.
+ */
 export enum RuletypesEvaluationRollingDTOKind {
 	rolling = 'rolling',
 }
 export interface RuletypesRollingWindowDTO {
 	/**
 	 * @type string
+	 * @description The sliding lookback window each evaluation queries, as a Go duration such as 5m.
 	 */
 	evalWindow: string;
 	/**
 	 * @type string
+	 * @description How often the rule is evaluated, as a Go duration such as 1m. Must be positive.
 	 */
 	frequency: string;
 }
@@ -8599,8 +12330,12 @@ export interface RuletypesEvaluationRollingDTO {
 	/**
 	 * @type string
 	 * @enum rolling
+	 * @description The kind of evaluation.
 	 */
 	kind: RuletypesEvaluationRollingDTOKind;
+	/**
+	 * @description The rolling window evaluation specification.
+	 */
 	spec: RuletypesRollingWindowDTO;
 }
 
@@ -8615,25 +12350,204 @@ export enum RuletypesEvaluationKindDTO {
 export interface RuletypesGettableTestRuleDTO {
 	/**
 	 * @type integer
+	 * @description The number of alerts the test notification produced. Counts every evaluated series, including those that did not cross the threshold.
 	 */
 	alertCount?: number;
 	/**
 	 * @type string
+	 * @description A human readable summary of the test evaluation.
 	 */
 	message?: string;
+}
+
+export interface RuletypesLabelPairDTO {
+	/**
+	 * @type string
+	 * @description The label name.
+	 */
+	key: string;
+	/**
+	 * @type string
+	 * @description The label value.
+	 */
+	value: string;
+}
+
+export enum RuletypesListOrderDTO {
+	asc = 'asc',
+	desc = 'desc',
+}
+export enum RuletypesListSortDTO {
+	updated_at = 'updated_at',
+	created_at = 'created_at',
+	name = 'name',
+	state = 'state',
+	severity = 'severity',
+}
+/**
+ * The labels attached to alerts the rule fires.
+ */
+export type RuletypesListableRuleDTOLabels = { [key: string]: string };
+
+export enum RuletypesRuleTypeDTO {
+	threshold_rule = 'threshold_rule',
+	promql_rule = 'promql_rule',
+	anomaly_rule = 'anomaly_rule',
+}
+export interface RuletypesListableRuleDTO {
+	/**
+	 * @type string
+	 * @description The display name of the alert rule.
+	 */
+	alert: string;
+	/**
+	 * @description The signal the rule evaluates: METRIC_BASED_ALERT, TRACES_BASED_ALERT, LOGS_BASED_ALERT, EXCEPTIONS_BASED_ALERT or AI_TRACES_BASED_ALERT.
+	 */
+	alertType: RuletypesAlertTypeDTO;
+	/**
+	 * @type string
+	 * @format date-time
+	 */
+	createdAt?: string;
+	/**
+	 * @type string
+	 */
+	createdBy?: string;
+	/**
+	 * @type string
+	 * @description A human readable description of what the rule monitors.
+	 */
+	description?: string;
+	/**
+	 * @type boolean
+	 * @description Whether the rule is paused.
+	 */
+	disabled?: boolean;
+	/**
+	 * @type string
+	 * @description The unique identifier of the rule.
+	 */
+	id: string;
+	/**
+	 * @type object
+	 * @description The labels attached to alerts the rule fires.
+	 */
+	labels?: RuletypesListableRuleDTOLabels;
+	/**
+	 * @description The evaluation strategy: threshold_rule, promql_rule or anomaly_rule.
+	 */
+	ruleType: RuletypesRuleTypeDTO;
+	/**
+	 * @description The current evaluation state: inactive, pending, recovering, firing, nodata or disabled.
+	 */
+	state: RuletypesAlertStateDTO;
+	/**
+	 * @type string
+	 * @format date-time
+	 */
+	updatedAt?: string;
+	/**
+	 * @type string
+	 */
+	updatedBy?: string;
+}
+
+export interface RuletypesRuleViewDataDTO {
+	/**
+	 * @description The sort direction: asc or desc (the default).
+	 */
+	order?: RuletypesListOrderDTO;
+	/**
+	 * @type string
+	 * @description A filter expression over rule name, description, labels and other fields, at most 1024 characters. Empty matches every rule.
+	 */
+	query?: string;
+	/**
+	 * @description The field to sort by: updated_at (the default), created_at, name, state or severity.
+	 */
+	sort?: RuletypesListSortDTO;
+	/**
+	 * @type array
+	 * @description Only return rules in these states: firing, pending, recovering, inactive, nodata or disabled. Empty means every state.
+	 */
+	states?: string[];
+	/**
+	 * @type string
+	 */
+	version: string;
+}
+
+export interface RuletypesRuleViewDTO {
+	/**
+	 * @type string
+	 * @format date-time
+	 */
+	createdAt?: string;
+	data: RuletypesRuleViewDataDTO;
+	/**
+	 * @type string
+	 */
+	id: string;
+	/**
+	 * @type string
+	 */
+	name: string;
+	/**
+	 * @type string
+	 */
+	orgId: string;
+	/**
+	 * @type string
+	 * @format date-time
+	 */
+	updatedAt?: string;
+}
+
+export interface RuletypesListableRuleViewsDTO {
+	/**
+	 * @type array
+	 */
+	views: RuletypesRuleViewDTO[];
+}
+
+export interface RuletypesListableRulesDTO {
+	/**
+	 * @type array
+	 * @description Organization-wide label key and value pair suggestions for building filters, independent of the current filter and page, capped at 1000 distinct pairs.
+	 */
+	labels: RuletypesLabelPairDTO[];
+	/**
+	 * @type array
+	 * @description The keys the query filter language reserves, which cannot be used as label names in a query.
+	 */
+	reservedKeywords: string[];
+	/**
+	 * @type array
+	 * @description The page of rules matching the filter.
+	 */
+	rules: RuletypesListableRuleDTO[];
+	/**
+	 * @type integer
+	 * @format int64
+	 * @description The number of rules matching the filter across all pages.
+	 */
+	total: number;
 }
 
 export interface RuletypesRenotifyDTO {
 	/**
 	 * @type array,null
+	 * @description The alert states that are re-notified: firing, nodata or both.
 	 */
 	alertStates?: RuletypesAlertStateDTO[] | null;
 	/**
 	 * @type boolean
+	 * @description Whether an active alert is re-sent after interval elapses. When false an alert notifies once per firing.
 	 */
 	enabled?: boolean;
 	/**
 	 * @type string
+	 * @description The time between repeat notifications, as a Go duration such as 4h. Must be positive when enabled is true.
 	 */
 	interval?: string;
 }
@@ -8641,21 +12555,33 @@ export interface RuletypesRenotifyDTO {
 export interface RuletypesNotificationSettingsDTO {
 	/**
 	 * @type array,null
+	 * @description Label names whose values group alerts into one notification, such as service.name.
 	 */
 	groupBy?: string[] | null;
 	/**
 	 * @type string
+	 * @description A grace period, as a Go duration such as 2m, during which a newly seen label group is excluded from evaluation. Applies to metric rules only; log and trace rules are never delayed. A group whose values are not yet known is evaluated immediately.
 	 */
 	newGroupEvalDelay?: string;
+	/**
+	 * @description Whether and how often to re-send a notification for an alert that stays active.
+	 */
 	renotify?: RuletypesRenotifyDTO;
 	/**
 	 * @type boolean
+	 * @description When true, alerts are routed by the organisation level notification policies instead of the channels named on the thresholds. Defaults to false.
 	 */
 	usePolicy?: boolean;
 }
 
+/**
+ * Free text attached to every alert, conventionally summary and description. Values may use Go templates with $value, $threshold and $labels.
+ */
 export type RuletypesPostableRuleDTOAnnotations = { [key: string]: string };
 
+/**
+ * Labels attached to every alert the rule fires. Keys match [a-zA-Z_.][a-zA-Z0-9_.]*; values may use Go templates such as {{$labels.service_name}}. severity is the conventional routing label.
+ */
 export type RuletypesPostableRuleDTOLabels = { [key: string]: string };
 
 export enum RuletypesSeasonalityDTO {
@@ -8663,16 +12589,28 @@ export enum RuletypesSeasonalityDTO {
 	daily = 'daily',
 	weekly = 'weekly',
 }
+/**
+ * The kind of threshold.
+ */
 export enum RuletypesThresholdBasicDTOKind {
 	basic = 'basic',
 }
+/**
+ * The basic threshold specification (array of thresholds).
+ */
+export type RuletypesThresholdBasicDTOSpec = RuletypesBasicRuleThresholdsDTO | null;
+
 export interface RuletypesThresholdBasicDTO {
 	/**
 	 * @type string
 	 * @enum basic
+	 * @description The kind of threshold.
 	 */
 	kind: RuletypesThresholdBasicDTOKind;
-	spec: RuletypesBasicRuleThresholdsDTO | null;
+	/**
+	 * @description The basic threshold specification (array of thresholds).
+	 */
+	spec: RuletypesThresholdBasicDTOSpec;
 }
 
 export type RuletypesRuleThresholdDataDTO = RuletypesThresholdBasicDTO;
@@ -8681,115 +12619,181 @@ export interface RuletypesRuleConditionDTO {
 	/**
 	 * @type integer
 	 * @minimum 0
+	 * @description How many minutes without data pass before the nodata alert fires. Ignored unless alertOnAbsent is true.
 	 */
 	absentFor?: number;
 	/**
 	 * @type boolean
+	 * @description Whether to fire a nodata alert when the query returns no data. Defaults to false.
 	 */
 	alertOnAbsent?: boolean;
 	/**
 	 * @type string
+	 * @description anomaly_rule only: the anomaly detection algorithm. The supported value is standard.
 	 */
 	algorithm?: string;
+	/**
+	 * @description The queries whose result is compared against the thresholds.
+	 */
 	compositeQuery: RuletypesAlertCompositeQueryDTO;
+	/**
+	 * @description schemaVersion v1 only: which points in the window must satisfy op. Accepted as at_least_once, all_the_times, on_average, in_total or last, their aliases avg and sum, or the legacy codes as strings, '1' to '5'. Required for v1; v2alpha1 sets matchType on each threshold.
+	 */
 	matchType?: RuletypesMatchTypeDTO;
+	/**
+	 * @description schemaVersion v1 only: how the value is compared with target. Accepted as above, below, equal, not_equal, above_or_equal, below_or_equal or outside_bounds, their symbols, or the legacy codes as strings, '1' to '7'. Required for v1; v2alpha1 sets op on each threshold.
+	 */
 	op?: RuletypesCompareOperatorDTO;
 	/**
 	 * @type boolean
+	 * @description Whether a series is skipped until it has at least requiredNumPoints points in the window. Defaults to false.
 	 */
 	requireMinPoints?: boolean;
 	/**
 	 * @type integer
+	 * @description The minimum number of points a series needs before it is evaluated. Must be greater than 0 when requireMinPoints is true.
 	 */
 	requiredNumPoints?: number;
+	/**
+	 * @description anomaly_rule only: the seasonal period the history is compared against, hourly, daily or weekly.
+	 */
 	seasonality?: RuletypesSeasonalityDTO;
 	/**
 	 * @type string
+	 * @description The name of the query whose result is evaluated, such as A or F1. Must match a query in compositeQuery. When omitted, F1 is used if present, otherwise the enabled query with the highest name.
 	 */
 	selectedQueryName?: string;
 	/**
 	 * @type number,null
 	 * @format double
+	 * @description schemaVersion v1 only: the value compared against, in targetUnit. Required for v1; v2alpha1 sets target on each threshold.
 	 */
 	target?: number | null;
 	/**
 	 * @type string
+	 * @description schemaVersion v1 only: the unit of target, such as percent or ms. Converted to compositeQuery.unit before comparison when the two differ.
 	 */
 	targetUnit?: string;
+	/**
+	 * @description The thresholds to evaluate, as a kind and spec. Required when schemaVersion is v2alpha1; derived from op, target and matchType for v1.
+	 */
 	thresholds?: RuletypesRuleThresholdDataDTO;
 }
 
-export enum RuletypesRuleTypeDTO {
-	threshold_rule = 'threshold_rule',
-	promql_rule = 'promql_rule',
-	anomaly_rule = 'anomaly_rule',
-}
 export interface RuletypesPostableRuleDTO {
 	/**
 	 * @type string
+	 * @description The display name of the alert rule.
 	 */
 	alert: string;
+	/**
+	 * @description The signal the rule evaluates: METRIC_BASED_ALERT, TRACES_BASED_ALERT, LOGS_BASED_ALERT, EXCEPTIONS_BASED_ALERT or AI_TRACES_BASED_ALERT.
+	 */
 	alertType: RuletypesAlertTypeDTO;
 	/**
 	 * @type object
+	 * @description Free text attached to every alert, conventionally summary and description. Values may use Go templates with $value, $threshold and $labels.
 	 */
 	annotations?: RuletypesPostableRuleDTOAnnotations;
+	/**
+	 * @description The query to evaluate and the thresholds applied to its result.
+	 */
 	condition: RuletypesRuleConditionDTO;
 	/**
 	 * @type string
+	 * @description A human readable description of what the rule monitors.
 	 */
 	description?: string;
 	/**
 	 * @type boolean
+	 * @description Whether the rule is paused. A disabled rule is neither evaluated nor notifies. Defaults to false.
 	 */
 	disabled?: boolean;
 	/**
 	 * @type string
+	 * @description The lookback window as a Go duration such as 5m. Only read when schemaVersion is v1, defaulting to 5m; v2alpha1 rules set it in evaluation.spec instead.
 	 */
 	evalWindow?: string;
+	/**
+	 * @description The evaluation window, as a kind and spec. Required when schemaVersion is v2alpha1; derived from evalWindow and frequency for v1.
+	 */
 	evaluation?: RuletypesEvaluationEnvelopeDTO;
 	/**
 	 * @type string
+	 * @description How often the rule is evaluated, as a Go duration such as 1m. Only read when schemaVersion is v1, defaulting to 1m; v2alpha1 rules set it in evaluation.spec instead.
 	 */
 	frequency?: string;
 	/**
 	 * @type object
+	 * @description Labels attached to every alert the rule fires. Keys match [a-zA-Z_.][a-zA-Z0-9_.]*; values may use Go templates such as {{$labels.service_name}}. severity is the conventional routing label.
 	 */
 	labels?: RuletypesPostableRuleDTOLabels;
+	/**
+	 * @description Grouping, re-notification and routing behaviour. Required when schemaVersion is v2alpha1; derived from the v1 fields otherwise.
+	 */
 	notificationSettings?: RuletypesNotificationSettingsDTO;
 	/**
 	 * @type array
+	 * @description The displayName of each notification channel to notify, for schemaVersion v1 rules. Ignored for v2alpha1, where each threshold carries its own channels.
 	 */
 	preferredChannels?: string[];
+	/**
+	 * @description The evaluation strategy: threshold_rule compares against thresholds, promql_rule evaluates a PromQL expression, anomaly_rule scores deviation from seasonal history. Defaults to threshold_rule for builder queries and is forced to promql_rule for promql queries.
+	 */
 	ruleType: RuletypesRuleTypeDTO;
 	/**
 	 * @type string
+	 * @description The rule payload schema: v1 (the default when omitted) uses the flat condition fields, v2alpha1 uses condition.thresholds, evaluation and notificationSettings.
 	 */
 	schemaVersion?: string;
 	/**
 	 * @type string
+	 * @description The URL of the page the rule was created from. Informational; it is not used for evaluation.
 	 */
 	source?: string;
 	/**
 	 * @type string
+	 * @description The query payload version. Only v5 is accepted and it is filled in when omitted.
 	 */
 	version?: string;
 }
 
+export interface RuletypesPostableRuleViewDTO {
+	data: RuletypesRuleViewDataDTO;
+	/**
+	 * @type string
+	 */
+	name: string;
+}
+
+/**
+ * Free text attached to every alert, conventionally summary and description. Values may use Go templates with $value, $threshold and $labels.
+ */
 export type RuletypesRuleDTOAnnotations = { [key: string]: string };
 
+/**
+ * Labels attached to every alert the rule fires. Keys match [a-zA-Z_.][a-zA-Z0-9_.]*; values may use Go templates such as {{$labels.service_name}}. severity is the conventional routing label.
+ */
 export type RuletypesRuleDTOLabels = { [key: string]: string };
 
 export interface RuletypesRuleDTO {
 	/**
 	 * @type string
+	 * @description The display name of the alert rule.
 	 */
 	alert: string;
+	/**
+	 * @description The signal the rule evaluates: METRIC_BASED_ALERT, TRACES_BASED_ALERT, LOGS_BASED_ALERT, EXCEPTIONS_BASED_ALERT or AI_TRACES_BASED_ALERT.
+	 */
 	alertType: RuletypesAlertTypeDTO;
 	/**
 	 * @type object
+	 * @description Free text attached to every alert, conventionally summary and description. Values may use Go templates with $value, $threshold and $labels.
 	 */
 	annotations?: RuletypesRuleDTOAnnotations;
+	/**
+	 * @description The query to evaluate and the thresholds applied to its result.
+	 */
 	condition: RuletypesRuleConditionDTO;
 	/**
 	 * @type string
@@ -8802,43 +12806,64 @@ export interface RuletypesRuleDTO {
 	createdBy?: string;
 	/**
 	 * @type string
+	 * @description A human readable description of what the rule monitors.
 	 */
 	description?: string;
 	/**
 	 * @type boolean
+	 * @description Whether the rule is paused. A disabled rule is neither evaluated nor notifies. Defaults to false.
 	 */
 	disabled?: boolean;
 	/**
 	 * @type string
+	 * @description The lookback window as a Go duration such as 5m. Only read when schemaVersion is v1, defaulting to 5m; v2alpha1 rules set it in evaluation.spec instead.
 	 */
 	evalWindow?: string;
+	/**
+	 * @description The evaluation window, as a kind and spec. Required when schemaVersion is v2alpha1; derived from evalWindow and frequency for v1.
+	 */
 	evaluation?: RuletypesEvaluationEnvelopeDTO;
 	/**
 	 * @type string
+	 * @description How often the rule is evaluated, as a Go duration such as 1m. Only read when schemaVersion is v1, defaulting to 1m; v2alpha1 rules set it in evaluation.spec instead.
 	 */
 	frequency?: string;
 	/**
 	 * @type string
+	 * @description The unique identifier of the rule.
 	 */
 	id: string;
 	/**
 	 * @type object
+	 * @description Labels attached to every alert the rule fires. Keys match [a-zA-Z_.][a-zA-Z0-9_.]*; values may use Go templates such as {{$labels.service_name}}. severity is the conventional routing label.
 	 */
 	labels?: RuletypesRuleDTOLabels;
+	/**
+	 * @description Grouping, re-notification and routing behaviour. Required when schemaVersion is v2alpha1; derived from the v1 fields otherwise.
+	 */
 	notificationSettings?: RuletypesNotificationSettingsDTO;
 	/**
 	 * @type array
+	 * @description The displayName of each notification channel to notify, for schemaVersion v1 rules. Ignored for v2alpha1, where each threshold carries its own channels.
 	 */
 	preferredChannels?: string[];
+	/**
+	 * @description The evaluation strategy: threshold_rule compares against thresholds, promql_rule evaluates a PromQL expression, anomaly_rule scores deviation from seasonal history. Defaults to threshold_rule for builder queries and is forced to promql_rule for promql queries.
+	 */
 	ruleType: RuletypesRuleTypeDTO;
 	/**
 	 * @type string
+	 * @description The rule payload schema: v1 (the default when omitted) uses the flat condition fields, v2alpha1 uses condition.thresholds, evaluation and notificationSettings.
 	 */
 	schemaVersion?: string;
 	/**
 	 * @type string
+	 * @description The URL of the page the rule was created from. Informational; it is not used for evaluation.
 	 */
 	source?: string;
+	/**
+	 * @description The current evaluation state: inactive, pending, recovering, firing, nodata or disabled.
+	 */
 	state: RuletypesAlertStateDTO;
 	/**
 	 * @type string
@@ -8851,6 +12876,7 @@ export interface RuletypesRuleDTO {
 	updatedBy?: string;
 	/**
 	 * @type string
+	 * @description The query payload version. Only v5 is accepted and it is filled in when omitted.
 	 */
 	version?: string;
 }
@@ -8858,11 +12884,156 @@ export interface RuletypesRuleDTO {
 export enum RuletypesThresholdKindDTO {
 	basic = 'basic',
 }
-export interface ServiceaccounttypesDeprecatedPostableServiceAccountRoleDTO {
+export interface SavedviewtypesDisplayDTO {
+	/**
+	 * @type string
+	 * @description A CSS color such as a hex code, shown as the view's color in the explorer view picker; the saved views panel does not use it. Empty leaves the default.
+	 */
+	color?: string;
+	/**
+	 * @type string
+	 * @description The row font size in list views: small, medium or large. Empty leaves the explorer default.
+	 */
+	fontSize?: string;
+	/**
+	 * @type string
+	 * @description The list rendering mode in the logs explorer: raw, table or list. Empty leaves the explorer default.
+	 */
+	format?: string;
+	/**
+	 * @type integer
+	 * @description The number of lines shown per row before the body is truncated in logs list views. 0 leaves the explorer default.
+	 */
+	maxLines?: number;
+}
+
+export enum SavedviewtypesPanelTypeDTO {
+	value = 'value',
+	graph = 'graph',
+	table = 'table',
+	list = 'list',
+	trace = 'trace',
+}
+export enum SavedviewtypesSchemaVersionDTO {
+	v2 = 'v2',
+}
+export enum SavedviewtypesSourceDTO {
+	traces = 'traces',
+	logs = 'logs',
+	metrics = 'metrics',
+	meter = 'meter',
+	ai_observability = 'ai_observability',
+}
+export interface SavedviewtypesSavedViewSpecDTO {
+	/**
+	 * @description Rendering preferences for list panels. All fields are optional.
+	 */
+	display?: SavedviewtypesDisplayDTO;
+	/**
+	 * @type string
+	 * @description The human readable title shown in the explorer. It may differ from the machine name and need not be unique.
+	 */
+	displayName: string;
+	/**
+	 * @description The explorer panel the view renders as: list, graph, table, value or trace.
+	 */
+	panelType: SavedviewtypesPanelTypeDTO;
+	/**
+	 * @type array
+	 * @description The query envelopes the view runs, in the v5 query builder shape. At least one is required and the set is validated for the requestType.
+	 */
+	queries: Querybuildertypesv5QueryEnvelopeDTO[];
+	/**
+	 * @description The query_range request type the panel issues: raw for list panels, time_series for graphs, scalar for table and value panels, trace for trace panels.
+	 */
+	requestType: Querybuildertypesv5RequestTypeDTO;
+	/**
+	 * @type array
+	 * @description The columns shown in list panels, each a field key with name and optionally signal, fieldContext and fieldDataType. Send explicit columns for list views: an empty array yields no trace columns and only the required log columns. Use an empty array for graph views.
+	 */
+	selectedFields?: TelemetrytypesTelemetryFieldKeyDTO[];
+}
+
+export interface SavedviewtypesPostableSavedViewDTO {
+	/**
+	 * @type boolean
+	 * @description When true the server derives name from spec.displayName and appends a random suffix. Defaults to false.
+	 */
+	generateName?: boolean;
+	/**
+	 * @type string
+	 * @description The machine name of the view, a DNS-1123 label (lowercase letters, digits and hyphens, at most 63 characters) unique within the organization. Required unless generateName is true, in which case it must be empty.
+	 */
+	name?: string;
+	/**
+	 * @description The version of the spec shape. The only accepted value is v2.
+	 */
+	schemaVersion: SavedviewtypesSchemaVersionDTO;
+	/**
+	 * @description The explorer page the view belongs to: traces, logs, metrics, meter or ai_observability. Builder queries inside spec must use the matching signal; meter views use signal metrics with source meter.
+	 */
+	source: SavedviewtypesSourceDTO;
+	/**
+	 * @description The display name, panel type, request type, queries and column selection of the view.
+	 */
+	spec: SavedviewtypesSavedViewSpecDTO;
+}
+
+export interface SavedviewtypesSavedViewDTO {
+	/**
+	 * @type string
+	 * @format date-time
+	 */
+	createdAt?: string;
+	/**
+	 * @type string
+	 */
+	createdBy?: string;
 	/**
 	 * @type string
 	 */
 	id: string;
+	/**
+	 * @type string
+	 * @description The machine name of the view, a DNS-1123 label unique within the organization. Immutable after creation.
+	 */
+	name?: string;
+	/**
+	 * @description The version of the spec shape. The only accepted value is v2.
+	 */
+	schemaVersion: SavedviewtypesSchemaVersionDTO;
+	/**
+	 * @description The explorer page the view belongs to: traces, logs, metrics, meter or ai_observability.
+	 */
+	source?: SavedviewtypesSourceDTO;
+	/**
+	 * @description The display name, panel type, request type, queries and column selection of the view.
+	 */
+	spec: SavedviewtypesSavedViewSpecDTO;
+	/**
+	 * @type string
+	 * @format date-time
+	 */
+	updatedAt?: string;
+	/**
+	 * @type string
+	 */
+	updatedBy?: string;
+}
+
+export interface SavedviewtypesUpdatableSavedViewDTO {
+	/**
+	 * @description The version of the spec shape. The only accepted value is v2.
+	 */
+	schemaVersion: SavedviewtypesSchemaVersionDTO;
+	/**
+	 * @description The explorer page the view belongs to: traces, logs, metrics, meter or ai_observability. The machine name cannot be changed; it is identified by the id in the path.
+	 */
+	source: SavedviewtypesSourceDTO;
+	/**
+	 * @description The full replacement spec. Fields left out are reset, not preserved.
+	 */
+	spec: SavedviewtypesSavedViewSpecDTO;
 }
 
 export interface ServiceaccounttypesGettableFactorAPIKeyDTO {
@@ -9146,22 +13317,35 @@ export interface SpantypesGettableFlamegraphTraceDTO {
 	startTimestampMillis: number;
 }
 
-export type SpantypesSpanMapperGroupConditionDTOAnyOf = {
+export enum SpantypesSpanMapperOriginDTO {
+	user = 'user',
+	system = 'system',
+}
+export interface SpantypesSpanMapperGroupConditionKeyDTO {
 	/**
-	 * @type array,null
+	 * @type boolean
 	 */
-	attributes: string[] | null;
+	enabled: boolean;
+	origin?: SpantypesSpanMapperOriginDTO;
 	/**
-	 * @type array,null
+	 * @type string
 	 */
-	resource: string[] | null;
-};
+	value: string;
+}
 
 /**
  * @nullable
  */
-export type SpantypesSpanMapperGroupConditionDTO =
-	SpantypesSpanMapperGroupConditionDTOAnyOf | null;
+export type SpantypesSpanMapperGroupConditionDTO = {
+	/**
+	 * @type array,null
+	 */
+	attributes: SpantypesSpanMapperGroupConditionKeyDTO[] | null;
+	/**
+	 * @type array,null
+	 */
+	resource: SpantypesSpanMapperGroupConditionKeyDTO[] | null;
+} | null;
 
 export interface SpantypesSpanMapperGroupDTO {
 	condition: SpantypesSpanMapperGroupConditionDTO | null;
@@ -9190,6 +13374,7 @@ export interface SpantypesSpanMapperGroupDTO {
 	 * @type string
 	 */
 	orgId: string;
+	origin: SpantypesSpanMapperOriginDTO;
 	/**
 	 * @type string
 	 * @format date-time
@@ -9199,6 +13384,10 @@ export interface SpantypesSpanMapperGroupDTO {
 	 * @type string
 	 */
 	updatedBy?: string;
+	/**
+	 * @type integer
+	 */
+	version: number;
 }
 
 export interface SpantypesGettableSpanMapperGroupsDTO {
@@ -9215,8 +13404,7 @@ export type SpantypesSpanMapperTestSpanDTOAttributesAnyOf = {
 /**
  * @nullable
  */
-export type SpantypesSpanMapperTestSpanDTOAttributes =
-	SpantypesSpanMapperTestSpanDTOAttributesAnyOf | null;
+export type SpantypesSpanMapperTestSpanDTOAttributes = SpantypesSpanMapperTestSpanDTOAttributesAnyOf | null;
 
 export type SpantypesSpanMapperTestSpanDTOResourceAnyOf = {
 	[key: string]: unknown;
@@ -9225,8 +13413,7 @@ export type SpantypesSpanMapperTestSpanDTOResourceAnyOf = {
 /**
  * @nullable
  */
-export type SpantypesSpanMapperTestSpanDTOResource =
-	SpantypesSpanMapperTestSpanDTOResourceAnyOf | null;
+export type SpantypesSpanMapperTestSpanDTOResource = SpantypesSpanMapperTestSpanDTOResourceAnyOf | null;
 
 export interface SpantypesSpanMapperTestSpanDTO {
 	/**
@@ -9257,10 +13444,15 @@ export enum SpantypesSpanMapperOperationDTO {
 export interface SpantypesSpanMapperSourceDTO {
 	context: SpantypesFieldContextDTO;
 	/**
+	 * @type boolean
+	 */
+	enabled: boolean;
+	/**
 	 * @type string
 	 */
 	key: string;
 	operation: SpantypesSpanMapperOperationDTO;
+	origin?: SpantypesSpanMapperOriginDTO;
 	/**
 	 * @type integer
 	 */
@@ -9302,6 +13494,7 @@ export interface SpantypesSpanMapperDTO {
 	 * @type string
 	 */
 	name: string;
+	origin: SpantypesSpanMapperOriginDTO;
 	/**
 	 * @type string
 	 * @format date-time
@@ -9332,8 +13525,7 @@ export type SpantypesSpanAggregationResultDTOValueAnyOf = {
 /**
  * @nullable
  */
-export type SpantypesSpanAggregationResultDTOValue =
-	SpantypesSpanAggregationResultDTOValueAnyOf | null;
+export type SpantypesSpanAggregationResultDTOValue = SpantypesSpanAggregationResultDTOValueAnyOf | null;
 
 export interface SpantypesSpanAggregationResultDTO {
 	aggregation: SpantypesSpanAggregationTypeDTO;
@@ -9351,6 +13543,82 @@ export interface SpantypesGettableTraceAggregationsDTO {
 	aggregations: SpantypesSpanAggregationResultDTO[];
 }
 
+export interface SpantypesTraceAITokensDTO {
+	/**
+	 * @type integer
+	 * @minimum 0
+	 */
+	cacheRead: number;
+	/**
+	 * @type integer
+	 * @minimum 0
+	 */
+	cacheWrite: number;
+	/**
+	 * @type integer
+	 * @minimum 0
+	 */
+	input: number;
+	/**
+	 * @type integer
+	 * @minimum 0
+	 */
+	output: number;
+	/**
+	 * @type integer
+	 * @minimum 0
+	 */
+	reasoning: number;
+}
+
+export interface SpantypesTraceAISummaryDTO {
+	tokens: SpantypesTraceAITokensDTO;
+	/**
+	 * @type number
+	 */
+	totalCost?: number;
+}
+
+export interface SpantypesGettableTraceSummaryDTO {
+	ai?: SpantypesTraceAISummaryDTO;
+	/**
+	 * @type integer
+	 * @minimum 0
+	 */
+	endTimestampMillis: number;
+	/**
+	 * @type boolean
+	 */
+	hasMissingSpans: boolean;
+	/**
+	 * @type string
+	 */
+	rootServiceEntryPoint: string;
+	/**
+	 * @type string
+	 */
+	rootServiceName: string;
+	/**
+	 * @type string
+	 */
+	rootSpanStatusCode: string;
+	/**
+	 * @type integer
+	 * @minimum 0
+	 */
+	startTimestampMillis: number;
+	/**
+	 * @type integer
+	 * @minimum 0
+	 */
+	totalErrorSpansCount: number;
+	/**
+	 * @type integer
+	 * @minimum 0
+	 */
+	totalSpansCount: number;
+}
+
 export interface SpantypesOtelSpanRefDTO {
 	/**
 	 * @type string
@@ -9366,6 +13634,92 @@ export interface SpantypesOtelSpanRefDTO {
 	traceId?: string;
 }
 
+export type SpantypesThreadSpanDTOAttributes = { [key: string]: unknown };
+
+export type SpantypesThreadSpanDTOResource = { [key: string]: string };
+
+export interface SpantypesThreadSpanDTO {
+	/**
+	 * @type object
+	 */
+	attributes: SpantypesThreadSpanDTOAttributes;
+	/**
+	 * @type integer
+	 * @minimum 0
+	 */
+	duration_nano: number;
+	/**
+	 * @type array
+	 */
+	events: SpantypesEventDTO[];
+	formattedInput: AiobservabilitytypesInputMessagesDTO;
+	formattedOutput: AiobservabilitytypesOutputMessagesDTO;
+	/**
+	 * @type array
+	 */
+	formatterWarnings: string[];
+	/**
+	 * @type boolean
+	 */
+	has_error: boolean;
+	/**
+	 * @type string
+	 */
+	kind_string: string;
+	/**
+	 * @type string
+	 */
+	name: string;
+	/**
+	 * @type string
+	 */
+	parent_span_id: string;
+	/**
+	 * @type array
+	 */
+	references: SpantypesOtelSpanRefDTO[];
+	/**
+	 * @type object
+	 */
+	resource: SpantypesThreadSpanDTOResource;
+	/**
+	 * @type string
+	 */
+	span_id: string;
+	/**
+	 * @type string
+	 */
+	status_code_string: string;
+	/**
+	 * @type string
+	 */
+	status_message: string;
+	/**
+	 * @type integer
+	 * @minimum 0
+	 */
+	time_unix: number;
+	/**
+	 * @type string
+	 */
+	trace_id: string;
+}
+
+export interface SpantypesGettableTraceThreadDTO {
+	/**
+	 * @type string
+	 */
+	nextCursor?: string;
+	/**
+	 * @type string
+	 */
+	prevCursor?: string;
+	/**
+	 * @type array
+	 */
+	spans: SpantypesThreadSpanDTO[];
+}
+
 export type SpantypesWaterfallSpanDTOAttributesAnyOf = {
 	[key: string]: unknown;
 };
@@ -9373,16 +13727,14 @@ export type SpantypesWaterfallSpanDTOAttributesAnyOf = {
 /**
  * @nullable
  */
-export type SpantypesWaterfallSpanDTOAttributes =
-	SpantypesWaterfallSpanDTOAttributesAnyOf | null;
+export type SpantypesWaterfallSpanDTOAttributes = SpantypesWaterfallSpanDTOAttributesAnyOf | null;
 
 export type SpantypesWaterfallSpanDTOResourceAnyOf = { [key: string]: string };
 
 /**
  * @nullable
  */
-export type SpantypesWaterfallSpanDTOResource =
-	SpantypesWaterfallSpanDTOResourceAnyOf | null;
+export type SpantypesWaterfallSpanDTOResource = SpantypesWaterfallSpanDTOResourceAnyOf | null;
 
 export interface SpantypesWaterfallSpanDTO {
 	/**
@@ -9419,6 +13771,12 @@ export interface SpantypesWaterfallSpanDTO {
 	 * @minimum 0
 	 */
 	flags?: number;
+	formattedInput?: AiobservabilitytypesInputMessagesDTO;
+	formattedOutput?: AiobservabilitytypesOutputMessagesDTO;
+	/**
+	 * @type array
+	 */
+	formatterWarnings?: string[];
 	/**
 	 * @type boolean
 	 */
@@ -9662,23 +14020,175 @@ export interface SpantypesUpdatableSpanMapperGroupDTO {
 	name?: string | null;
 }
 
+export interface SubscriptiontypesGettableSubscriptionDTO {
+	/**
+	 * @type string
+	 */
+	redirectURL: string;
+}
+
+export interface SubscriptiontypesSubscriptionUsageDayWiseDataDTO {
+	/**
+	 * @type number
+	 * @format double
+	 */
+	count?: number;
+	/**
+	 * @type number
+	 * @format double
+	 */
+	quantity?: number;
+	/**
+	 * @type number
+	 * @format double
+	 */
+	size?: number;
+	/**
+	 * @type integer
+	 * @format int64
+	 */
+	timestamp?: number;
+	/**
+	 * @type number
+	 * @format double
+	 */
+	total?: number;
+	/**
+	 * @type number
+	 * @format double
+	 */
+	unitPrice?: number;
+}
+
+export interface SubscriptiontypesSubscriptionUsageDayWiseBreakdownDTO {
+	/**
+	 * @type array,null
+	 */
+	breakdown?: SubscriptiontypesSubscriptionUsageDayWiseDataDTO[] | null;
+	/**
+	 * @type string
+	 */
+	type?: string;
+}
+
+export interface SubscriptiontypesSubscriptionUsageTierDTO {
+	/**
+	 * @type number
+	 * @format double
+	 */
+	quantity?: number;
+	/**
+	 * @type number
+	 * @format double
+	 */
+	tierCost?: number;
+	/**
+	 * @type integer
+	 * @format int64
+	 */
+	tierEnd?: number;
+	/**
+	 * @type integer
+	 * @format int64
+	 */
+	tierStart?: number;
+	/**
+	 * @type number
+	 * @format double
+	 */
+	unitPrice?: number;
+}
+
+export interface SubscriptiontypesSubscriptionUsageBreakdownDTO {
+	dayWiseBreakdown?: SubscriptiontypesSubscriptionUsageDayWiseBreakdownDTO;
+	/**
+	 * @type array,null
+	 */
+	tiers?: SubscriptiontypesSubscriptionUsageTierDTO[] | null;
+	/**
+	 * @type string
+	 */
+	type?: string;
+	/**
+	 * @type string
+	 */
+	unit?: string;
+}
+
+export interface SubscriptiontypesSubscriptionUsageDetailsDTO {
+	/**
+	 * @type number
+	 * @format double
+	 */
+	baseFee?: number;
+	/**
+	 * @type number
+	 * @format double
+	 */
+	billTotal?: number;
+	/**
+	 * @type array,null
+	 */
+	breakdown?: SubscriptiontypesSubscriptionUsageBreakdownDTO[] | null;
+	/**
+	 * @type number
+	 * @format double
+	 */
+	total?: number;
+}
+
+export interface SubscriptiontypesGettableSubscriptionUsageDTO {
+	/**
+	 * @type integer
+	 * @format int64
+	 */
+	billingPeriodEnd?: number;
+	/**
+	 * @type integer
+	 * @format int64
+	 */
+	billingPeriodStart?: number;
+	details?: SubscriptiontypesSubscriptionUsageDetailsDTO;
+	/**
+	 * @type number
+	 * @format double
+	 */
+	discount?: number;
+	/**
+	 * @type string
+	 */
+	subscriptionStatus?: string;
+}
+
+export interface SubscriptiontypesPostableSubscriptionDTO {
+	/**
+	 * @type string
+	 */
+	url: string;
+}
+
+/**
+ * Matching keys grouped by name. A name maps to several entries when it exists in more than one context or data type.
+ */
 export type TelemetrytypesGettableFieldKeysDTOKeysAnyOf = {
 	[key: string]: TelemetrytypesTelemetryFieldKeyDTO[];
 };
 
 /**
+ * Matching keys grouped by name. A name maps to several entries when it exists in more than one context or data type.
  * @nullable
  */
-export type TelemetrytypesGettableFieldKeysDTOKeys =
-	TelemetrytypesGettableFieldKeysDTOKeysAnyOf | null;
+export type TelemetrytypesGettableFieldKeysDTOKeys = TelemetrytypesGettableFieldKeysDTOKeysAnyOf | null;
 
 export interface TelemetrytypesGettableFieldKeysDTO {
 	/**
 	 * @type boolean
+	 * @description True when every matching key was returned; false when the result was cut off by limit.
 	 */
 	complete: boolean;
 	/**
 	 * @type object,null
+	 * @description Matching keys grouped by name. A name maps to several entries when it exists in more than one context or data type.
 	 */
 	keys: TelemetrytypesGettableFieldKeysDTOKeys;
 }
@@ -9686,18 +14196,22 @@ export interface TelemetrytypesGettableFieldKeysDTO {
 export interface TelemetrytypesTelemetryFieldValuesDTO {
 	/**
 	 * @type array
+	 * @description Distinct boolean values of the field.
 	 */
 	boolValues?: boolean[];
 	/**
 	 * @type array
+	 * @description Distinct numeric values of the field, up to limit.
 	 */
 	numberValues?: number[];
 	/**
 	 * @type array
+	 * @description Values of the field seen on data that also matches existingQuery, within the startUnixMilli and endUnixMilli bounds. Empty when existingQuery is not set.
 	 */
 	relatedValues?: string[];
 	/**
 	 * @type array
+	 * @description Distinct string values of the field, up to limit.
 	 */
 	stringValues?: string[];
 }
@@ -9705,8 +14219,12 @@ export interface TelemetrytypesTelemetryFieldValuesDTO {
 export interface TelemetrytypesGettableFieldValuesDTO {
 	/**
 	 * @type boolean
+	 * @description True when every matching value was returned; false when the result was cut off by limit.
 	 */
 	complete: boolean;
+	/**
+	 * @description Distinct values of the key, split by data type.
+	 */
 	values: TelemetrytypesTelemetryFieldValuesDTO;
 }
 
@@ -9721,93 +14239,11 @@ export interface TypesChangePasswordRequestDTO {
 	oldPassword?: string;
 }
 
-export interface TypesDeprecatedUserDTO {
-	/**
-	 * @type string
-	 * @format date-time
-	 */
-	createdAt?: string;
-	/**
-	 * @type string
-	 */
-	displayName?: string;
-	/**
-	 * @type string
-	 */
-	email?: string;
-	/**
-	 * @type string
-	 */
-	id: string;
-	/**
-	 * @type boolean
-	 */
-	isRoot?: boolean;
-	/**
-	 * @type string
-	 */
-	orgId?: string;
-	/**
-	 * @type string
-	 */
-	role?: string;
-	/**
-	 * @type string
-	 */
-	status?: string;
-	/**
-	 * @type string
-	 * @format date-time
-	 */
-	updatedAt?: string;
-}
-
 export interface TypesIdentifiableDTO {
 	/**
 	 * @type string
 	 */
 	id: string;
-}
-
-export interface TypesInviteDTO {
-	/**
-	 * @type string
-	 * @format date-time
-	 */
-	createdAt?: string;
-	/**
-	 * @type string
-	 */
-	email?: string;
-	/**
-	 * @type string
-	 */
-	id: string;
-	/**
-	 * @type string
-	 */
-	inviteLink?: string;
-	/**
-	 * @type string
-	 */
-	name?: string;
-	/**
-	 * @type string
-	 */
-	orgId?: string;
-	/**
-	 * @type string
-	 */
-	role?: string;
-	/**
-	 * @type string
-	 */
-	token?: string;
-	/**
-	 * @type string
-	 * @format date-time
-	 */
-	updatedAt?: string;
 }
 
 export interface TypesOrganizationDTO {
@@ -9844,32 +14280,6 @@ export interface TypesOrganizationDTO {
 	updatedAt?: string;
 }
 
-export interface TypesPostableInviteDTO {
-	/**
-	 * @type string
-	 */
-	email?: string;
-	/**
-	 * @type string
-	 */
-	frontendBaseUrl?: string;
-	/**
-	 * @type string
-	 */
-	name?: string;
-	/**
-	 * @type string
-	 */
-	role?: string;
-}
-
-export interface TypesPostableBulkInviteRequestDTO {
-	/**
-	 * @type array
-	 */
-	invites: TypesPostableInviteDTO[];
-}
-
 export interface TypesPostableForgotPasswordDTO {
 	/**
 	 * @type string
@@ -9894,13 +14304,6 @@ export interface TypesPostableResetPasswordDTO {
 	 * @type string
 	 */
 	token?: string;
-}
-
-export interface TypesPostableRoleDTO {
-	/**
-	 * @type string
-	 */
-	name: string;
 }
 
 export interface TypesPostableVerifyResetPasswordTokenDTO {
@@ -10056,6 +14459,98 @@ export interface ZeustypesPostableProfileDTO {
 	 */
 	where_did_you_discover_signoz: string;
 }
+
+export type GetAIObservabilityFieldsKeysParams = {
+	/**
+	 * @type string
+	 * @description undefined
+	 */
+	searchText?: string;
+	/**
+	 * @description undefined
+	 */
+	fieldContext?: TelemetrytypesFieldContextDTO;
+	/**
+	 * @description undefined
+	 */
+	fieldDataType?: TelemetrytypesFieldDataTypeDTO;
+	/**
+	 * @type integer
+	 * @format int64
+	 * @description undefined
+	 */
+	startUnixMilli?: number;
+	/**
+	 * @type integer
+	 * @format int64
+	 * @description undefined
+	 */
+	endUnixMilli?: number;
+	/**
+	 * @type integer
+	 * @description undefined
+	 */
+	limit?: number;
+};
+
+export type GetAIObservabilityFieldsKeys200 = {
+	data: TelemetrytypesGettableFieldKeysDTO;
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
+export type GetAIObservabilityFieldsValuesParams = {
+	/**
+	 * @type string
+	 * @description undefined
+	 */
+	searchText?: string;
+	/**
+	 * @description undefined
+	 */
+	fieldContext?: TelemetrytypesFieldContextDTO;
+	/**
+	 * @description undefined
+	 */
+	fieldDataType?: TelemetrytypesFieldDataTypeDTO;
+	/**
+	 * @type integer
+	 * @format int64
+	 * @description undefined
+	 */
+	startUnixMilli?: number;
+	/**
+	 * @type integer
+	 * @format int64
+	 * @description undefined
+	 */
+	endUnixMilli?: number;
+	/**
+	 * @type integer
+	 * @description undefined
+	 */
+	limit?: number;
+	/**
+	 * @type string
+	 * @description undefined
+	 */
+	name?: string;
+	/**
+	 * @type string
+	 * @description undefined
+	 */
+	existingQuery?: string;
+};
+
+export type GetAIObservabilityFieldsValues200 = {
+	data: TelemetrytypesGettableFieldValuesDTO;
+	/**
+	 * @type string
+	 */
+	status: string;
+};
 
 export type GetAlerts200 = {
 	/**
@@ -10319,42 +14814,6 @@ export type CreatePublicDashboard201 = {
 export type UpdatePublicDashboardPathParameters = {
 	id: string;
 };
-export type ListAuthDomains200 = {
-	/**
-	 * @type array
-	 */
-	data: AuthtypesGettableAuthDomainDTO[];
-	/**
-	 * @type string
-	 */
-	status: string;
-};
-
-export type CreateAuthDomain201 = {
-	data: TypesIdentifiableDTO;
-	/**
-	 * @type string
-	 */
-	status: string;
-};
-
-export type DeleteAuthDomainPathParameters = {
-	id: string;
-};
-export type GetAuthDomainPathParameters = {
-	id: string;
-};
-export type GetAuthDomain200 = {
-	data: AuthtypesGettableAuthDomainDTO;
-	/**
-	 * @type string
-	 */
-	status: string;
-};
-
-export type UpdateAuthDomainPathParameters = {
-	id: string;
-};
 export type ListDowntimeSchedulesParams = {
 	/**
 	 * @type boolean,null
@@ -10419,51 +14878,51 @@ export enum HandleExportRawDataPOSTFormat {
 }
 export type GetFieldsKeysParams = {
 	/**
-	 * @description undefined
+	 * @description The signal to look up keys in: traces, logs or metrics. Empty searches every signal.
 	 */
 	signal?: TelemetrytypesSignalDTO;
 	/**
-	 * @description undefined
+	 * @description The data source within the signal. Use meter for Cost Meter metrics; empty means the default source.
 	 */
 	source?: TelemetrytypesSourceDTO;
 	/**
 	 * @type integer
-	 * @description undefined
+	 * @description Maximum number of results per signal. Defaults to 1000 for keys and 50 for values. For keys, intrinsic and materialized fields are added on top, and an empty signal applies the limit to traces, logs and metrics separately, so the response can exceed it.
 	 */
 	limit?: number;
 	/**
 	 * @type integer
 	 * @format int64
-	 * @description undefined
+	 * @description Start of the lookup window in Unix milliseconds, rounded down to a 6 hour boundary. Ignored for key lookups and meter lookups; trace and log values apply it at calendar-day granularity; metric attribute values and relatedValues apply it. Omit for no lower bound.
 	 */
 	startUnixMilli?: number;
 	/**
 	 * @type integer
 	 * @format int64
-	 * @description undefined
+	 * @description End of the lookup window in Unix milliseconds. Ignored for key lookups, trace and log value lookups and meter lookups; applied to metric attribute values and relatedValues. Omit for no upper bound.
 	 */
 	endUnixMilli?: number;
 	/**
-	 * @description undefined
+	 * @description Restricts keys to one context: resource, attribute, scope, span, trace, log, body or metric. Applied to trace and log keys; metric attribute keys ignore it. Empty means any context.
 	 */
 	fieldContext?: TelemetrytypesFieldContextDTO;
 	/**
-	 * @description undefined
+	 * @description Restricts keys to one data type: string, bool, int64, float64 or number. Applied to trace and log keys; metric attribute keys ignore it. Empty means any type.
 	 */
 	fieldDataType?: TelemetrytypesFieldDataTypeDTO;
 	/**
 	 * @type string
-	 * @description undefined
+	 * @description Restricts keys to those seen on this metric. Metrics signal only.
 	 */
 	metricName?: string;
 	/**
 	 * @type string
-	 * @description undefined
+	 * @description Restricts keys to metrics in this namespace. Metrics signal only.
 	 */
 	metricNamespace?: string;
 	/**
 	 * @type string
-	 * @description undefined
+	 * @description Substring to match: against key names for keys, against the values of name for values. Case-insensitive except for the meter source, where it is case-sensitive and % and _ act as wildcards. For keys, a context prefix such as resource.service.name sets fieldContext when it is empty.
 	 */
 	searchText?: string;
 };
@@ -10478,61 +14937,61 @@ export type GetFieldsKeys200 = {
 
 export type GetFieldsValuesParams = {
 	/**
-	 * @description undefined
+	 * @description The signal to look up keys in: traces, logs or metrics. Empty searches every signal.
 	 */
 	signal?: TelemetrytypesSignalDTO;
 	/**
-	 * @description undefined
+	 * @description The data source within the signal. Use meter for Cost Meter metrics; empty means the default source.
 	 */
 	source?: TelemetrytypesSourceDTO;
 	/**
 	 * @type integer
-	 * @description undefined
+	 * @description Maximum number of results per signal. Defaults to 1000 for keys and 50 for values. For keys, intrinsic and materialized fields are added on top, and an empty signal applies the limit to traces, logs and metrics separately, so the response can exceed it.
 	 */
 	limit?: number;
 	/**
 	 * @type integer
 	 * @format int64
-	 * @description undefined
+	 * @description Start of the lookup window in Unix milliseconds, rounded down to a 6 hour boundary. Ignored for key lookups and meter lookups; trace and log values apply it at calendar-day granularity; metric attribute values and relatedValues apply it. Omit for no lower bound.
 	 */
 	startUnixMilli?: number;
 	/**
 	 * @type integer
 	 * @format int64
-	 * @description undefined
+	 * @description End of the lookup window in Unix milliseconds. Ignored for key lookups, trace and log value lookups and meter lookups; applied to metric attribute values and relatedValues. Omit for no upper bound.
 	 */
 	endUnixMilli?: number;
 	/**
-	 * @description undefined
+	 * @description Restricts keys to one context: resource, attribute, scope, span, trace, log, body or metric. Applied to trace and log keys; metric attribute keys ignore it. Empty means any context.
 	 */
 	fieldContext?: TelemetrytypesFieldContextDTO;
 	/**
-	 * @description undefined
+	 * @description Restricts keys to one data type: string, bool, int64, float64 or number. Applied to trace and log keys; metric attribute keys ignore it. Empty means any type.
 	 */
 	fieldDataType?: TelemetrytypesFieldDataTypeDTO;
 	/**
 	 * @type string
-	 * @description undefined
+	 * @description Restricts keys to those seen on this metric. Metrics signal only.
 	 */
 	metricName?: string;
 	/**
 	 * @type string
-	 * @description undefined
+	 * @description Restricts keys to metrics in this namespace. Metrics signal only.
 	 */
 	metricNamespace?: string;
 	/**
 	 * @type string
-	 * @description undefined
+	 * @description Substring to match: against key names for keys, against the values of name for values. Case-insensitive except for the meter source, where it is case-sensitive and % and _ act as wildcards. For keys, a context prefix such as resource.service.name sets fieldContext when it is empty.
 	 */
 	searchText?: string;
 	/**
 	 * @type string
-	 * @description undefined
+	 * @description The key whose values to return, such as service.name. A context prefix such as resource.service.name sets fieldContext when it is empty.
 	 */
 	name?: string;
 	/**
 	 * @type string
-	 * @description undefined
+	 * @description Filter expression already applied in the explorer. When set, relatedValues lists the values seen on data matching it.
 	 */
 	existingQuery?: string;
 };
@@ -10545,27 +15004,8 @@ export type GetFieldsValues200 = {
 	status: string;
 };
 
-export type GetResetPasswordTokenDeprecatedPathParameters = {
-	id: string;
-};
-export type GetResetPasswordTokenDeprecated200 = {
-	data: TypesResetPasswordTokenDTO;
-	/**
-	 * @type string
-	 */
-	status: string;
-};
-
 export type GetGlobalConfig200 = {
 	data: GlobaltypesConfigDTO;
-	/**
-	 * @type string
-	 */
-	status: string;
-};
-
-export type CreateInvite201 = {
-	data: TypesInviteDTO;
 	/**
 	 * @type string
 	 */
@@ -10625,17 +15065,6 @@ export type ListUnmappedLLMModels200 = {
 	status: string;
 };
 
-export type ListPromotedAndIndexedPaths200 = {
-	/**
-	 * @type array,null
-	 */
-	data: PromotetypesPromotePathDTO[] | null;
-	/**
-	 * @type string
-	 */
-	status: string;
-};
-
 export type ListOrgPreferences200 = {
 	/**
 	 * @type array
@@ -10661,23 +15090,42 @@ export type GetOrgPreference200 = {
 export type UpdateOrgPreferencePathParameters = {
 	name: string;
 };
-export type GetPublicDashboardDataPathParameters = {
-	id: string;
+export type ListPromotedPathsParams = {
+	/**
+	 * @type string
+	 * @description undefined
+	 */
+	signal?: string;
+	/**
+	 * @type string
+	 * @description undefined
+	 */
+	context?: string;
+	/**
+	 * @type boolean,null
+	 * @description undefined
+	 */
+	promoted?: boolean | null;
+	/**
+	 * @type boolean,null
+	 * @description undefined
+	 */
+	indexes?: boolean | null;
 };
-export type GetPublicDashboardData200 = {
-	data: DashboardtypesGettablePublicDashboardDataDTO;
+
+export type ListPromotedPaths200 = {
+	/**
+	 * @type array,null
+	 */
+	data: PromotetypesPromotePathDTO[] | null;
 	/**
 	 * @type string
 	 */
 	status: string;
 };
 
-export type GetPublicDashboardWidgetQueryRangePathParameters = {
-	id: string;
-	idx: string;
-};
-export type GetPublicDashboardWidgetQueryRange200 = {
-	data: Querybuildertypesv5QueryRangeResponseDTO;
+export type IndexMaterializedPaths200 = {
+	data: PromotetypesIndexMaterializedPathsResultDTO;
 	/**
 	 * @type string
 	 */
@@ -10869,21 +15317,6 @@ export type GetServiceAccountRoles200 = {
 	status: string;
 };
 
-export type CreateServiceAccountRoleDeprecatedPathParameters = {
-	id: string;
-};
-export type CreateServiceAccountRoleDeprecated201 = {
-	data: TypesIdentifiableDTO;
-	/**
-	 * @type string
-	 */
-	status: string;
-};
-
-export type DeleteServiceAccountRoleDeprecatedPathParameters = {
-	id: string;
-	rid: string;
-};
 export type GetMyServiceAccount200 = {
 	data: ServiceaccounttypesServiceAccountWithRolesDTO;
 	/**
@@ -10973,6 +15406,30 @@ export type GetStats200 = {
 	status: string;
 };
 
+export type GetSubscription200 = {
+	data: SubscriptiontypesGettableSubscriptionUsageDTO;
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
+export type CreateSubscription201 = {
+	data: SubscriptiontypesGettableSubscriptionDTO;
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
+export type UpdateSubscription200 = {
+	data: SubscriptiontypesGettableSubscriptionDTO;
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
 export type GetTraceAggregationsPathParameters = {
 	traceID: string;
 };
@@ -10984,44 +15441,45 @@ export type GetTraceAggregations200 = {
 	status: string;
 };
 
-export type ListUsersDeprecated200 = {
-	/**
-	 * @type array
-	 */
-	data: TypesDeprecatedUserDTO[];
-	/**
-	 * @type string
-	 */
-	status: string;
+export type GetTraceSummaryPathParameters = {
+	traceID: string;
 };
-
-export type DeleteUserDeprecatedPathParameters = {
-	id: string;
-};
-export type GetUserDeprecatedPathParameters = {
-	id: string;
-};
-export type GetUserDeprecated200 = {
-	data: TypesDeprecatedUserDTO;
+export type GetTraceSummary200 = {
+	data: SpantypesGettableTraceSummaryDTO;
 	/**
 	 * @type string
 	 */
 	status: string;
 };
 
-export type UpdateUserDeprecatedPathParameters = {
-	id: string;
+export type GetTraceThreadPathParameters = {
+	traceID: string;
 };
-export type UpdateUserDeprecated200 = {
-	data: TypesDeprecatedUserDTO;
+export type GetTraceThreadParams = {
+	/**
+	 * @type integer
+	 * @description Page size, at most 100. 0 means 20.
+	 */
+	limit?: number;
 	/**
 	 * @type string
+	 * @description The nextCursor of a page; returns the spans after it. Set only one of after, before and spanId.
 	 */
-	status: string;
+	after?: string;
+	/**
+	 * @type string
+	 * @description The prevCursor of a page; returns the spans before it. Set only one of after, before and spanId.
+	 */
+	before?: string;
+	/**
+	 * @type string
+	 * @description Returns the page around this span. Set only one of after, before and spanId.
+	 */
+	spanId?: string;
 };
 
-export type GetMyUserDeprecated200 = {
-	data: TypesDeprecatedUserDTO;
+export type GetTraceThread200 = {
+	data: SpantypesGettableTraceThreadDTO;
 	/**
 	 * @type string
 	 */
@@ -11052,6 +15510,42 @@ export type GetUserPreference200 = {
 
 export type UpdateUserPreferencePathParameters = {
 	name: string;
+};
+export type ListAuthDomains200 = {
+	/**
+	 * @type array
+	 */
+	data: AuthtypesGettableAuthDomainDTO[];
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
+export type CreateAuthDomain201 = {
+	data: TypesIdentifiableDTO;
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
+export type DeleteAuthDomainPathParameters = {
+	id: string;
+};
+export type GetAuthDomainPathParameters = {
+	id: string;
+};
+export type GetAuthDomain200 = {
+	data: AuthtypesGettableAuthDomainDTO;
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
+export type UpdateAuthDomainPathParameters = {
+	id: string;
 };
 export type ListDashboardViews200 = {
 	data: DashboardtypesListableDashboardViewDTO;
@@ -11086,25 +15580,25 @@ export type UpdateDashboardView200 = {
 export type ListDashboardsV2Params = {
 	/**
 	 * @type string
-	 * @description undefined
+	 * @description A filter expression over the reserved keys name, description, created_at, updated_at, created_by and locked, and over tag keys, using the SigNoz filter grammar: comparisons such as =, !=, CONTAINS, LIKE, IN, < and >, single-quoted strings, RFC3339 timestamps in quotes for created_at and updated_at, combined with AND, OR and NOT, for example name CONTAINS 'overview' AND created_at >= '2026-10-21T00:00:00Z'. At most 1024 characters. Empty matches every dashboard.
 	 */
 	query?: string;
 	/**
-	 * @description undefined
+	 * @description The sort field: updated_at (default), created_at or name.
 	 */
 	sort?: DashboardtypesListSortDTO;
 	/**
-	 * @description undefined
+	 * @description The sort direction: asc or desc (default).
 	 */
 	order?: DashboardtypesListOrderDTO;
 	/**
 	 * @type integer
-	 * @description undefined
+	 * @description The page size. Defaults to 20 and is capped at 200.
 	 */
 	limit?: number;
 	/**
 	 * @type integer
-	 * @description undefined
+	 * @description The number of dashboards to skip. Defaults to 0.
 	 */
 	offset?: number;
 };
@@ -11189,6 +15683,17 @@ export type MigrateDashboardV2200 = {
 	status: string;
 };
 
+export type GetSystemDashboardPathParameters = {
+	name: string;
+};
+export type GetSystemDashboard200 = {
+	data: DashboardtypesGettableSystemDashboardDTO;
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
 export type GetFeatures200 = {
 	/**
 	 * @type array
@@ -11232,9 +15737,34 @@ export type CreateIngestionKey201 = {
 export type DeleteIngestionKeyPathParameters = {
 	keyId: string;
 };
+export type GetIngestionKeyPathParameters = {
+	keyId: string;
+};
+export type GetIngestionKey200 = {
+	data: GatewaytypesIngestionKeyDTO;
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
 export type UpdateIngestionKeyPathParameters = {
 	keyId: string;
 };
+export type GetIngestionKeyLimitsPathParameters = {
+	keyId: string;
+};
+export type GetIngestionKeyLimits200 = {
+	/**
+	 * @type array,null
+	 */
+	data: GatewaytypesLimitDTO[] | null;
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
 export type CreateIngestionKeyLimitPathParameters = {
 	keyId: string;
 };
@@ -11278,6 +15808,31 @@ export type SearchIngestionKeys200 = {
 	status: string;
 };
 
+export type CreateIngestionLimit201 = {
+	data: TypesIdentifiableDTO;
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
+export type DeleteIngestionLimitPathParameters = {
+	limitId: string;
+};
+export type GetIngestionLimitPathParameters = {
+	limitId: string;
+};
+export type GetIngestionLimit200 = {
+	data: GatewaytypesLimitDTO;
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
+export type UpdateIngestionLimitPathParameters = {
+	limitId: string;
+};
 export type Healthz200 = {
 	data: FactoryResponseDTO;
 	/**
@@ -11504,27 +16059,27 @@ export type GetMetricReductionRuleTimeseries200 = {
 export type ListMetricsParams = {
 	/**
 	 * @type integer,null
-	 * @description undefined
+	 * @description Start of the time range as a Unix timestamp in milliseconds. Must be greater than 0; applied only when end is also set.
 	 */
 	start?: number | null;
 	/**
 	 * @type integer,null
-	 * @description undefined
+	 * @description End of the time range as a Unix timestamp in milliseconds. Must be greater than start; applied only when start is also set.
 	 */
 	end?: number | null;
 	/**
 	 * @type integer
-	 * @description undefined
+	 * @description Maximum number of metric names to return. Defaults to 100; must not exceed 5000.
 	 */
 	limit?: number;
 	/**
 	 * @type string
-	 * @description undefined
+	 * @description Case-insensitive substring to match against metric names.
 	 */
 	searchText?: string;
 	/**
 	 * @type string
-	 * @description undefined
+	 * @description Set to meter to list Cost Meter metrics instead of telemetry metrics.
 	 */
 	source?: string;
 };
@@ -11573,22 +16128,6 @@ export type GetMetricAttributesParams = {
 
 export type GetMetricAttributes200 = {
 	data: MetricsexplorertypesMetricAttributesResponseDTO;
-	/**
-	 * @type string
-	 */
-	status: string;
-};
-
-export type GetMetricDashboardsParams = {
-	/**
-	 * @type string
-	 * @description The name of the metric. May contain slashes (e.g. cloud-provider metrics like run.googleapis.com/request_latencies).
-	 */
-	metricName: string;
-};
-
-export type GetMetricDashboards200 = {
-	data: MetricsexplorertypesMetricDashboardsResponseDTO;
 	/**
 	 * @type string
 	 */
@@ -11659,6 +16198,96 @@ export type GetMetricsTreemap200 = {
 	status: string;
 };
 
+export type ListNotificationChannelsParams = {
+	/**
+	 * @type string
+	 * @description Case-insensitive match on the display name; at most 1024 characters.
+	 */
+	query?: string;
+	/**
+	 * @description Only channels of this provider kind.
+	 */
+	kind?: AlertmanagertypesChannelKindDTO;
+	/**
+	 * @description The sort column: updated_at (default), created_at or name.
+	 */
+	sort?: AlertmanagertypesChannelListSortDTO;
+	/**
+	 * @description The sort order: asc or desc (default).
+	 */
+	order?: AlertmanagertypesChannelListOrderDTO;
+	/**
+	 * @type integer
+	 * @description The page size; defaults to 20 and is capped at 200.
+	 */
+	limit?: number;
+	/**
+	 * @type integer
+	 * @description The number of channels to skip; defaults to 0.
+	 */
+	offset?: number;
+};
+
+export type ListNotificationChannels200 = {
+	data: AlertmanagertypesListableNotificationChannelDTO;
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
+export type CreateNotificationChannel201 = {
+	data: AlertmanagertypesGettableNotificationChannelDTO;
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
+export type DeleteNotificationChannelPathParameters = {
+	id: string;
+};
+export type GetNotificationChannelPathParameters = {
+	id: string;
+};
+export type GetNotificationChannel200 = {
+	data: AlertmanagertypesGettableNotificationChannelDTO;
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
+export type UpdateNotificationChannelPathParameters = {
+	id: string;
+};
+export type UpdateNotificationChannel200 = {
+	data: AlertmanagertypesGettableNotificationChannelDTO;
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
+export type RepairNotificationChannelPathParameters = {
+	id: string;
+};
+export type RepairNotificationChannelParams = {
+	/**
+	 * @type boolean
+	 * @description Apply the diagnosed action; defaults to false, a dry run that only reports it.
+	 */
+	apply?: boolean;
+};
+
+export type RepairNotificationChannel200 = {
+	data: AlertmanagertypesChannelRepairDTO;
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
 export type GetMyOrganization200 = {
 	data: TypesOrganizationDTO;
 	/**
@@ -11685,12 +16314,12 @@ export type GetPublicDashboardPanelQueryRangeV2PathParameters = {
 export type GetPublicDashboardPanelQueryRangeV2Params = {
 	/**
 	 * @type string
-	 * @description undefined
+	 * @description Start of the time range as a Unix timestamp in milliseconds. Honored only when the public dashboard has timeRangeEnabled.
 	 */
 	startTime?: string;
 	/**
 	 * @type string
-	 * @description undefined
+	 * @description End of the time range as a Unix timestamp in milliseconds. Honored only when the public dashboard has timeRangeEnabled.
 	 */
 	endTime?: string;
 };
@@ -11703,6 +16332,31 @@ export type GetPublicDashboardPanelQueryRangeV2200 = {
 	status: string;
 };
 
+export type ListQuickFilters200 = {
+	/**
+	 * @type array
+	 */
+	data: QuickfiltertypesSourceFiltersDTO[];
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
+export type GetQuickFiltersPathParameters = {
+	source: string;
+};
+export type GetQuickFilters200 = {
+	data: QuickfiltertypesSourceFiltersDTO;
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
+export type UpdateQuickFiltersPathParameters = {
+	source: string;
+};
 export type Readyz200 = {
 	data: FactoryResponseDTO;
 	/**
@@ -11727,6 +16381,36 @@ export type GetUsersByRoleID200 = {
 	 * @type array
 	 */
 	data: TypesUserDTO[];
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
+export type ListRuleViews200 = {
+	data: RuletypesListableRuleViewsDTO;
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
+export type CreateRuleView201 = {
+	data: RuletypesRuleViewDTO;
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
+export type DeleteRuleViewPathParameters = {
+	id: string;
+};
+export type UpdateRuleViewPathParameters = {
+	id: string;
+};
+export type UpdateRuleView200 = {
+	data: RuletypesRuleViewDTO;
 	/**
 	 * @type string
 	 */
@@ -11780,56 +16464,67 @@ export type PatchRuleByID200 = {
 export type UpdateRuleByIDPathParameters = {
 	id: string;
 };
+export type CloneRuleByIDPathParameters = {
+	id: string;
+};
+export type CloneRuleByID201 = {
+	data: RuletypesRuleDTO;
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
 export type GetRuleHistoryFilterKeysPathParameters = {
 	id: string;
 };
 export type GetRuleHistoryFilterKeysParams = {
 	/**
-	 * @description undefined
+	 * @description The signal to look up keys in: traces, logs or metrics. Empty searches every signal.
 	 */
 	signal?: TelemetrytypesSignalDTO;
 	/**
-	 * @description undefined
+	 * @description The data source within the signal. Use meter for Cost Meter metrics; empty means the default source.
 	 */
 	source?: TelemetrytypesSourceDTO;
 	/**
 	 * @type integer
-	 * @description undefined
+	 * @description Maximum number of results per signal. Defaults to 1000 for keys and 50 for values. For keys, intrinsic and materialized fields are added on top, and an empty signal applies the limit to traces, logs and metrics separately, so the response can exceed it.
 	 */
 	limit?: number;
 	/**
 	 * @type integer
 	 * @format int64
-	 * @description undefined
+	 * @description Start of the lookup window in Unix milliseconds, rounded down to a 6 hour boundary. Ignored for key lookups and meter lookups; trace and log values apply it at calendar-day granularity; metric attribute values and relatedValues apply it. Omit for no lower bound.
 	 */
 	startUnixMilli?: number;
 	/**
 	 * @type integer
 	 * @format int64
-	 * @description undefined
+	 * @description End of the lookup window in Unix milliseconds. Ignored for key lookups, trace and log value lookups and meter lookups; applied to metric attribute values and relatedValues. Omit for no upper bound.
 	 */
 	endUnixMilli?: number;
 	/**
-	 * @description undefined
+	 * @description Restricts keys to one context: resource, attribute, scope, span, trace, log, body or metric. Applied to trace and log keys; metric attribute keys ignore it. Empty means any context.
 	 */
 	fieldContext?: TelemetrytypesFieldContextDTO;
 	/**
-	 * @description undefined
+	 * @description Restricts keys to one data type: string, bool, int64, float64 or number. Applied to trace and log keys; metric attribute keys ignore it. Empty means any type.
 	 */
 	fieldDataType?: TelemetrytypesFieldDataTypeDTO;
 	/**
 	 * @type string
-	 * @description undefined
+	 * @description Restricts keys to those seen on this metric. Metrics signal only.
 	 */
 	metricName?: string;
 	/**
 	 * @type string
-	 * @description undefined
+	 * @description Restricts keys to metrics in this namespace. Metrics signal only.
 	 */
 	metricNamespace?: string;
 	/**
 	 * @type string
-	 * @description undefined
+	 * @description Substring to match: against key names for keys, against the values of name for values. Case-insensitive except for the meter source, where it is case-sensitive and % and _ act as wildcards. For keys, a context prefix such as resource.service.name sets fieldContext when it is empty.
 	 */
 	searchText?: string;
 };
@@ -11847,61 +16542,61 @@ export type GetRuleHistoryFilterValuesPathParameters = {
 };
 export type GetRuleHistoryFilterValuesParams = {
 	/**
-	 * @description undefined
+	 * @description The signal to look up keys in: traces, logs or metrics. Empty searches every signal.
 	 */
 	signal?: TelemetrytypesSignalDTO;
 	/**
-	 * @description undefined
+	 * @description The data source within the signal. Use meter for Cost Meter metrics; empty means the default source.
 	 */
 	source?: TelemetrytypesSourceDTO;
 	/**
 	 * @type integer
-	 * @description undefined
+	 * @description Maximum number of results per signal. Defaults to 1000 for keys and 50 for values. For keys, intrinsic and materialized fields are added on top, and an empty signal applies the limit to traces, logs and metrics separately, so the response can exceed it.
 	 */
 	limit?: number;
 	/**
 	 * @type integer
 	 * @format int64
-	 * @description undefined
+	 * @description Start of the lookup window in Unix milliseconds, rounded down to a 6 hour boundary. Ignored for key lookups and meter lookups; trace and log values apply it at calendar-day granularity; metric attribute values and relatedValues apply it. Omit for no lower bound.
 	 */
 	startUnixMilli?: number;
 	/**
 	 * @type integer
 	 * @format int64
-	 * @description undefined
+	 * @description End of the lookup window in Unix milliseconds. Ignored for key lookups, trace and log value lookups and meter lookups; applied to metric attribute values and relatedValues. Omit for no upper bound.
 	 */
 	endUnixMilli?: number;
 	/**
-	 * @description undefined
+	 * @description Restricts keys to one context: resource, attribute, scope, span, trace, log, body or metric. Applied to trace and log keys; metric attribute keys ignore it. Empty means any context.
 	 */
 	fieldContext?: TelemetrytypesFieldContextDTO;
 	/**
-	 * @description undefined
+	 * @description Restricts keys to one data type: string, bool, int64, float64 or number. Applied to trace and log keys; metric attribute keys ignore it. Empty means any type.
 	 */
 	fieldDataType?: TelemetrytypesFieldDataTypeDTO;
 	/**
 	 * @type string
-	 * @description undefined
+	 * @description Restricts keys to those seen on this metric. Metrics signal only.
 	 */
 	metricName?: string;
 	/**
 	 * @type string
-	 * @description undefined
+	 * @description Restricts keys to metrics in this namespace. Metrics signal only.
 	 */
 	metricNamespace?: string;
 	/**
 	 * @type string
-	 * @description undefined
+	 * @description Substring to match: against key names for keys, against the values of name for values. Case-insensitive except for the meter source, where it is case-sensitive and % and _ act as wildcards. For keys, a context prefix such as resource.service.name sets fieldContext when it is empty.
 	 */
 	searchText?: string;
 	/**
 	 * @type string
-	 * @description undefined
+	 * @description The key whose values to return, such as service.name. A context prefix such as resource.service.name sets fieldContext when it is empty.
 	 */
 	name?: string;
 	/**
 	 * @type string
-	 * @description undefined
+	 * @description Filter expression already applied in the explorer. When set, relatedValues lists the values seen on data matching it.
 	 */
 	existingQuery?: string;
 };
@@ -12056,6 +16751,54 @@ export type TestRule200 = {
 	status: string;
 };
 
+export type ListSavedViewsParams = {
+	/**
+	 * @description Returns only the views of this explorer page: traces, logs, metrics, meter or ai_observability. Defaults to every source.
+	 */
+	source?: SavedviewtypesSourceDTO;
+	/**
+	 * @type string
+	 * @description Returns only the view with this exact machine name.
+	 */
+	name?: string;
+};
+
+export type ListSavedViews200 = {
+	/**
+	 * @type array,null
+	 */
+	data: SavedviewtypesSavedViewDTO[] | null;
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
+export type CreateSavedView201 = {
+	data: TypesIdentifiableDTO;
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
+export type DeleteSavedViewPathParameters = {
+	id: string;
+};
+export type GetSavedViewPathParameters = {
+	id: string;
+};
+export type GetSavedView200 = {
+	data: SavedviewtypesSavedViewDTO;
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
+export type UpdateSavedViewPathParameters = {
+	id: string;
+};
 export type GetSessionContext200 = {
 	data: AuthtypesSessionContextDTO;
 	/**
@@ -12174,13 +16917,6 @@ export type GetRolesByUserID200 = {
 	status: string;
 };
 
-export type SetRoleByUserIDPathParameters = {
-	id: string;
-};
-export type RemoveUserRoleByUserIDAndRoleIDPathParameters = {
-	id: string;
-	roleId: string;
-};
 export type GetMyUser200 = {
 	data: AuthtypesUserWithRolesDTO;
 	/**
@@ -12192,25 +16928,25 @@ export type GetMyUser200 = {
 export type ListDashboardsForUserV2Params = {
 	/**
 	 * @type string
-	 * @description undefined
+	 * @description A filter expression over the reserved keys name, description, created_at, updated_at, created_by and locked, and over tag keys, using the SigNoz filter grammar: comparisons such as =, !=, CONTAINS, LIKE, IN, < and >, single-quoted strings, RFC3339 timestamps in quotes for created_at and updated_at, combined with AND, OR and NOT, for example name CONTAINS 'overview' AND created_at >= '2026-10-21T00:00:00Z'. At most 1024 characters. Empty matches every dashboard.
 	 */
 	query?: string;
 	/**
-	 * @description undefined
+	 * @description The sort field: updated_at (default), created_at or name.
 	 */
 	sort?: DashboardtypesListSortDTO;
 	/**
-	 * @description undefined
+	 * @description The sort direction: asc or desc (default).
 	 */
 	order?: DashboardtypesListOrderDTO;
 	/**
 	 * @type integer
-	 * @description undefined
+	 * @description The page size. Defaults to 20 and is capped at 200.
 	 */
 	limit?: number;
 	/**
 	 * @type integer
-	 * @description undefined
+	 * @description The number of dashboards to skip. Defaults to 0.
 	 */
 	offset?: number;
 };
@@ -12253,11 +16989,94 @@ export type GetMetricDashboardsV2200 = {
 	status: string;
 };
 
+export type ListRulesV3Params = {
+	/**
+	 * @type string
+	 * @description A filter expression over rule name, description, labels and other fields, at most 1024 characters. Empty matches every rule.
+	 */
+	query?: string;
+	/**
+	 * @type array
+	 * @description Only return rules in these states: firing, pending, recovering, inactive, nodata or disabled. Empty means every state.
+	 */
+	states?: string[];
+	/**
+	 * @description The field to sort by: updated_at (the default), created_at, name, state or severity.
+	 */
+	sort?: RuletypesListSortDTO;
+	/**
+	 * @description The sort direction: asc or desc (the default).
+	 */
+	order?: RuletypesListOrderDTO;
+	/**
+	 * @type integer
+	 * @description The page size, 1 to 200. Defaults to 20 and larger values are clamped to 200.
+	 */
+	limit?: number;
+	/**
+	 * @type integer
+	 * @description The number of rules to skip before the page. Defaults to 0.
+	 */
+	offset?: number;
+};
+
+export type ListRulesV3200 = {
+	data: RuletypesListableRulesDTO;
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
 export type GetFlamegraphPathParameters = {
 	traceID: string;
 };
 export type GetFlamegraph200 = {
 	data: SpantypesGettableFlamegraphTraceDTO;
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
+export type ListLicenses200 = {
+	/**
+	 * @type array
+	 */
+	data: LicensetypesGettableLicenseDTO[];
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
+export type ActivateLicense201 = {
+	data: TypesIdentifiableDTO;
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
+export type DeleteLicensePathParameters = {
+	id: string;
+};
+export type GetLicensePathParameters = {
+	id: string;
+};
+export type GetLicense200 = {
+	data: LicensetypesGettableLicenseWithKeyDTO;
+	/**
+	 * @type string
+	 */
+	status: string;
+};
+
+export type RefreshLicensePathParameters = {
+	id: string;
+};
+export type GetActiveLicense200 = {
+	data: LicensetypesGettableActiveLicenseDTO;
 	/**
 	 * @type string
 	 */
@@ -12305,4 +17124,116 @@ export type ReplaceVariables200 = {
 	 * @type string
 	 */
 	status: string;
+};
+
+export type PrometheusQueryParams = {
+	/**
+	 * @type string
+	 * @description PromQL expression.
+	 */
+	query: string;
+	/**
+	 * @type string
+	 * @description Evaluation timestamp: RFC3339 or float unix seconds. Defaults to the server's current time.
+	 */
+	time?: string;
+	/**
+	 * @type string
+	 * @description Evaluation timeout: duration string or float seconds.
+	 */
+	timeout?: string;
+	/**
+	 * @type string
+	 * @description Any non-empty value includes query statistics in the response.
+	 */
+	stats?: string;
+};
+
+export type PrometheusQueryPostParams = {
+	/**
+	 * @type string
+	 * @description PromQL expression.
+	 */
+	query: string;
+	/**
+	 * @type string
+	 * @description Evaluation timestamp: RFC3339 or float unix seconds. Defaults to the server's current time.
+	 */
+	time?: string;
+	/**
+	 * @type string
+	 * @description Evaluation timeout: duration string or float seconds.
+	 */
+	timeout?: string;
+	/**
+	 * @type string
+	 * @description Any non-empty value includes query statistics in the response.
+	 */
+	stats?: string;
+};
+
+export type PrometheusQueryRangeParams = {
+	/**
+	 * @type string
+	 * @description PromQL expression.
+	 */
+	query: string;
+	/**
+	 * @type string
+	 * @description Range start: RFC3339 or float unix seconds.
+	 */
+	start: string;
+	/**
+	 * @type string
+	 * @description Range end: RFC3339 or float unix seconds.
+	 */
+	end: string;
+	/**
+	 * @type string
+	 * @description Resolution step: duration string or float seconds.
+	 */
+	step: string;
+	/**
+	 * @type string
+	 * @description Evaluation timeout: duration string or float seconds.
+	 */
+	timeout?: string;
+	/**
+	 * @type string
+	 * @description Any non-empty value includes query statistics in the response.
+	 */
+	stats?: string;
+};
+
+export type PrometheusQueryRangePostParams = {
+	/**
+	 * @type string
+	 * @description PromQL expression.
+	 */
+	query: string;
+	/**
+	 * @type string
+	 * @description Range start: RFC3339 or float unix seconds.
+	 */
+	start: string;
+	/**
+	 * @type string
+	 * @description Range end: RFC3339 or float unix seconds.
+	 */
+	end: string;
+	/**
+	 * @type string
+	 * @description Resolution step: duration string or float seconds.
+	 */
+	step: string;
+	/**
+	 * @type string
+	 * @description Evaluation timeout: duration string or float seconds.
+	 */
+	timeout?: string;
+	/**
+	 * @type string
+	 * @description Any non-empty value includes query statistics in the response.
+	 */
+	stats?: string;
 };

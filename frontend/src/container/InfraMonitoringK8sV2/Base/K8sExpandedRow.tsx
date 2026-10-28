@@ -30,6 +30,7 @@ import {
 	useInfraMonitoringPageListing,
 	useInfraMonitoringSelectedItemParams,
 } from '../hooks';
+import { resetDrawerHistory } from './useDrawerHistoryStore';
 import { K8sBaseFilters } from './types';
 import { useLogEventForColumnCustomized } from './useLogEventForColumnCustomized';
 import { useInfraMonitoringFontSize } from './useInfraMonitoringTablePreferencesStore';
@@ -37,7 +38,7 @@ import { useInfraMonitoringFontSize } from './useInfraMonitoringTablePreferences
 import styles from './K8sExpandedRow.module.scss';
 import { buildExpressionFromGroupMeta } from './utils';
 import { logInfraColumnSortedEvent } from 'container/InfraMonitoringK8sV2/Base/events';
-import { getUnstableCurrentSearchParams } from 'container/TopNav/DateTimeSelectionV2/utils/getUnstableCurrentSearchParams';
+import { getUnstableCurrentSearchParams } from 'utils/getUnstableCurrentSearchParams';
 import { QueryParams } from 'constants/query';
 
 const EXPANDED_ROW_LIMIT = 10;
@@ -214,10 +215,13 @@ export function K8sExpandedRow<
 					params.selectedItem,
 					params.clusterName,
 					params.namespaceName,
+					params.containerName,
 				);
 				queryClient.setQueryData(detailQueryKey, { data: row });
 			}
 
+			// Opening from the list starts a fresh trail for the drawer's back control
+			resetDrawerHistory();
 			setSelectedItemParams(params);
 		},
 		[
@@ -287,11 +291,11 @@ export function K8sExpandedRow<
 
 	const footerContent = hasMoreItems ? (
 		<Button
+			size="md"
 			type="button"
 			color="secondary"
 			variant="outlined"
-			className={styles.viewAllButton}
-			data-testid="expanded-row-view-all"
+			testId="expanded-row-view-all"
 			onClick={handleViewAllClick}
 			prefix={<CornerDownRight size={14} />}
 		>

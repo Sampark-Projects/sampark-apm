@@ -6,7 +6,7 @@ import { Typography } from '@signozhq/ui/typography';
 import logEvent from 'api/common/logEvent';
 import { useGetMetricAttributes } from 'api/generated/services/metrics';
 import { ResizeTable } from 'components/ResizeTable';
-import { DataType } from 'container/LogDetailedView/TableView';
+import { DataType } from 'container/LogDetailedView/LogDetailedView.types';
 import {
 	Check,
 	Copy,
@@ -78,8 +78,6 @@ function AllAttributes({
 				PANEL_TYPES.TIME_SERIES,
 				{
 					query: compositeQuery,
-					name: metricName,
-					id: metricName,
 				},
 				ROUTES.METRICS_EXPLORER_EXPLORER,
 				true,
@@ -109,8 +107,6 @@ function AllAttributes({
 				PANEL_TYPES.TIME_SERIES,
 				{
 					query: compositeQuery,
-					name: metricName,
-					id: metricName,
 				},
 				ROUTES.METRICS_EXPLORER_EXPLORER,
 				true,

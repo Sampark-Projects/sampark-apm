@@ -17,26 +17,22 @@ import (
 )
 
 type QueryBuilderFormula struct {
-	// name of the formula
-	Name string `json:"name"`
-	// expression to apply to the query
-	Expression string `json:"expression"`
+	Name       string `json:"name" description:"The unique name of the formula, such as F1, used by selectedQueryName and by panels. Referencing a formula from another formula is not reliable."`
+	Expression string `json:"expression" description:"An arithmetic expression over builder query names, for example A / B * 100. Reference queries, not other formulas."`
 
-	Disabled bool `json:"disabled"`
+	Disabled bool `json:"disabled" description:"When true, the result is excluded from the response; the formula may still be evaluated. Defaults to false."`
 
-	// order by keys and directions
-	Order []OrderBy `json:"order,omitzero"`
+	Order []OrderBy `json:"order,omitzero" description:"The sort order of the formula result."`
 
-	// limit the maximum number of rows to return
-	Limit int `json:"limit,omitempty"`
+	Limit int `json:"limit,omitempty" description:"The maximum number of series or rows to return. Unlimited when 0."`
 
-	// having clause to apply to the formula result
-	Having *Having `json:"having,omitempty"`
+	Having *Having `json:"having,omitempty" description:"Accepted but currently ignored; the computed values are returned unfiltered."`
 
-	// functions to apply to the formula result
-	Functions []Function `json:"functions,omitzero"`
+	Functions []Function `json:"functions,omitzero" description:"Post-processing functions applied in order to each result series."`
 
-	Legend string `json:"legend"`
+	BucketOptions *BucketOptions `json:"bucketOptions,omitempty" description:"The value axis to count the formula result into, as a kind-discriminated linear or log bucket spec. Read only by heatmap requests, and only from the query they draw."`
+
+	Legend string `json:"legend" description:"The display name template for each series; {{field}} placeholders are replaced by label values."`
 }
 
 // Copy creates a deep copy of the QueryBuilderFormula.
@@ -59,6 +55,11 @@ func (f QueryBuilderFormula) Copy() QueryBuilderFormula {
 
 	if f.Having != nil {
 		c.Having = f.Having.Copy()
+	}
+
+	if f.BucketOptions != nil {
+		bucketOptionsCopy := *f.BucketOptions
+		c.BucketOptions = &bucketOptionsCopy
 	}
 
 	return c
@@ -120,6 +121,22 @@ func (f QueryBuilderFormula) Validate() error {
 	}
 
 	return nil
+}
+
+func (f QueryBuilderFormula) ExtractReferencedQueryNames() ([]string, error) {
+	// parsed the way the evaluator parses it, so the names match what it resolves
+	expression, err := govaluate.NewEvaluableExpressionWithFunctions(f.Expression, EvalFuncs())
+	if err != nil {
+		return nil, errors.WrapInvalidInputf(err, errors.CodeInvalidInput, "failed to parse expression for formula query %q", f.Name)
+	}
+
+	var names []string
+	for _, variable := range expression.Vars() {
+		if !slices.Contains(names, variable) {
+			names = append(names, variable)
+		}
+	}
+	return names, nil
 }
 
 // small container to store the query name and index or alias reference

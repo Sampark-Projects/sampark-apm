@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { TooltipProvider } from '@signozhq/ui/tooltip';
 import { InfraMonitoringEntity } from 'container/InfraMonitoringK8sV2/constants';
 import * as appContextHooks from 'providers/App/App';
 import { LicenseEvent } from 'types/api/licensesV3/getActive';
@@ -50,15 +49,12 @@ jest.mock('../../EntityDateTimeSelector/useEntityDetailsTime', () => ({
 	}),
 }));
 
-jest.mock(
-	'container/DashboardContainer/visualization/charts/TimeSeries/TimeSeries',
-	() => ({
-		__esModule: true,
-		default: (): JSX.Element => (
-			<div data-testid="uplot-chart">TimeSeries Chart</div>
-		),
-	}),
-);
+jest.mock('lib/visualization/charts/TimeSeries/TimeSeries', () => ({
+	__esModule: true,
+	default: (): JSX.Element => (
+		<div data-testid="uplot-chart">TimeSeries Chart</div>
+	),
+}));
 
 jest.mock('providers/Timezone', () => ({
 	useTimezone: (): { timezone: { value: string } } => ({
@@ -70,9 +66,9 @@ jest.mock('../MetricsTable', () => ({
 	__esModule: true,
 	MetricsTable: jest
 		.fn()
-		.mockImplementation(
-			(): JSX.Element => <div data-testid="metrics-table">Metrics Table</div>,
-		),
+		.mockImplementation((): JSX.Element => (
+			<div data-testid="metrics-table">Metrics Table</div>
+		)),
 }));
 
 const mockUseQuery = jest.fn();
@@ -121,12 +117,6 @@ jest.spyOn(appContextHooks, 'useAppContext').mockReturnValue({
 			plan_version: 'test-plan-version',
 		},
 	},
-	featureFlags: [
-		{
-			name: 'DOT_METRICS_ENABLED',
-			active: false,
-		},
-	],
 } as any);
 
 const mockEntity = {
@@ -301,16 +291,14 @@ const renderEntityMetrics = (overrides = {}): any => {
 
 	return render(
 		<MemoryRouter>
-			<TooltipProvider>
-				<EntityMetrics
-					entity={defaultProps.entity}
-					eventEntity="test"
-					entityWidgetInfo={defaultProps.entityWidgetInfo}
-					getEntityQueryPayload={defaultProps.getEntityQueryPayload}
-					queryKey={defaultProps.queryKey}
-					category={defaultProps.category}
-				/>
-			</TooltipProvider>
+			<EntityMetrics
+				entity={defaultProps.entity}
+				eventEntity="test"
+				entityWidgetInfo={defaultProps.entityWidgetInfo}
+				getEntityQueryPayload={defaultProps.getEntityQueryPayload}
+				queryKey={defaultProps.queryKey}
+				category={defaultProps.category}
+			/>
 		</MemoryRouter>,
 	);
 };

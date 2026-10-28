@@ -1,4 +1,5 @@
 from dataclasses import dataclass, field
+from datetime import timedelta
 from typing import Literal
 from urllib.parse import urljoin
 
@@ -158,6 +159,26 @@ class Network:
         return f"Network(id={self.id}, name={self.name})"
 
 
+@dataclass
+class TLS:
+    __test__ = False
+    ca_cert_path: str
+    ca_key_path: str
+
+    @staticmethod
+    def from_cache(cache: dict) -> "TLS":
+        return TLS(ca_cert_path=cache["ca_cert_path"], ca_key_path=cache["ca_key_path"])
+
+    def __cache__(self) -> dict:
+        return {
+            "ca_cert_path": self.ca_cert_path,
+            "ca_key_path": self.ca_key_path,
+        }
+
+    def __log__(self) -> str:
+        return f"TLS(ca_cert_path={self.ca_cert_path}, ca_key_path={self.ca_key_path})"
+
+
 # Alerts related types
 
 
@@ -234,3 +255,30 @@ class AlertManagerNotificationTestCase:
     channel_config: dict[str, any]
     # notification expectations for the test case
     notification_expectation: AMNotificationExpectation
+
+
+@dataclass(frozen=True)
+class RoutePolicyExpectation:
+    # expression of the route policy, each policy routes to its own channel
+    expression: str
+    # alerts expected on the policy's channel, empty when none should arrive
+    expected_alerts: list[FiringAlert]
+
+
+@dataclass(frozen=True)
+class RoutingPolicyTestCase:
+    # name of the test case
+    name: str
+    policies: list[RoutePolicyExpectation]
+
+
+@dataclass(frozen=True)
+class PlannedDowntimeTestCase:
+    # name of the test case
+    name: str
+    # scope expression of the downtime, empty to mute every alert of the rule
+    scope: str
+    # offset of the downtime start from now
+    start_offset: timedelta
+    # alerts expected to get through the downtime
+    expected_alerts: list[FiringAlert]

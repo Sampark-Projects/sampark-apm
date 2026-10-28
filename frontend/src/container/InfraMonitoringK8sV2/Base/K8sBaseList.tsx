@@ -7,6 +7,7 @@ import TanStackTable, {
 	TableColumnDef,
 	useCalculatedPageSize,
 	useHiddenColumnIds,
+	useRecoverFromEmptyPage,
 	useTableParams,
 } from 'components/TanStackTableView';
 import { InfraMonitoringEvents } from 'constants/events';
@@ -27,6 +28,9 @@ import {
 	useInfraMonitoringOrderBy,
 	useInfraMonitoringSelectedItemParams,
 	useInfraMonitoringStatusFilter,
+	useInfraMonitoringPodStatusFilter,
+	useInfraMonitoringNodeReadinessFilter,
+	useInfraMonitoringContainerStatusFilter,
 } from '../hooks';
 import {
 	useInfraMonitoringFontSize,
@@ -38,6 +42,7 @@ import K8sOptionsSidePanel from './K8sOptionsSidePanel';
 import K8sHeader from './K8sHeader';
 import { K8sPaginationWarning } from './K8sPaginationWarning';
 import K8sTableToolbar from './K8sTableToolbar';
+import { resetDrawerHistory } from './useDrawerHistoryStore';
 import { K8sBaseFilters } from './types';
 import { getGroupedByMeta } from './utils';
 import { K8sInstrumentationChecksCallout } from './components/K8sInstrumentationChecksCallout/K8sInstrumentationChecksCallout';
@@ -95,6 +100,10 @@ export type K8sBaseListProps<
 	detailsQueryKeyPrefix: string;
 };
 
+function emptyToUndefined<T>(values: T[]): T[] | undefined {
+	return values.length > 0 ? values : undefined;
+}
+
 export function K8sBaseList<
 	T extends K8sEntityData,
 	TItemKey extends string | SelectedItemParams = string,
@@ -118,6 +127,9 @@ export function K8sBaseList<
 	const [groupBy] = useInfraMonitoringGroupBy();
 	const [orderBy] = useInfraMonitoringOrderBy();
 	const [statusFilter] = useInfraMonitoringStatusFilter();
+	const [podStatusFilter] = useInfraMonitoringPodStatusFilter();
+	const [nodeReadinessFilter] = useInfraMonitoringNodeReadinessFilter();
+	const [containerStatusFilter] = useInfraMonitoringContainerStatusFilter();
 	const [selectedItemParams, setSelectedItemParams] =
 		useInfraMonitoringSelectedItemParams();
 	const selectedItem = selectedItemParams.selectedItem;
@@ -136,6 +148,7 @@ export function K8sBaseList<
 		page: currentPage,
 		limit: currentPageSize,
 		setLimit,
+		setPage,
 	} = useTableParams(
 		{
 			page: INFRA_MONITORING_K8S_PARAMS_KEYS.PAGE,
@@ -168,6 +181,9 @@ export function K8sBaseList<
 			JSON.stringify(orderBy),
 			JSON.stringify(groupBy),
 			statusFilter,
+			podStatusFilter.join(),
+			nodeReadinessFilter.join(),
+			containerStatusFilter.join(),
 			...extraQueryKeyParts,
 		);
 	}, [
@@ -180,6 +196,9 @@ export function K8sBaseList<
 		orderBy,
 		groupBy,
 		statusFilter,
+		podStatusFilter,
+		nodeReadinessFilter,
+		containerStatusFilter,
 		extraQueryKeyParts,
 	]);
 
@@ -200,6 +219,9 @@ export function K8sBaseList<
 							statusFilter === 'active' || statusFilter === 'inactive'
 								? statusFilter
 								: undefined,
+						filterByPodStatus: emptyToUndefined(podStatusFilter),
+						filterByNodeReadiness: emptyToUndefined(nodeReadinessFilter),
+						filterByContainerStatus: emptyToUndefined(containerStatusFilter),
 					},
 					groupBy:
 						groupBy && groupBy.length > 0
@@ -243,6 +265,16 @@ export function K8sBaseList<
 	const totalCount = data?.total || 0;
 	const hasFilters = !!expression?.trim();
 
+	useRecoverFromEmptyPage({
+		page: currentPage,
+		pageSize: currentPageSize,
+		rowCount: pageData.length,
+		total: totalCount,
+		isFetching: isLoading || isFetching,
+		isDisabled: isError || Boolean(data?.error),
+		setPage,
+	});
+
 	const getGroupKeyFn = useCallback(
 		(item: T) => getGroupedByMeta(item, groupBy),
 		[groupBy],
@@ -284,10 +316,13 @@ export function K8sBaseList<
 						params.selectedItem,
 						params.clusterName,
 						params.namespaceName,
+						params.containerName,
 					);
 					queryClient.setQueryData(detailQueryKey, { data: record });
 				}
 
+				// Opening from the list starts a fresh trail for the drawer's back control
+				resetDrawerHistory();
 				setSelectedItemParams(params);
 			}
 
@@ -334,6 +369,12 @@ export function K8sBaseList<
 					url.searchParams.set(
 						INFRA_MONITORING_K8S_PARAMS_KEYS.SELECTED_ITEM_NAMESPACE_NAME,
 						params.namespaceName,
+					);
+				}
+				if (params.containerName) {
+					url.searchParams.set(
+						INFRA_MONITORING_K8S_PARAMS_KEYS.SELECTED_ITEM_CONTAINER_NAME,
+						params.containerName,
 					);
 				}
 			} else {
