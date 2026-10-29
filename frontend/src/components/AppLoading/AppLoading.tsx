@@ -3,7 +3,8 @@ import get from 'api/browser/localstorage/get';
 import { LOCALSTORAGE } from 'constants/localStorage';
 import { THEME_MODE } from 'hooks/useDarkMode/constant';
 
-import signozBrandLogoUrl from '@/assets/samprk-logo-white.png';
+import samparkDarkLogoUrl from '@/assets/samprk-logo-dark.png';
+import samparkWhiteLogoUrl from '@/assets/samprk-logo-white.png';
 
 import './AppLoading.styles.scss';
 
@@ -12,10 +13,10 @@ function AppLoading(): JSX.Element {
 	const getThemeFromStorage = (): boolean => {
 		try {
 			const theme = get(LOCALSTORAGE.THEME);
-			return theme !== THEME_MODE.LIGHT; // Return true for dark, false for light
+			return theme === THEME_MODE.DARK; // Return true for dark, false for light
 		} catch (error) {
-			// If localStorage is not available, default to dark theme
-			return true;
+			// If localStorage is not available, default to light theme
+			return false;
 		}
 	};
 
@@ -26,7 +27,11 @@ function AppLoading(): JSX.Element {
 			<div className="perilin-bg" />
 			<div className="app-loading-content">
 				<div className="brand">
-					<img src={signozBrandLogoUrl} alt="SigNoz" className="brand-logo" />
+					<img
+						src={isDarkMode ? samparkWhiteLogoUrl : samparkDarkLogoUrl}
+						alt="SigNoz"
+						className="brand-logo"
+					/>
 
 					<Typography.Title level={2} className="brand-title">
 						SigNoz

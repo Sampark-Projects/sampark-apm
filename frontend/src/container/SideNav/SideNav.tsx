@@ -40,6 +40,7 @@ import { useKeyboardHotkeys } from 'hooks/hotkeys/useKeyboardHotkeys';
 import useComponentPermission from 'hooks/useComponentPermission';
 import { useGetTenantLicense } from 'hooks/useGetTenantLicense';
 import { useIsAIAssistantEnabled } from 'hooks/useIsAIAssistantEnabled';
+import { useIsDarkMode } from 'hooks/useDarkMode';
 import { useNotifications } from 'hooks/useNotifications';
 import history from 'lib/history';
 import { isArray } from 'lodash-es';
@@ -69,6 +70,7 @@ import { checkVersionState, isModifierKeyPressed } from 'utils/app';
 import { showErrorNotification } from 'utils/error';
 import { openInNewTab } from 'utils/navigation';
 
+import samparkDarkLogoUrl from '@/assets/samprk-logo-dark.png';
 import signozBrandLogoUrl from '@/assets/samprk-logo-white.png';
 import samparkBrandLogoUrl from '@/assets/sampark_logo.png';
 
@@ -126,6 +128,7 @@ function SortableFilter({ item }: { item: SidebarItem }): JSX.Element {
 
 // eslint-disable-next-line sonarjs/cognitive-complexity
 function SideNav({ isPinned }: { isPinned: boolean }): JSX.Element {
+	const isDarkMode = useIsDarkMode();
 	const { openCmdK } = useCmdK();
 	const { pathname, search } = useLocation();
 	const { currentVersion, latestVersion, isCurrentVersionError } = useSelector<
@@ -988,7 +991,14 @@ function SideNav({ isPinned }: { isPinned: boolean }): JSX.Element {
 								}}
 							>
 								<img
-									src={isCollapsed ? samparkBrandLogoUrl : signozBrandLogoUrl}
+									src={
+										// eslint-disable-next-line no-nested-ternary
+										isCollapsed
+											? samparkBrandLogoUrl
+											: isDarkMode
+											? signozBrandLogoUrl
+											: samparkDarkLogoUrl
+									}
 									alt="sampark"
 									className={cx(isCollapsed && 'collapsed')}
 								/>

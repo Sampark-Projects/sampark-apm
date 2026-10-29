@@ -116,3 +116,39 @@
 		transform: translateX(0);
 	}
 }
+
+// The default error palette is tuned for the dark theme (light reds); darken the
+// text and icon on the light theme so the message stays readable.
+.lightMode .auth-error-container {
+	.error-content {
+		background: #fef3f2;
+		border-color: #fda29b;
+
+		&__summary-section {
+			border-bottom-color: #fda29b;
+		}
+
+		&__error-code,
+		&__message-badge-label-text,
+		&__scroll-hint-text {
+			color: #7a271a;
+		}
+
+		&__error-message,
+		&__message-item {
+			color: #b42318;
+		}
+
+		&__message-item::before {
+			background: #b42318;
+		}
+
+		&__scroll-hint {
+			background: #fee4e2;
+		}
+	}
+
+	.auth-error-icon {
+		color: #b42318;
+	}
+}

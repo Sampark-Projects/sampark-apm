@@ -2,11 +2,17 @@ import { useCallback } from 'react';
 import { Button } from '@signozhq/ui/button';
 import { LifeBuoy } from '@signozhq/icons';
 
-import signozBrandLogoUrl from '@/assets/samprk-logo-white.png';
+import { useIsDarkMode } from 'hooks/useDarkMode';
+
+import samparkDarkLogoUrl from '@/assets/samprk-logo-dark.png';
+import samparkWhiteLogoUrl from '@/assets/samprk-logo-white.png';
 
 import './AuthHeader.styles.scss';
 
 function AuthHeader(): JSX.Element {
+	const isDarkMode = useIsDarkMode();
+	const signozBrandLogoUrl = isDarkMode ? samparkWhiteLogoUrl : samparkDarkLogoUrl;
+
 	const handleGetHelp = useCallback((): void => {
 		window.open('https://samparksoftwares.com/contact-us/', '_blank');
 	}, []);

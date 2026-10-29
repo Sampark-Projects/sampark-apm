@@ -18,7 +18,6 @@ import { openInNewTab } from 'utils/navigation';
 
 import dialsUrl from '@/assets/Icons/dials.svg';
 
-import { normalizeDashboardTags } from '../../ListOfDashboard/utils';
 import { getItemIcon } from '../constants';
 
 // The five most-recent dashboards from the V2 list API.

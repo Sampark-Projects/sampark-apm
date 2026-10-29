@@ -42,6 +42,10 @@ type FormValues = {
 };
 
 const ENTER_VALID_EMAIL = 'Enter a valid email address';
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// email domain whose authenticated-domain (OIDC) entry backs the Keycloak button
+const DEFAULT_SSO_EMAIL_DOMAIN =
+	import.meta.env.VITE_SSO_DEFAULT_EMAIL_DOMAIN || 'samparksoftwares.com';
 
 // eslint-disable-next-line sonarjs/cognitive-complexity
 function Login(): JSX.Element {
@@ -65,6 +69,7 @@ function Login(): JSX.Element {
 	const [sessionsOrgId, setSessionsOrgId] = useState<string>('');
 	const [sessionsContextLoading, setIsLoadingSessionsContext] =
 		useState<boolean>(false);
+	const [isKeycloakLoading, setIsKeycloakLoading] = useState<boolean>(false);
 	const [form] = Form.useForm<FormValues>();
 	const [errorMessage, setErrorMessage] = useState<APIError>();
 
@@ -116,6 +121,49 @@ function Login(): JSX.Element {
 			setErrorMessage(error as APIError);
 		}
 		setIsLoadingSessionsContext(false);
+	};
+
+	// "Sign in with Keycloak" works without the email step: the typed email is used when
+	// valid, otherwise a placeholder address on the default SSO domain picks the auth domain.
+	const onKeycloakSignInHandler = async (): Promise<void> => {
+		const typedEmail = (form.getFieldValue('email') || '').trim();
+		const ssoEmail = EMAIL_REGEX.test(typedEmail)
+			? typedEmail
+			: `sso@${DEFAULT_SSO_EMAIL_DOMAIN}`;
+
+		setIsKeycloakLoading(true);
+		setErrorMessage(undefined);
+
+		try {
+			const response = await get({ email: ssoEmail, ref: window.location.href });
+			const callbackUrl = response.data.orgs
+				.flatMap((org) => org.authNSupport?.callback ?? [])
+				.find((callback) => callback.url)?.url;
+
+			if (!callbackUrl) {
+				setErrorMessage(
+					new APIError({
+						httpStatusCode: 400,
+						error: {
+							code: 'sso_not_configured',
+							message: `Keycloak SSO is not configured for ${ssoEmail
+								.split('@')
+								.pop()}. Ask an admin to add the domain in Settings > Authenticated Domains.`,
+							url: '',
+							errors: [],
+						},
+					}),
+				);
+				return;
+			}
+
+			// oxlint-disable-next-line signoz/no-raw-absolute-path
+			window.location.href = callbackUrl;
+		} catch (error) {
+			setErrorMessage(error as APIError);
+		} finally {
+			setIsKeycloakLoading(false);
+		}
 	};
 
 	// post selection of email and session org decide on the authN mechanism to use
@@ -433,6 +481,20 @@ function Login(): JSX.Element {
 							suffix={<ArrowRight />}
 						>
 							Sign in with Password
+						</Button>
+					)}
+
+					{!isCallbackAuthN && (
+						<Button
+							size="md"
+							color="secondary"
+							variant="outlined"
+							loading={isKeycloakLoading}
+							onClick={onKeycloakSignInHandler}
+							testId="keycloak_sso_submit"
+							width="100%"
+						>
+							Sign in with Keycloak
 						</Button>
 					)}
 				</div>

@@ -193,6 +193,11 @@ export default defineConfig(({ mode }): UserConfig => {
 			open: true,
 			port: 3301,
 			host: true,
+			// the backend builds the SSO return URL from the UI origin, so /api/v1/complete/*
+			// must reach it when the UI runs on the dev server
+			proxy: {
+				'/api': env.VITE_FRONTEND_API_ENDPOINT || 'http://localhost:8080',
+			},
 		},
 		preview: {
 			port: 3301,

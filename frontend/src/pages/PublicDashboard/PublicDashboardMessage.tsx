@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { Typography } from '@signozhq/ui/typography';
 
-import signozBrandLogoUrl from '@/assets/Logos/signoz-brand-logo.svg';
+import signozBrandLogoUrl from '@/assets/samprk-logo-white.png';
 
 interface PublicDashboardMessageProps {
 	icon: ReactNode;
