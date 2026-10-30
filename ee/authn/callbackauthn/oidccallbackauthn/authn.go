@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log/slog"
 	"net/url"
+	"os"
 	"path"
 
 	"github.com/SigNoz/signoz/pkg/authn"
@@ -76,9 +77,13 @@ func (a *AuthN) HandleCallback(ctx context.Context, query url.Values) (*authtype
 		return nil, err
 	}
 
-	_, err = a.licensing.GetActive(ctx, authDomain.StorableAuthDomain().OrgID)
-	if err != nil {
-		return nil, errors.New(errors.TypeLicenseUnavailable, errors.CodeLicenseUnavailable, "a valid license is not available").WithAdditional("this feature requires a valid license").WithAdditional(err.Error())
+	// LOCAL-DEV-ONLY (do not commit or deploy): the Enterprise License allows modifying
+	// the software for development and testing only; production needs a valid license.
+	if os.Getenv("SIGNOZ_LOCAL_DEV_SKIP_LICENSE") != "true" {
+		_, err = a.licensing.GetActive(ctx, authDomain.StorableAuthDomain().OrgID)
+		if err != nil {
+			return nil, errors.New(errors.TypeLicenseUnavailable, errors.CodeLicenseUnavailable, "a valid license is not available").WithAdditional("this feature requires a valid license").WithAdditional(err.Error())
+		}
 	}
 
 	oidcConfig, err := authDomain.Config().OIDCConfig()

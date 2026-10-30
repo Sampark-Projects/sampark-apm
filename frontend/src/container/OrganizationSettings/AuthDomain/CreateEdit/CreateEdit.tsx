@@ -75,8 +75,12 @@ function CreateOrEdit(props: CreateOrEditProps): JSX.Element {
 		},
 		[showErrorModal],
 	);
+	// LOCAL-DEV-ONLY (do not commit or deploy): import.meta.env.DEV is true only under
+	// the vite dev server, so production builds still follow the license feature flag.
 	const samlEnabled =
-		featureFlags?.find((flag) => flag.name === FeatureKeys.SSO)?.active || false;
+		import.meta.env.DEV ||
+		featureFlags?.find((flag) => flag.name === FeatureKeys.SSO)?.active ||
+		false;
 
 	const { mutate: createAuthDomain, isLoading: isCreating } =
 		useCreateAuthDomain<AxiosError<RenderErrorResponseDTO>>();
