@@ -75,10 +75,10 @@ function CreateOrEdit(props: CreateOrEditProps): JSX.Element {
 		},
 		[showErrorModal],
 	);
-	// LOCAL-DEV-ONLY (do not commit or deploy): import.meta.env.DEV is true only under
-	// the vite dev server, so production builds still follow the license feature flag.
+	// Testing only: set VITE_ENABLE_SSO_TESTING=true at build time on non-production
+	// builds; otherwise the license feature flag decides.
 	const samlEnabled =
-		import.meta.env.DEV ||
+		import.meta.env.VITE_ENABLE_SSO_TESTING === 'true' ||
 		featureFlags?.find((flag) => flag.name === FeatureKeys.SSO)?.active ||
 		false;
 
