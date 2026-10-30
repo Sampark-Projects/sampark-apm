@@ -238,6 +238,11 @@ function Login(): JSX.Element {
 		}
 	}, [accessToken, refreshToken]);
 
+	const onSsoRedirectHandler = (): void => {
+		// oxlint-disable-next-line signoz/no-raw-absolute-path
+		window.location.href = form.getFieldValue('url');
+	};
+
 	const onSubmitHandler: () => Promise<void> = async () => {
 		setIsSubmitting(true);
 		setErrorMessage(undefined);
@@ -258,12 +263,8 @@ function Login(): JSX.Element {
 					createSessionEmailPasswordResponse.data.accessToken,
 					createSessionEmailPasswordResponse.data.refreshToken,
 				);
-			}
-			if (isCallbackAuthN) {
-				const url = form.getFieldValue('url');
-
-				// oxlint-disable-next-line signoz/no-raw-absolute-path
-				window.location.href = url;
+			} else if (isCallbackAuthN) {
+				onSsoRedirectHandler();
 			}
 		} catch (error) {
 			setErrorMessage(error as APIError);
@@ -448,24 +449,6 @@ function Login(): JSX.Element {
 						</Button>
 					)}
 
-					{sessionsContext && isCallbackAuthN && (
-						<Button
-							size="md"
-							loading={isSubmitting}
-							disabled={!!submitDisabledReason}
-							disabledTooltip={submitDisabledReason}
-							variant="solid"
-							type="submit"
-							color="primary"
-							testId="callback_authn_submit"
-							data-attr="signup"
-							width="100%"
-							suffix={<ArrowRight />}
-						>
-							Sign in with SSO
-						</Button>
-					)}
-
 					{sessionsContext && isPasswordAuthN && (
 						<Button
 							size="md"
@@ -481,6 +464,40 @@ function Login(): JSX.Element {
 							suffix={<ArrowRight />}
 						>
 							Sign in with Password
+						</Button>
+					)}
+
+					{sessionsContext && isCallbackAuthN && isPasswordAuthN && (
+						<Button
+							size="md"
+							loading={isSubmitting}
+							disabled={!isEmailValid}
+							disabledTooltip={ENTER_VALID_EMAIL}
+							variant="outlined"
+							color="secondary"
+							onClick={onSsoRedirectHandler}
+							testId="callback_authn_submit"
+							width="100%"
+						>
+							Sign in with Keycloak
+						</Button>
+					)}
+
+					{sessionsContext && isCallbackAuthN && !isPasswordAuthN && (
+						<Button
+							size="md"
+							loading={isSubmitting}
+							disabled={!!submitDisabledReason}
+							disabledTooltip={submitDisabledReason}
+							variant="solid"
+							type="submit"
+							color="primary"
+							testId="callback_authn_submit"
+							data-attr="signup"
+							width="100%"
+							suffix={<ArrowRight />}
+						>
+							Sign in with Keycloak
 						</Button>
 					)}
 
